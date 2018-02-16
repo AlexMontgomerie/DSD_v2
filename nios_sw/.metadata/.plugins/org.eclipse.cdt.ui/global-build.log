@@ -1,0 +1,39 @@
+
+**** Build of configuration Nios II for project task_2 ****
+
+make all 
+Info: Building ../task_2_bsp/
+make --no-print-directory -C ../task_2_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../task_2_bsp//HAL/inc -I../task_2_bsp/ -I../task_2_bsp//drivers/inc  -DSYSTEM_BUS_WIDTH=32 -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o obj/default/hello_world.o hello_world.c
+Info: Linking task_2.elf
+nios2-elf-g++  -T'../task_2_bsp//linker.x' -msys-crt0='../task_2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../task_2_bsp/  -msmallc  -Wl,-Map=task_2.map   -O0 -g -Wall   -EL -mno-hw-div -mno-hw-mul -mno-hw-mulx  -o task_2.elf obj/default/hello_world.o -lm 
+nios2-elf-insert task_2.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 0 --sidp 0x11030 --timestamp 1516718711 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name first_nios2_system --quartus_project_dir "H:/DSD_v2" --jdi H:/DSD_v2/hello_world.jdi --sopcinfo H:/DSD_v2/first_nios2_system.sopcinfo
+Info: (task_2.elf) 7584 Bytes program size (code + initialized data).
+Info:              11 KBytes free for stack + heap.
+Info: Creating task_2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source task_2.elf >task_2.objdump
+[task_2 build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project task_2 ****
+
+make all 
+Info: Building ../task_2_bsp/
+make --no-print-directory -C ../task_2_bsp/
+[BSP build complete]
+[task_2 build complete]
+
+**** Build Finished ****
+
+**** Build of configuration Nios II for project task_2 ****
+
+make all 
+Info: Building ../task_2_bsp/
+make --no-print-directory -C ../task_2_bsp/
+[BSP build complete]
+[task_2 build complete]
+
+**** Build Finished ****

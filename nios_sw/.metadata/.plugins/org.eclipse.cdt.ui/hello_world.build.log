@@ -1,0 +1,7 @@
+
+**** Clean-only build of configuration Nios II for project hello_world ****
+
+make clean 
+[hello_world clean complete]
+
+**** Build Finished ****

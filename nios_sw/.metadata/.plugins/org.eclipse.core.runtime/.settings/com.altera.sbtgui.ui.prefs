@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+newSoftwareExampleWizardPage.defaultLocation=H\:\\DSD_v2\\software\\binary_count
+newSoftwareExampleWizardPage.sopcinfoFile=H\:\\DSD_v2\\first_nios2_system.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=H\:\\DSD_v2\\software\\binary_count_bsp

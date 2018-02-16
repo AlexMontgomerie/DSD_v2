@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable>
+  <columns>
+   <connections preferredWidth="127" />
+   <irq preferredWidth="34" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="541" />
+   <clocksource preferredWidth="542" />
+   <frequency preferredWidth="541" />
+  </columns>
+ </clocktable>
+ <library
+   expandedCategories="Library,Project,Library/Memories and Memory Controllers/External Memory Interfaces/SDRAM Interfaces,Library/Memories and Memory Controllers/External Memory Interfaces,Library/Memories and Memory Controllers" />
+ <window width="1936" height="1056" x="-8" y="-8" />
+ <generation path="_PROJECT_NAME_" />
+ <hdlexample language="VERILOG" />
+</preferences>
