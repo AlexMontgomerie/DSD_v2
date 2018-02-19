@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Alex/DSD_v2/design_files
+vahfp_mult
+Z1 !s110 1519001791
+!i10b 1
+!s100 LAkkRM0f=Jc:0ij?hB_Dm0
+Id>`dm]k:5dKnl9dC?_H_32
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1519001585
+8C:/Users/Alex/DSD_v2/design_files/ahfp_mult.v
+FC:/Users/Alex/DSD_v2/design_files/ahfp_mult.v
+L0 11
+Z3 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z4 !s108 1519001791.000000
+!s107 C:/Users/Alex/DSD_v2/design_files/ahfp_mult.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Alex/DSD_v2/design_files/ahfp_mult.v|
+!s101 -O0
+!i113 1
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vtest_ahfp_mult
+R1
+!i10b 1
+!s100 bV7nV;03BgbmJZ:mS]VHS1
+IJXQMB`U74?Q;jo@Q=Sl5z3
+R2
+R0
+w1519001325
+8C:/Users/Alex/DSD_v2/design_files/ahfp_mult_tb.v
+FC:/Users/Alex/DSD_v2/design_files/ahfp_mult_tb.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Alex/DSD_v2/design_files/ahfp_mult_tb.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Alex/DSD_v2/design_files/ahfp_mult_tb.v|
+!s101 -O0
+!i113 1
+R5

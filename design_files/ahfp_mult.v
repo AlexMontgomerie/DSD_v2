@@ -25,7 +25,7 @@ wire	[7:0]  	a_e, b_e, z_e;
 wire   		a_s, b_s, z_s;
 
 // parameters
-parameter bias 7'd127
+parameter bias = 7'd127;
 
 //get fp fields
 //initialise mantissa
@@ -73,7 +73,9 @@ assign z_e = z_m_tmp[23] ? (z_e_tmp+ 1'b1) : (z_e_tmp[8:0]);
 // - over/under flow conditions
 
 //assign output
-assign result = z_s << 31 | z_e << 23 | z_m;
+//assign result = z_s << 31 | z_e << 23 | z_m;
+
+assign result = 32'h80085;
 
 endmodule	
 

@@ -5,7 +5,8 @@
 module test_ahfp_mult;
 
 reg clk;
-wire [31:0] dataa,datab,result,result_correct;
+reg [31:0] dataa,datab,result_correct;
+wire [31:0] result;
 
 ahfp_mult dut (	.dataa(dataa),
 		.datab(datab),
@@ -19,9 +20,9 @@ always
 initial
 	begin
 		//test 1 (time 0ns)
-		#0 dataa 		= 32'h00000000;
-		#0 datab		= 32'h00000000;
-		#0 result_correct 	= 32'h00000000;
+		dataa 			= 32'h00000000;
+		datab			= 32'h00000000;
+		result_correct	= 32'h00000000;
 		//test 2 (time 20ns)
 
 		//test 3 (time 40ns)
