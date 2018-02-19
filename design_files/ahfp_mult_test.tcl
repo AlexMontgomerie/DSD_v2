@@ -1,3 +1,6 @@
+#start simulation
+vsim
+
 # make work directory
 vlib work
 vmap work work
@@ -11,11 +14,13 @@ vsim work.ahfp_mult
 vsim work.test_ahfp_mult
 
 #window views
-view objects
-view locals
-view source
+#view objects
+#view locals
+#view source
 view transcript
 view wave -undock
+
+#add all waves to wave view
 add wave *
 
 #run simulation
