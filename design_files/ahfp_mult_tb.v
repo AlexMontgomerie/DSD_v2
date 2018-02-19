@@ -12,10 +12,12 @@ ahfp_mult dut (	.dataa(dataa),
 		.datab(datab),
 		.result(result));
 
-// clock generator
-always
-	#10 clk = ~clk;
-
+initial // Clock generator
+  begin
+    clk = 0;
+    forever #10 clk = !clk;
+  end
+  
 // test cases
 initial
 	begin
@@ -23,10 +25,25 @@ initial
 		dataa 			= 32'h00000000;
 		datab			= 32'h00000000;
 		result_correct	= 32'h00000000;
+
 		//test 2 (time 20ns)
-
+		#20 dataa 		= 32'h00C00001;
+		datab 			= 32'h00C00000;
+		result_correct 	= 32'h01400001;
+			
 		//test 3 (time 40ns)
+		#20 dataa		= 32'h00C00000;
+		datab			= 32'h00C00000;
+		result_correct	= 32'h01400000;	
 
+		//test 4 (time 60ns)
+		
+		//test 5 (time 80ns)
+		
+		//test 6 (time 100ns)
+		
+		//test 7 (time 120ns)
+		
 	end
 
 initial

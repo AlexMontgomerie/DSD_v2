@@ -46,36 +46,41 @@ assign b_s = datab[31];
 assign z_s = a_s ^ b_s;
 
 //assign exponent
-wire [8:0] exp_tmp_init;
+wire [7:0] exp_tmp_init;
 assign exp_tmp_init = a_e + b_e;
+
+assign z_e = exp_tmp_init;
 
 //get mantissa
 wire [46:0] man_tmp_init;
 assign man_tmp_init = a_m * b_m;
 
+assign z_m = man_tmp_init[46] ? (man_tmp_init[46:23]) :
+								(man_tmp_init[45:22]) ;
+/*
 // ###### normalise ######
 // exponent
-wire [8:0] z_e_tmp;
-assign z_e_tmp = man_tmp_init[46] ? 	(exp_tmp_init-9'd126) :
-					(exp_tmp_init-9'd127) ;
+wire [7:0] z_e_tmp;
+assign z_e_tmp = man_tmp_init[46] ? (exp_tmp_init-9'd126) :
+									(exp_tmp_init-9'd127) ;
 
 // mantissa
 wire [23:0] z_m_tmp;				
-assign z_m_tmp = man_tmp_init[46] ? 	(man_tmp_init[46:23]+man_tmp_init[22]) :
-					(man_tmp_init[45:22]+man_tmp_init[21]) ;
+assign z_m_tmp = man_tmp_init[46] ? (man_tmp_init[46:23]+man_tmp_init[22]) :
+									(man_tmp_init[45:22]+man_tmp_init[21]) ;
 
 // final assigns				
 assign z_m = z_m_tmp[23] ? (z_m_tmp[23:1]) : (z_m_tmp[22:0]);
-assign z_e = z_m_tmp[23] ? (z_e_tmp+ 1'b1) : (z_e_tmp[8:0]);
+assign z_e = z_m_tmp[23] ? (z_e_tmp+ 1'b1) : (z_e_tmp);
 				
 // TODO:
 // - round result
 // - over/under flow conditions
+*/
+
 
 //assign output
-//assign result = z_s << 31 | z_e << 23 | z_m;
-
-assign result = 32'h80085;
+assign result = z_s << 31 | z_e << 23 | z_m;
 
 endmodule	
 
