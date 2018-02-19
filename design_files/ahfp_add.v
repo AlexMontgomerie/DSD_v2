@@ -6,7 +6,7 @@
 // - refere to altera's ug_embedded_ip for info
 // ############################################
 
-module ahfp_add_combi(
+module ahfp_add(
 	dataa,
 	datab,
 	result);
@@ -26,30 +26,36 @@ wire   			a_s, b_s, z_s;
 wire	[23:0] 	man_tmp;
 wire	[7:0]	exp_tmp;
 
-//both positive
-if a_s and b_s:
-	begin
+//initialise mantissa
+assign a_m = dataa[22:0];
+assign b_m = datab[22:0];
 	
-	//temporary addition values
-	assign man_tmp = (a_e > b_e) ? (a_m+b_m >> (a_e-b_e)) : (b_m+a_m >> (b_e-a_e)); 
-	assign exp_tmp = (a_e > b_e) ? a_e : b_e;
+//initialise exponent
+assign a_e = dataa[30:23];
+assign b_e = datab[30:23];
 	
-	//assign output values
-	assign z_m = man_tmp[23] ? man_tmp[23:1] : man_tmp[22:0];
-	assign z_e = man_tmp[23] ? exp_tmp + 1 : exp_tmp;
-	assign z_s = 0;
-	
-	end
+//initialise sign
+assign a_s = dataa[31];
+assign b_s = datab[31];	
 
-assign man_tmp = (a_e > b_e) ? (a_m+b_m >> (a_e-b_e)) : (b_m+a_m >> (b_e-a_e)); 
-assign exp_tmp = (a_e > b_e) ? a_e : b_e;
+//positive, so assign z as zero
+assign z_s = 1'b0;
 
-//adjust exponent
-assign z
+// exponent a bigger than b 
+assign z_e = 	(a_e == b_e) ? a_e :
+				(a_e > b_e)  ? a_e : b_e;
 
+
+// get the temporary mantissa
+wire [23:0] m_tmp;
+assign m_tmp = (a_e > b_e) ? {1'b1,datab} : {1'b1,dataa};
+
+// add the mantissa together
+assign z_m = (a_e>b_e) ? 	(a_e + (m_tmp>>(a_e-b_e))) :
+							(b_e + (m_tmp>>(b_e-a_e))) ;
 
 //assign output
-assign result = z_s << 31 | z_e << 23 | z_m;
+assign result = {z_s,z_e,z_m};
 
 endmodule	
 
