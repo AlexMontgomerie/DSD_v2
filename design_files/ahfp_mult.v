@@ -69,7 +69,7 @@ wire [7:0] z_e_tmp;
 assign z_e_tmp = man_tmp_init[47] ? (exp_tmp_init-8'd126) :
 									(exp_tmp_init-8'd127) ;
 
-// mantissa
+// mantissa (could remove rounding)
 wire [22:0] z_m_tmp;				
 assign z_m_tmp = man_tmp_init[47] ? (man_tmp_init[46:24] + man_tmp_init[23]) :
 									(man_tmp_init[45:23] + man_tmp_init[22]) ;
