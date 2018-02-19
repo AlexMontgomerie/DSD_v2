@@ -30,7 +30,7 @@ void as_int(uint32_t x)
 
 int main()
 {
-	as_int(0x467c67ae);
-	as_int(0x467c67af);
+	as_int(0x43800008);
+	as_int(0x43fe999a);
 	return 0;
 }
