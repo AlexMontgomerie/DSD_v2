@@ -39,9 +39,6 @@ assign b_e = datab[30:23];
 assign a_s = dataa[31];
 assign b_s = datab[31];	
 
-//positive, so assign z as zero
-assign z_s = 1'b0;
-
 // temporary exponent
 wire [7:0] e_tmp;
 assign e_tmp = 	(a_e == b_e) ? a_e :
@@ -52,10 +49,14 @@ assign e_tmp = 	(a_e == b_e) ? a_e :
 wire [24:0] m_tmp;
 assign m_tmp = 	(a_e == b_e) ?	(a_m - b_m) :
 				(a_e>b_e) 	 ? 	(a_m - (b_m>>(a_e-b_e))) :
-								(b_m - (a_m>>(b_e-a_e))) ;
+								-(b_m - (a_m>>(b_e-a_e))) ;
 
+//assign sign based on mantissa overflow
+assign z_s = (a_e != b_e) ? ((a_e > b_e) ? 1'b0 : 1'b1 ) : 
+							((m_tmp[24]) ? 1'b1 : 1'b0 ) ;
+								
 assign z_e = m_tmp[24] ? e_tmp + 1'b1 : e_tmp;
-assign z_m = m_tmp[24] ? m_tmp[23:1] : m_tmp[22:0];
+assign z_m = m_tmp[24] ? m_tmp[22:0] : m_tmp[23:1];
 //assign output
 assign result = {z_s,z_e,z_m};
 

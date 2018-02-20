@@ -2,7 +2,7 @@
 // testbench reference: https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf
 
 `timescale 1ns / 1ns
-module test_ahfp_add;
+module test_ahfp_sub;
 
 reg clk;
 reg [31:0] dataa,datab,result_correct;
