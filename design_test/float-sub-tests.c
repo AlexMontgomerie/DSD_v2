@@ -8,14 +8,14 @@ float c[9];
 int main()
 {
 	for (int i = 0; i < 9; i++)
-		c[i] = a[i] * b[i];
+		c[i] = a[i] - b[i];
 
 	uint32_t *a_ = (uint32_t*)a,
 		 *b_ = (uint32_t*)b,
 		 *c_ = (uint32_t*)c;
 
 	for (int i = 0; i < 9; i++)
-		printf("%f * %f = %f\n0x%X * 0x%X = 0x%X\n\n",
+		printf("%f - %f = %f\n0x%X - 0x%X = 0x%X\n\n",
 				a[i], b[i], c[i],
 				a_[i], b_[i], c_[i]);
 	return 0;

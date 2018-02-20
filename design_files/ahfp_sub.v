@@ -1,4 +1,4 @@
-// #########   Floating Point Adder   #########
+// ######## Floating Point Subtractor #########
 // Authors: Alex Montgomerie and Henry Eshbaugh
 // 
 // Design Notes:
@@ -6,7 +6,7 @@
 // - refere to altera's ug_embedded_ip for info
 // ############################################
 
-module ahfp_add(
+module ahfp_sub(
 	dataa,
 	datab,
 	result);
@@ -50,9 +50,9 @@ assign e_tmp = 	(a_e == b_e) ? a_e :
 
 // add the mantissa together
 wire [24:0] m_tmp;
-assign m_tmp = 	(a_e == b_e) ?	(a_m + b_m) :
-				(a_e>b_e) 	 ? 	(a_m + (b_m>>(a_e-b_e))) :
-								(b_m + (a_m>>(b_e-a_e))) ;
+assign m_tmp = 	(a_e == b_e) ?	(a_m - b_m) :
+				(a_e>b_e) 	 ? 	(a_m - (b_m>>(a_e-b_e))) :
+								(b_m - (a_m>>(b_e-a_e))) ;
 
 assign z_e = m_tmp[24] ? e_tmp + 1'b1 : e_tmp;
 assign z_m = m_tmp[24] ? m_tmp[23:1] : m_tmp[22:0];
@@ -60,5 +60,3 @@ assign z_m = m_tmp[24] ? m_tmp[23:1] : m_tmp[22:0];
 assign result = {z_s,z_e,z_m};
 
 endmodule	
-
-

@@ -2,13 +2,13 @@
 // testbench reference: https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf
 
 `timescale 1ns / 1ns
-module test_ahfp_mult;
+module test_ahfp_add;
 
 reg clk;
 reg [31:0] dataa,datab,result_correct;
 wire [31:0] result;
 
-ahfp_mult dut (	.dataa(dataa),
+ahfp_add dut (	.dataa(dataa),
 		.datab(datab),
 		.result(result));
 
@@ -26,50 +26,50 @@ initial
 		datab			= 32'h00000000;
 		result_correct	= 32'h00000000;
 
-		//test 2 (time 20ns)
+		//test 2 (time 0ns)
 		#20 dataa 		= 32'h3F800000;
 		datab			= 32'h40000000;
-		result_correct	= 32'h40000000;
+		result_correct	= 32'hBF800000;
 
-		//test 3 (time 40ns)
+		//test 3 (time 0ns)
 		#20 dataa 		= 32'h40000000;
 		datab			= 32'h40800000;
-		result_correct	= 32'h41000000;
+		result_correct	= 32'hC0000000;
 		
-		//test 4 (time 60ns)
+		//test 4 (time 0ns)
 		#20 dataa		= 32'h40400000;
 		datab			= 32'h40600000;
-		result_correct	= 32'h41280000;
+		result_correct	= 32'hBF000000;
 		
-		//test 5 (time 80ns)
+		//test 5 (time 0ns)
 		#20 dataa		= 32'h43FA0000;
 		datab			= 32'h41133333;
-		result_correct	= 32'h458FC000;
+		result_correct	= 32'h43F56666;
 		
-		//test 6 (time 100ns)
+		//test 6 (time 0ns)
 		#20 dataa		= 32'h41EC0000;
 		datab			= 32'h453BF800;
-		result_correct	= 32'h47AD48A0;
+		result_correct	= 32'hC53A2000;
 		
-		//test 7 (time 120ns)
+		//test 7 (time 0ns)
 		#20 dataa		= 32'h42FF999A;
 		datab			= 32'h42FCCCCD;
-		result_correct	= 32'h467C67AF;
+		result_correct	= 32'h3FB33340;
 		
-		//test 8 (time 140ns)
+		//test 8 (time 0ns)
 		#20 dataa		= 32'h46A5E51F;
 		datab			= 32'h435FAB85;
-		result_correct	= 32'h4A90F1BC;
+		result_correct	= 32'h46A425C8;
 		
-		//test 9 (time 160ns)
+		//test 9 (time 0ns)
 		#20 dataa		= 32'h4640E400;
 		datab			= 32'h47F12040;
-		result_correct	= 32'h4EB5AEF1;
+		result_correct	= 32'hC7D903C0;
 		
-		//test 10 (time 180ns)
+		//test 10 (time 0ns)
 		#20 dataa		= 32'h3F8E363B;
 		datab			= 32'h3AA137F4;
-		result_correct	= 32'h3AB31E61;
+		result_correct	= 32'h3F8E0DED;
 		
 	end
 
