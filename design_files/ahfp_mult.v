@@ -86,9 +86,9 @@ assign result = underflow 		? 32'b0 :
 				(a_e == 8'd0)	? 32'b0 :
 				{z_s, z_e_tmp, z_m_tmp};
 // TODO:
-// - round result
-// - over/under flow conditions
-
+// - [x] round result
+// - [ ] over/under flow conditions
+// - [ ] normaised/ de-normalised values
 
 
 //assign output
