@@ -250,7 +250,42 @@ applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 296 -128 560 40)
+	(rect 1064 -56 1256 24)
+	(text "ahfp_mult" (rect 5 0 54 12)(font "Arial" ))
+	(text "inst3" (rect 8 64 31 76)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "dataa[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "dataa[31..0]" (rect 21 27 80 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "datab[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "datab[31..0]" (rect 21 43 80 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 192 32)
+		(output)
+		(text "result[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "result[31..0]" (rect 122 27 181 39)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32)(line_width 3))
+	)
+	(parameter
+		"bias"
+		"1111111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(drawing
+		(rectangle (rect 16 16 176 64))
+	)
+	(annotation_block (parameter)(rect 1256 -88 1464 -56))
+)
+(symbol
+	(rect 304 -104 568 64)
 	(text "altpll0" (rect 115 0 155 16)(font "Arial" (font_size 10)))
 	(text "inst2" (rect 8 152 31 164)(font "Arial" ))
 	(port
@@ -577,35 +612,11 @@ applicable agreement for further details.
 	(pt 272 144)
 )
 (connector
-	(pt 272 -64)
-	(pt 296 -64)
-)
-(connector
-	(pt 272 144)
-	(pt 272 -64)
-)
-(connector
 	(pt 648 -40)
 	(pt 656 -40)
 )
 (connector
 	(pt 632 152)
-	(pt 592 152)
-)
-(connector
-	(pt 648 -48)
-	(pt 648 -40)
-)
-(connector
-	(pt 560 -48)
-	(pt 648 -48)
-)
-(connector
-	(pt 560 -64)
-	(pt 592 -64)
-)
-(connector
-	(pt 592 -64)
 	(pt 592 152)
 )
 (connector
@@ -615,4 +626,28 @@ applicable agreement for further details.
 (connector
 	(pt 96 192)
 	(pt 632 192)
+)
+(connector
+	(pt 272 -40)
+	(pt 304 -40)
+)
+(connector
+	(pt 272 144)
+	(pt 272 -40)
+)
+(connector
+	(pt 648 -40)
+	(pt 648 -24)
+)
+(connector
+	(pt 648 -24)
+	(pt 568 -24)
+)
+(connector
+	(pt 592 -40)
+	(pt 568 -40)
+)
+(connector
+	(pt 592 152)
+	(pt 592 -40)
 )

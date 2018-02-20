@@ -2,6 +2,7 @@
 <LOG_ROOT>
 	<PROJECT NAME="hello_world">
 		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|altpll0:inst2|altpll:altpll_component" CBX_FILE_NAME="altpll0_altpll.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|first_nios2_system:inst|ahfp_mult:ahfp_mult_0|lpm_mult:Mult0" CBX_FILE_NAME="mult_2ct.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|first_nios2_system:inst|first_nios2_system_cpu:cpu|first_nios2_system_cpu_ic_data_module:first_nios2_system_cpu_ic_data|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_vid1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|first_nios2_system:inst|first_nios2_system_cpu:cpu|first_nios2_system_cpu_ic_tag_module:first_nios2_system_cpu_ic_tag|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_83i1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|first_nios2_system:inst|first_nios2_system_cpu:cpu|first_nios2_system_cpu_nios2_oci:the_first_nios2_system_cpu_nios2_oci|first_nios2_system_cpu_nios2_ocimem:the_first_nios2_system_cpu_nios2_ocimem|first_nios2_system_cpu_ociram_sp_ram_module:first_nios2_system_cpu_ociram_sp_ram|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_il81.tdf"/>
