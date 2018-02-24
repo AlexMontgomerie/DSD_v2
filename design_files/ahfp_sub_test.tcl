@@ -14,11 +14,32 @@ vsim -c work.test_ahfp_sub
 #view objects
 #view locals
 #view source
-#view transcript
-#view wave -undock
+view transcript
+view wave -undock
 
 #add all waves to wave view
-#add wave *
+add wave *
 
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/a_e
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/a_m
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/b_e
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/b_m
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/e_tmp
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/m_tmp
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/z_e
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/z_m
+
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/e_diff1
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/e_diff2
 #run simulation
 run 500

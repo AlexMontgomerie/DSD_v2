@@ -78,13 +78,16 @@ assign z_m_tmp = man_tmp_init[47] ? (man_tmp_init[46:24] + man_tmp_init[23]) :
 //assign z_m = z_m_tmp[23] ? (z_m_tmp[23:1]) : (z_m_tmp[22:0]);
 //assign z_e = z_m_tmp[23] ? (z_e_tmp+ 1'b1) : (z_e_tmp);
 			
-wire underflow;
-assign underflow = exp_tmp_init < 8'h80;
-			
+//wire underflow;
+//assign underflow = exp_tmp_init < 8'h80;
+
+/*			
 assign result = underflow 		? 32'b0 :
 				(b_e == 8'd0)	? 32'd0 :
 				(a_e == 8'd0)	? 32'b0 :
 				{z_s, z_e_tmp, z_m_tmp};
+*/
+				
 // TODO:
 // - [x] round result
 // - [ ] over/under flow conditions
@@ -92,7 +95,7 @@ assign result = underflow 		? 32'b0 :
 
 
 //assign output
-//assign result = z_s << 31 | z_e << 23 | z_m;
+assign result = z_s << 31 | z_e << 23 | z_m;
 
 endmodule	
 

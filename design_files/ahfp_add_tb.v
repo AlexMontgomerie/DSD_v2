@@ -75,7 +75,14 @@ initial
 
 initial
 	begin
-	$monitor($stime," dataa=%h, datab=%h, result=%h, correct result=%h",dataa,datab,result,result_correct);
+	$monitor($stime," dataa=%h, datab=%h, result=%h, correct result=%h, man diff=%d, exp diff=%d",
+	dataa,
+	datab,
+	result,
+	result_correct,
+	result_correct[30:23] - result[30:23],
+	result_correct[22:0] - result[22:0]
+	);
 	end
 
 endmodule
