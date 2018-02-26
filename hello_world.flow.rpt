@@ -1,5 +1,5 @@
 Flow report for hello_world
-Thu Feb 08 17:37:49 2018
+Tue Feb 20 19:10:53 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,21 +40,21 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Thu Feb 08 17:37:39 2018            ;
+; Flow Status                        ; Successful - Tue Feb 20 19:10:45 2018            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; hello_world                                      ;
 ; Top-level Entity Name              ; hello_world                                      ;
 ; Family                             ; Cyclone III                                      ;
 ; Device                             ; EP3C16F484C6                                     ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 3,030 / 15,408 ( 20 % )                          ;
-;     Total combinational functions  ; 2,734 / 15,408 ( 18 % )                          ;
-;     Dedicated logic registers      ; 1,922 / 15,408 ( 12 % )                          ;
-; Total registers                    ; 1990                                             ;
+; Total logic elements               ; 3,202 / 15,408 ( 21 % )                          ;
+;     Total combinational functions  ; 2,907 / 15,408 ( 19 % )                          ;
+;     Dedicated logic registers      ; 1,923 / 15,408 ( 12 % )                          ;
+; Total registers                    ; 1991                                             ;
 ; Total pins                         ; 47 / 347 ( 14 % )                                ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 152,064 / 516,096 ( 29 % )                       ;
-; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                                  ;
+; Embedded Multiplier 9-bit elements ; 7 / 112 ( 6 % )                                  ;
 ; Total PLLs                         ; 1 / 4 ( 25 % )                                   ;
 +------------------------------------+--------------------------------------------------+
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/08/2018 17:36:11 ;
+; Start date & time ; 02/20/2018 19:09:26 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; hello_world         ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+---------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 176831339043046.151811137012232       ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 176831338962897.151915376609176       ; --            ; --          ; --         ;
 ; IP_TOOL_NAME                        ; ALTPLL                                ; --            ; --          ; --         ;
 ; IP_TOOL_VERSION                     ; 13.0                                  ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --         ;
@@ -98,11 +98,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:48     ; 1.0                     ; 642 MB              ; 00:00:32                           ;
-; Fitter                    ; 00:00:24     ; 1.5                     ; 1170 MB             ; 00:00:24                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 449 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.0                     ; 551 MB              ; 00:00:05                           ;
-; Total                     ; 00:01:23     ; --                      ; --                  ; 00:01:03                           ;
+; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 640 MB              ; 00:00:32                           ;
+; Fitter                    ; 00:00:21     ; 1.8                     ; 1177 MB             ; 00:00:24                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 445 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:07     ; 1.0                     ; 556 MB              ; 00:00:05                           ;
+; Total                     ; 00:01:12     ; --                      ; --                  ; 00:01:03                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,10 +111,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; eews506a-013     ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; eews506a-013     ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; eews506a-013     ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; eews506a-013     ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

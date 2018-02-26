@@ -1,5 +1,5 @@
 Assembler report for hello_world
-Thu Feb 08 17:37:39 2018
+Tue Feb 20 19:10:45 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -39,7 +39,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Feb 08 17:37:39 2018 ;
+; Assembler Status      ; Successful - Tue Feb 20 19:10:45 2018 ;
 ; Revision Name         ; hello_world                           ;
 ; Top-level Entity Name ; hello_world                           ;
 ; Family                ; Cyclone III                           ;
@@ -106,8 +106,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                     ;
 +----------------+-------------------------------------------------------------+
 ; Device         ; EP3C16F484C6                                                ;
-; JTAG usercode  ; 0x00321683                                                  ;
-; Checksum       ; 0x00321683                                                  ;
+; JTAG usercode  ; 0x0034F888                                                  ;
+; Checksum       ; 0x0034F888                                                  ;
 +----------------+-------------------------------------------------------------+
 
 
@@ -118,7 +118,7 @@ applicable agreement for further details.
 +--------------------+---------------------------------------------------------+
 ; Device             ; EPCS4                                                   ;
 ; JTAG usercode      ; 0x00000000                                              ;
-; Checksum           ; 0x0599228D                                              ;
+; Checksum           ; 0x059289EC                                              ;
 ; Compression Ratio  ; 2                                                       ;
 +--------------------+---------------------------------------------------------+
 
@@ -129,13 +129,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Feb 08 17:37:36 2018
+    Info: Processing started: Tue Feb 20 19:10:42 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off hello_world -c hello_world
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 449 megabytes
-    Info: Processing ended: Thu Feb 08 17:37:39 2018
+    Info: Peak virtual memory: 445 megabytes
+    Info: Processing ended: Tue Feb 20 19:10:45 2018
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
