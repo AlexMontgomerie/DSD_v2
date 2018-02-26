@@ -56,41 +56,67 @@ uint32_t test_data[48][3] = {{0x4c57449C, 0x00400000, 0x0CD7449},
 
 int main(int argc, char **argv)
 {
+	
+	float a,b,f;
+	
+	/*
 	float* a;
 	float* b;
-	float f;
+	float* f;
+	*/
 	int c=0;
 	
 	while((c=getopt(argc,argv,"mas")) != -1) {
 		switch(c)
 		{
 			case 'm':
-				for(int i=0;i<48;i++){
+				for(int i=0;i<50;i++){
+					/*
 					a = (float*)&test_data[i][0];
 					b = (float*)&test_data[i][1];
-					f = (*a)*(*b);
+					*f = (*a)*(*b);
 					uint32_t* res = (uint32_t*)&f;
-					printf("%X\n", *res);
+					printf("%X * %X = %X\n",*a,*b,*res);
+					*/
+					a = (float)rand();
+					b = (float)rand();
+					f = a*b;
+					uint32_t *f_ = (uint32_t*)&f;
+					printf("%X * %X = %X\n",a,b,f_);
 				}
 				break;
 				
 			case 'a':
-				for(int i=0;i<48;i++){
+				for(int i=0;i<50;i++){
+					/*
 					a = (float*)&test_data[i][0];
 					b = (float*)&test_data[i][1];
-					f = (*a)+(*b);
+					*f = (*a)*(*b);
 					uint32_t* res = (uint32_t*)&f;
-					printf("%X\n", *res);
+					printf("%X * %X = %X\n",*a,*b,*res);
+					*/
+					a = rand();
+					b = rand();
+					f = a+b;
+					uint32_t* res = (uint32_t*)&f;
+					printf("%X + %X = %X\n",a,b,*res);
 				}
 				break;
 				
 			case 's':
-				for(int i=0;i<48;i++){
+				for(int i=0;i<50;i++){
+					/*
 					a = (float*)&test_data[i][0];
 					b = (float*)&test_data[i][1];
-					f = (*a)-(*b);
+					*f = (*a)*(*b);
 					uint32_t* res = (uint32_t*)&f;
-					printf("%X\n", *res);
+					printf("%X * %X = %X\n",*a,*b,*res);
+					*/
+					a = rand();
+					b = rand();
+					f = a-b;
+					uint32_t* res = (uint32_t*)&f;
+					printf("%X - %X = %X\n",a,b,*res);
 				}
 				break;
 		}
