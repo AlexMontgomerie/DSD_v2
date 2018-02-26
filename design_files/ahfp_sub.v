@@ -24,7 +24,7 @@ wire signed 	[7:0]  	a_e, b_e, z_e;
 wire   			a_s, b_s, z_s;
 
 //initialise mantissa
-assign a_m = {23'b000001,dataa[22:0]};
+assign a_m = {23'h000001,dataa[22:0]};
 assign b_m = {23'h000001,datab[22:0]};
 	
 //initialise exponent
