@@ -18,68 +18,63 @@ input	[31:0] datab;
 //output
 output	[31:0] result;
 
-wire	[23:0] 	a_m, b_m;
+wire	[24:0] 	a_m, b_m;
 wire 	[22:0]  z_m;
-wire signed	[7:0]  	a_e, b_e, z_e;
-wire 		a_s, b_s, z_s;
+wire 	[7:0]  	a_e, b_e, z_e;
+wire 			z_s;
 
 //get temporary addition values
-wire	[23:0] 	man_tmp;
-wire signed	[7:0]	exp_tmp;
+wire	[24:0] 	man_tmp;
+wire 	[7:0]	exp_tmp;
 
-//initialise mantissa
-assign a_m = {1'b1,dataa[22:0]};
-assign b_m = {1'b1,datab[22:0]};
-	
+wire underflow, overflow;
+
 //initialise exponent
 assign a_e = dataa[30:23];
 assign b_e = datab[30:23];
-	
-//initialise sign
-assign a_s = dataa[31];
-assign b_s = datab[31];	
+
+//initialise mantissa
+assign a_m = (a_e==8'd0) ? {1'b0, dataa[22:0]} : {1'b1, dataa[22:0],1'b0};
+assign b_m = (b_e==8'd0) ? {1'b0, dataa[22:0]} : {1'b1, datab[22:0],1'b0};
 
 //positive, so assign z as zero
 assign z_s = 1'b0;
 
 // temporary exponent
-wire signed [7:0] e_tmp;
-wire [24:0] m_tmp;
-wire overflow;
+wire [7:0] 	e_tmp;
+wire [25:0] m_tmp;
 
-assign {overflow,e_tmp} = 	(a_e == b_e) ? a_e :
-				(a_e > b_e)  ? a_e :
-				b_e;
+assign e_tmp = 	(a_e == b_e) ? 	a_e :
+				(a_e > b_e)  ? 	a_e :
+								b_e	;
 
 // add the mantissa together
-assign {overflow,m_tmp} = 	(a_e == b_e) ?	(a_m + b_m) :
-				(a_e>b_e) 	 ? 	(a_m + (b_m>>(a_e-b_e))) :
+assign	m_tmp = (a_e == b_e) ?	(a_m + b_m) :
+				(a_e >	b_e) ? 	(a_m + (b_m>>(a_e-b_e))) :
 								(b_m + (a_m>>(b_e-a_e))) ;
-
-//assign {m_tmp,e_tmp} = 	(a_e == b_e) ?	{(a_m + b_m),a_e} 			   :
-//						(a_e>b_e) 	 ? 	{(a_m + (b_m>>(a_e-b_e))),a_e} :
-//									    {(b_m + (a_m>>(b_e-a_e))),b_e} ;
 
 // overflow cases
 
-assign {overflow,z_e} = 	m_tmp[24] ? e_tmp + 1'b1 :
-				m_tmp[23] ? e_tmp :
-				e_tmp + 2'd2;
+assign exp_tmp = 	m_tmp[25] ? e_tmp + 1'b1 :
+					m_tmp[24] ? e_tmp + 1'b0 :
+					8'd0;
+//					m_tmp[23] ? e_tmp :  m_tmp[25] ?	m_tmp[24:2] :
+					//8'd0;
 				
-assign z_m = 	m_tmp[24] ?	m_tmp[23:1] : 
-				m_tmp[23] ?	m_tmp[22:0] :
-				m_tmp[24:2];
+assign man_tmp =	m_tmp[25] ?	m_tmp[24:2] + m_tmp[1] : 
+					m_tmp[24] ?	m_tmp[23:1] + m_tmp[0]:
+					23'd0;
+
+assign z_e = man_tmp[23] ? exp_tmp + 1'b1 : exp_tmp;
+assign z_m = man_tmp[23] ? man_tmp[23:1]  : man_tmp[22:0];					
 
 
-//assign {z_e,z_m} = m_tmp[24] ? {e_tmp + 1'b1, m_tmp[23:1]} : {e_tmp+1'b0,m_tmp[22:0]};
+assign underflow = ($signed(z_e) < $signed(8'h80));
+assign overflow  = ($signed(z_e) > $signed(8'h7F));
 
-//assign output
-//assign result = {z_s,z_e,z_m};
-
-wire signed underflow;
-assign underflow = z_e < 8'h80;
-		
-assign result = (z_e < -8'd126)&&(z_m[22]==0)	? 32'b0 : {z_s, z_e[7:0], z_m[22:0]};
+assign result = underflow ? 32'd0 :
+				overflow  ? {z_s, 31'h7F800000} :
+							{z_s, z_e, z_m};
 
 endmodule	
 

@@ -75,13 +75,12 @@ initial
 
 initial
 	begin
-	$monitor($stime," dataa=%h, datab=%h, result=%h, correct result=%h, man diff=%d, exp diff=%d",
-	dataa,
-	datab,
+	$monitor($stime," dataa=%h, datab=%h, result=%h, correct result=%h, sign diff=%d, exp diff=%d, man diff=%d",dataa,datab,
 	result,
 	result_correct,
-	result_correct[30:23] - result[30:23],
-	result_correct[22:0] - result[22:0]
+	result[31]-result_correct[31],
+	(result[30:23]>result_correct[30:23]) ? result[30:23]-result_correct[30:23] : result_correct[30:23]-result[30:23],
+	(result[22:0]>result_correct[22:0]) ? result[22:0]-result_correct[22:0] : result_correct[22:0]-result[22:0]
 	);
 	end
 
