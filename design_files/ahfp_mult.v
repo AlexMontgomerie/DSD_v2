@@ -44,15 +44,10 @@ assign b_m = (b_e==8'd0) ? {1'b0, dataa[22:0]} : {1'b1, datab[22:0]};
 assign a_s = dataa[31];
 assign b_s = datab[31];	
 
-//set overflows to zero initially
-assign overflow = 1'b0;
-
 // ##### initial setup #####
 
 //assign output sign
 assign z_s = a_s ^ b_s;
-
-//assign z_e = exp_tmp_init;
 
 //get mantissa
 wire [47:0] man_tmp_init;
@@ -60,7 +55,7 @@ assign man_tmp_init = a_m * b_m;
 
 //assign exponent
 wire [7:0] exp_tmp_init;
-assign exp_tmp_init = (man_tmp_init==0) && ((a_e || b_e)==0) ? 8'd0 : a_e + b_e - 8'd127;
+assign exp_tmp_init = a_e + b_e - 8'd127;
 
 // ###### normalise ######
 // exponent
