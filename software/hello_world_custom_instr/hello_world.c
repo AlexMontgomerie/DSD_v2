@@ -16,12 +16,17 @@
 
 #include <stdio.h>
 #include <system.h>
+#include <stdint.h>
 
 int main()
 {
   printf("Hello from Nios II!\n");
 
-  float x = ALT_CI_AHFP_MULT_0(1.0f,2.0f);
+  float a = 12345.0f;
+  float b = 123456.5f;
+
+
+  float x = ALT_CI_AHFP_MULT_0(a,b);
 
   printf("%.6f",x);
 

@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'first_nios2_system'
  * SOPC Builder design path: ../../first_nios2_system.sopcinfo
  *
- * Generated: Tue Feb 20 19:12:26 GMT 2018
+ * Generated: Wed Feb 21 13:37:54 GMT 2018
  */
 
 /*
@@ -123,7 +123,7 @@
  *
  */
 
-#define ALT_CI_AHFP_MULT_0(A,B) __builtin_custom_inii(ALT_CI_AHFP_MULT_0_N,(A),(B))
+#define ALT_CI_AHFP_MULT_0(A,B) __builtin_custom_fnff(ALT_CI_AHFP_MULT_0_N,(A),(B))
 #define ALT_CI_AHFP_MULT_0_N 0x0
 
 
