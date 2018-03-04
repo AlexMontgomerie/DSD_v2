@@ -25,9 +25,19 @@ module ahfp_cordic( clk,
 
   wire [width-1:0] atan_table [0:N-1]; 
   //TODO: generate atan
-
+  assign atan_table[0] = 32'h3F490FDB;
+  assign atan_table[1] = 32'h3EED6338;
+  assign atan_table[2] = 32'h3E7ADBB0;
+  assign atan_table[3] = 32'h3DFEADD5;
+  assign atan_table[4] = 32'h3D7FAADE;
+  assign atan_table[5] = 32'h3CFFEAAE;
+  assign atan_table[6] = 32'h3C7FFAAB;
+  assign atan_table[7] = 32'h3BFFFEAB;
+  assign atan_table[8] = 32'h3B7FFFAB;
+  assign atan_table[9] = 32'h3AFFFFEB;
   //TODO: initial block
 
+  
   //setup initial values 
   //TODO: outside +/- pi/2 range
   always @(posedge clk)
@@ -52,6 +62,12 @@ module ahfp_cordic( clk,
 
       z[i+1] <= z[i][31] ?  z[i] + atan_table[i] :
                             z[i] - atan_table[i] ;
+      
+      /*
+      TODO:
+       - have a way to stage additions, 
+      */
+
     end
   end
   endgenerate
