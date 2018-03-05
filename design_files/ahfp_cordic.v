@@ -1,4 +1,3 @@
-`include "./ahfp_add_sub"
 
 module ahfp_cordic( clk,
                     x_start,
