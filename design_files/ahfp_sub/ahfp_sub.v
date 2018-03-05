@@ -36,9 +36,10 @@ assign a_e_tmp = dataa[30:23];
 assign b_e_tmp = datab[30:23];
 
 //initialise mantissa
-assign a_m_tmp = (a_e==8'd0) ? {25'h000000, dataa[22:0]} : {25'h000001, dataa[22:0]};
-assign b_m_tmp = (b_e==8'd0) ? {25'h000000, dataa[22:0]} : {25'h000001, datab[22:0]};
+assign a_m_tmp = (dataa[30:23]==8'd0) ? {25'h000000, dataa[22:0]} : {25'h000001, dataa[22:0]};
+assign b_m_tmp = (datab[30:23]==8'd0) ? {25'h000000, dataa[22:0]} : {25'h000001, datab[22:0]};
 
+//performs subtraction by choosing largest minus smallest
 assign {a_m,b_m,a_e,b_e} = (a_e_tmp == b_e_tmp) ? 	((a_m_tmp>=b_m_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) :
 													((a_e_tmp >b_e_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) ;
 
@@ -68,7 +69,41 @@ assign z_m = !m_tmp[24] ? m_tmp[22:0] : m_tmp[23:1];
 wire [7:0] z_e_tmp;
 wire [22:0] z_m_tmp;
 wire z_m_overflow;
+wire [5:0] shift_index;
+wire m_valid;
+//get the lzd results here
 
+
+ahfp_lzd48 lzd48 (	m_tmp,
+					shift_index,
+					m_valid
+					);
+	
+assign z_e_tmp = m_valid ? 	e_tmp - e_diff + {2'b00,shift_index} - 8'd23 :
+							8'd0;
+assign z_m_tmp = m_valid ? m_tmp >> (shift_index - 8'd23) :
+							23'd0;
+
+assign z_m_overflow = 1'b0;
+	
+assign z_e = z_m_overflow ? z_e_tmp + 1'b1 : z_e_tmp;
+assign z_m = z_m_overflow ? {1'b1,z_m_tmp[22:1]}  : z_m_tmp;					
+				
+//assign z_e = e_tmp;
+//assign z_m = m_tmp[22:0];
+//TODO: remove later stage comparisons
+//assign output
+assign underflow = ($signed(z_e) < $signed(8'h80));
+assign overflow  = ($signed(z_e) > $signed(8'h7F));
+
+assign result = underflow ? 32'd0 :
+				overflow  ? {z_s, 31'h7F800000} :
+							{z_s, z_e, z_m};
+
+endmodule	
+
+
+/*
 assign {z_m_overflow,z_m_tmp,z_e_tmp} = (m_tmp[47] == 1'b1) ? {m_tmp[46:24] + m_tmp[23], e_tmp - e_diff + 8'd24} :
 				(m_tmp[46] == 1'b1) ? {m_tmp[45:23] + m_tmp[22], e_tmp - e_diff + 8'd23} :
 				(m_tmp[45] == 1'b1) ? {m_tmp[44:22] + m_tmp[21], e_tmp - e_diff + 8'd22} :
@@ -118,7 +153,7 @@ assign {z_m_overflow,z_m_tmp,z_e_tmp} = (m_tmp[47] == 1'b1) ? {m_tmp[46:24] + m_
 				(m_tmp[1] == 1'b1)  ? {{1'd0,m_tmp[0:0],22'd0} , e_tmp - e_diff - 8'd22 } :
 				(m_tmp[0] == 1'b1)  ? {24'd0 		       , e_tmp - e_diff - 8'd23 } :
 									  {24'd0,8'd0} ; 
-				
+*/				
 /*
 				(m_tmp[45] == 1'b1) ? e_tmp - e_diff + 8'd22 :
 				(m_tmp[44] == 1'b1) ? e_tmp - e_diff + 8'd21 :
@@ -217,19 +252,3 @@ assign {z_m_overflow,z_m_tmp} = (m_tmp[47] == 1'b1) ? m_tmp[46:24] + m_tmp[23] :
 				(m_tmp[1] == 1'b1) 	? {m_tmp[0],22'd0}    + 1'b0       :
 				23'd0;
 */	
-	
-assign z_e = z_m_overflow ? z_e_tmp + 1'b1 : z_e_tmp;
-assign z_m = z_m_overflow ? {1'b1,z_m_tmp[22:1]}  : z_m_tmp;					
-				
-//assign z_e = e_tmp;
-//assign z_m = m_tmp[22:0];
-//TODO: remove later stage comparisons
-//assign output
-assign underflow = ($signed(z_e) < $signed(8'h80));
-assign overflow  = ($signed(z_e) > $signed(8'h7F));
-
-assign result = underflow ? 32'd0 :
-				overflow  ? {z_s, 31'h7F800000} :
-							{z_s, z_e, z_m};
-
-endmodule	
