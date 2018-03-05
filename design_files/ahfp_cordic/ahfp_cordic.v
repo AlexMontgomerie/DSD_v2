@@ -84,17 +84,23 @@ module ahfp_cordic( clk,
   for(i=0;i<(N-1);i=i+1)
   begin: loop_generation
   
-	ahfp_add_sub add_sub_x (.dataa(x[i]),
+	ahfp_add_sub add_sub_x (
+							.clk(clk),
+							.dataa(x[i]),
 							.datab(a_tmp[i]),
 							.result(x[i+1])
 							);
 
-	ahfp_add_sub add_sub_y (.dataa(y[i]),
+	ahfp_add_sub add_sub_y (
+							.clk(clk),
+							.dataa(y[i]),
 							.datab(b_tmp[i]),
 							.result(y[i+1])
 							);
   
- 	ahfp_add_sub add_sub_z (.dataa(z[i]),
+ 	ahfp_add_sub add_sub_z (
+							.clk(clk),
+							.dataa(z[i]),
 							.datab(z_tmp[i]),
 							.result(z[i+1])
 							);
@@ -126,6 +132,8 @@ module ahfp_cordic( clk,
 		z_tmp_s[i]= z[i][31]^atan_table[i][31];
 		
 		z_tmp[i] = { z_tmp_s[i],atan_table[i][30:0]};
+		
+		
       /*
       TODO:
        - have a way to stage additions, 

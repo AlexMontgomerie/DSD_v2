@@ -8,10 +8,10 @@ reg clk;
 reg [31:0] 		x_start,
 				y_start,
 				theta,
-				x_cos,
-				y_sin,
 				x_cos_correct,
 				y_sin_correct;
+
+wire [31:0] 	x_cos, y_sin;
 
 ahfp_cordic dut (.clk(clk),
 				.x_start(x_start),

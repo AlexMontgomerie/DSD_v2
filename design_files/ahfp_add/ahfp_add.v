@@ -23,13 +23,16 @@ wire	[24:0] 	a_m_tmp, b_m_tmp;
 wire 	[22:0]  z_m;
 wire 	[7:0]  	a_e, b_e, z_e;
 wire 	[7:0]  	a_e_tmp, b_e_tmp;
-wire 			z_s;
+wire 			a_s,b_s,z_s;
 
 //get temporary addition values
 wire	[23:0] 	man_tmp;
 wire 	[7:0]	exp_tmp;
 
 wire underflow, overflow;
+
+assign a_s = dataa[31];
+assign b_s = datab[31];
 
 //initialise exponent
 assign a_e_tmp = dataa[30:23];
@@ -43,7 +46,7 @@ assign {a_m,b_m,a_e,b_e} = (a_e_tmp == b_e_tmp) ? 	((a_m_tmp>=b_m_tmp) ? {a_m_tm
 													((a_e_tmp >b_e_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) ;
 
 //positive, so assign z as zero
-assign z_s = 1'b0;
+assign z_s = a_s;
 
 // temporary exponent
 wire [7:0] 	e_tmp;
