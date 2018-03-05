@@ -3,8 +3,8 @@ vlib work
 vmap work work
 
 # compile design
-vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_sub.v
-vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_sub_tb.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_sub/ahfp_sub.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_sub/ahfp_sub_tb.v
 
 # simulate design
 vsim -c work.ahfp_sub

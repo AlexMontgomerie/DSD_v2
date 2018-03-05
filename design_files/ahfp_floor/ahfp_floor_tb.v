@@ -59,6 +59,10 @@ initial
 		#20
 		data 			= 32'h31E1EF97;
 		result_correct	= 32'h00000000;
+
+		#20
+		data 		= 32'h3DCCCCCD;
+		result_correct	= 32'h00000000;
 		
 	end
 

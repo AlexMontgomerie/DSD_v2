@@ -12,6 +12,11 @@ module floor(
 	assign e = data[30:23];
 	assign m = data[22:0];
 	
+	/*
+	TODO:
+	 - convert to a switch case set of statements
+	*/
+	
 	wire [22:0] m_tmp;
 	assign m_tmp = 	(e==8'd127) 	? m & 23'b00000000000000000000000 : 
 					(e==8'd128) 	? m & 23'b10000000000000000000000 : 
@@ -43,6 +48,6 @@ module floor(
 	assign result[22:0]  	= 	(data[31]==1'b1) ? 23'd0 :
 								(e<8'd127) 		 ? 23'd0 : m_tmp;
 								
-	assign result[31]		= data[31];
+	assign result[31]		= 1'b0;
 
 endmodule
