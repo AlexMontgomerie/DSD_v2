@@ -36,7 +36,7 @@ initial
 		theta	= 32'h3F800000;
 		x_cos_correct = 32'h3F0A5140;
 		y_sin_correct = 32'h3F576AA4;
-		
+		/*
 		//test 2 (time 20ns)
 		#20 
 		x_start = 32'h3F800000;
@@ -94,7 +94,7 @@ initial
 		theta	= 32'h3F8E353F;
 		x_cos_correct = 32'h3EE33540;
 		y_sin_correct = 32'h3F8E353F;		
-		
+		*/
 	end
 
 initial

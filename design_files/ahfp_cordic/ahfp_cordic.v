@@ -78,6 +78,11 @@ module ahfp_cordic( clk,
     z[0] <= theta;
   end
 
+  
+  wire [31:0] add_sub_x_res [0:N-1];
+  wire [31:0] add_sub_y_res [0:N-1];
+  wire [31:0] add_sub_z_res [0:N-1];
+  
   //TODO: need to do fp additions
   genvar i;
   generate
@@ -88,21 +93,21 @@ module ahfp_cordic( clk,
 							.clk(clk),
 							.dataa(x[i]),
 							.datab(a_tmp[i]),
-							.result(x[i+1])
+							.result(add_sub_x_res[i+1])
 							);
 
 	ahfp_add_sub add_sub_y (
 							.clk(clk),
 							.dataa(y[i]),
 							.datab(b_tmp[i]),
-							.result(y[i+1])
+							.result(add_sub_y_res[i+1])
 							);
   
  	ahfp_add_sub add_sub_z (
 							.clk(clk),
 							.dataa(z[i]),
 							.datab(z_tmp[i]),
-							.result(z[i+1])
+							.result(add_sub_z_res[i+1])
 							);
     always @(posedge clk)
     begin
@@ -117,6 +122,17 @@ module ahfp_cordic( clk,
 		z[i+1] <= z[i][31] ?  z[i] + atan_table[i] :
 								z[i] - atan_table[i] ;
 		*/
+		
+		x[i+1] <= add_sub_x_res[i+1];
+		y[i+1] <= add_sub_y_res[i+1];
+		z[i+1] <= add_sub_z_res[i+1];
+		
+		
+		a_tmp[i] <= { z[i][31]^y[i][31],y[i][30:23]-index[i],y[i][22:0]};
+		b_tmp[i] <= {~z[i][31]^x[i][31],x[i][30:23]-index[i],x[i][22:0]};
+		z_tmp[i] <= { z[i][31]^atan_table[i][31] ,  atan_table[i][30:0]};
+		
+		/*
 		a_tmp_s[i] = z[i][31]^y[i][31];
 		a_tmp_e[i] = y[i][30:23]-index[i];
 		a_tmp_m[i] = y[i][22:0];
@@ -132,7 +148,7 @@ module ahfp_cordic( clk,
 		z_tmp_s[i]= z[i][31]^atan_table[i][31];
 		
 		z_tmp[i] = { z_tmp_s[i],atan_table[i][30:0]};
-		
+		*/
 		
       /*
       TODO:

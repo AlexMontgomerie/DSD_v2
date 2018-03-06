@@ -42,6 +42,12 @@ sim:/test_ahfp_sub/dut/z_e
 add wave -position insertpoint  \
 sim:/test_ahfp_sub/dut/z_m
 add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/z_m_overflow
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/z_m_tmp
+add wave -position insertpoint  \
+sim:/test_ahfp_sub/dut/z_e_tmp
+add wave -position insertpoint  \
 sim:/test_ahfp_sub/dut/e_diff
 #run simulation
 run 500

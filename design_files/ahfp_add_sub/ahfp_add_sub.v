@@ -88,6 +88,6 @@ always @(posedge clk)
 			res <= add_res;
 	end
 
-assign result = res;
+assign result = out_mux ? sub_res : add_res;
 
 endmodule

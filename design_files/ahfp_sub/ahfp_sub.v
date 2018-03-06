@@ -71,6 +71,7 @@ wire [22:0] z_m_tmp;
 wire z_m_overflow;
 wire [5:0] shift_index;
 wire m_valid;
+wire round;
 //get the lzd results here
 
 
@@ -81,9 +82,11 @@ ahfp_lzd48 lzd48 (	m_tmp,
 	
 assign z_e_tmp = m_valid ? 	e_tmp - e_diff + {2'b00,shift_index} - 8'd23 :
 							8'd0;
-assign z_m_tmp = m_valid ? m_tmp >> (shift_index - 8'd23) :
-							23'd0;
+assign z_m_tmp = (m_valid==0 || shift_index == 6'd0) ? 	24'd0 :
+								(shift_index > 6'd23) 	? 	(m_tmp>>(shift_index - 6'd23))&24'h7FFFFF: //+m_tmp[shift_index-6'd24]
+															(m_tmp<<(6'd23 - shift_index))&24'h7FFFFF; 
 
+													
 assign z_m_overflow = 1'b0;
 	
 assign z_e = z_m_overflow ? z_e_tmp + 1'b1 : z_e_tmp;
