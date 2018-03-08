@@ -16,7 +16,7 @@ wire [31:0] sub_a, sub_b, sub_res;
 
 reg [31:0] res;
 
-output [31:0] result;
+output reg [31:0] result;
 
 wire a_s,b_s;
 
@@ -83,11 +83,12 @@ else if(b_s==1 && a_s==1) begin
 always @(posedge clk)
 	begin
 		if (out_mux)
-			res <= sub_res;
+			result <= sub_res;
 		else	
-			res <= add_res;
+			result <= add_res;
 	end
 
-assign result = out_mux ? sub_res : add_res;
+//assign result = out_mux ? sub_res : add_res;
+//assign result = res;
 
 endmodule

@@ -76,11 +76,12 @@ initial
 
 initial
 	begin
-	$monitor($stime," dataa=%h, datab=%h, result=%h, correct result=%h ",
+	$monitor($stime," dataa=%h, datab=%h, result=%h, correct result=%h, diff=%d ",
 	dataa,
 	datab,
 	result,
-	result_correct
+	result_correct,
+	result_correct-result
 	);
 	end
 

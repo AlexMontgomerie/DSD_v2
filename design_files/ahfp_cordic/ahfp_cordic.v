@@ -1,3 +1,5 @@
+//http://en.wikibooks.org/wiki/Digital_Circuits/CORDIC
+
 
 module ahfp_cordic( clk,
                     x_start,
@@ -20,25 +22,17 @@ module ahfp_cordic( clk,
   output [31:0] x_cos,y_sin;
 
   //variables
-  reg [31:0] x [0:N-1];
-  reg [31:0] y [0:N-1];
-  reg [31:0] z [0:N-1];
+  wire [31:0] x [0:N-1];
+  wire [31:0] y [0:N-1];
+  wire [31:0] z [0:N-1];
   
-  reg [31:0] a_tmp [0:N-1];
-  reg [31:0] b_tmp [0:N-1];
-  reg [31:0] z_tmp	[0:N-1];
-
-  reg a_tmp_s [0:N-1];
-  reg b_tmp_s [0:N-1];
-  reg z_tmp_s [0:N-1];
+  reg [31:0] x_a [0:N-1];
+  reg [31:0] y_a [0:N-1];
+  reg [31:0] z_a [0:N-1];
   
-  reg [7:0] a_tmp_e [0:N-1];
-  reg [7:0] b_tmp_e [0:N-1];
-  reg [7:0] z_tmp_e [0:N-1];
-  
-  reg [22:0] a_tmp_m [0:N-1];
-  reg [22:0] b_tmp_m [0:N-1];
-  reg [22:0] z_tmp_m [0:N-1];
+  reg [31:0] x_b [0:N-1];
+  reg [31:0] y_b [0:N-1];
+  reg [31:0] z_b [0:N-1];
   
   wire [31:0] atan_table [0:N-1]; 
   //TODO: generate atan
@@ -71,17 +65,22 @@ module ahfp_cordic( clk,
   
   //setup initial values 
   //TODO: outside +/- pi/2 range
+  /*
   always @(posedge clk)
   begin
     x[0] <= x_start;
     y[0] <= y_start;
     z[0] <= theta;
   end
-
+*/
   
   wire [31:0] add_sub_x_res [0:N-1];
   wire [31:0] add_sub_y_res [0:N-1];
   wire [31:0] add_sub_z_res [0:N-1];
+  
+  assign x[0] = x_start;
+  assign y[0] = y_start;
+  assign z[0] = theta;
   
   //TODO: need to do fp additions
   genvar i;
@@ -91,69 +90,34 @@ module ahfp_cordic( clk,
   
 	ahfp_add_sub add_sub_x (
 							.clk(clk),
-							.dataa(x[i]),
-							.datab(a_tmp[i]),
-							.result(add_sub_x_res[i+1])
+							.dataa(x_a[i]),
+							.datab(x_b[i]),
+							.result(x[i+1])
 							);
 
 	ahfp_add_sub add_sub_y (
 							.clk(clk),
-							.dataa(y[i]),
-							.datab(b_tmp[i]),
-							.result(add_sub_y_res[i+1])
+							.dataa(y_a[i]),
+							.datab(y_b[i]),
+							.result(y[i+1])
 							);
   
  	ahfp_add_sub add_sub_z (
 							.clk(clk),
-							.dataa(z[i]),
-							.datab(z_tmp[i]),
-							.result(add_sub_z_res[i+1])
+							.dataa(z_a[i]),
+							.datab(z_b[i]),
+							.result(z[i+1])
 							);
     always @(posedge clk)
     begin
-
-		/*
-		x[i+1] <= z[i][31] ?  x[i] + {y[i][31],y[i][30:23]-i,y[22:0]} :   
-								x[i] - {y[i][31],y[i][30:23]-i,y[22:0]} ;   
 		
-		y[i+1] <= z[i][31] ?  y[i] - {x[i][31],x[i][30:23]-i,x[22:0] :   
-								y[i] + {x[i][31],x[i][30:23]-i,x[22:0] ;   
-
-		z[i+1] <= z[i][31] ?  z[i] + atan_table[i] :
-								z[i] - atan_table[i] ;
-		*/
+		x_a[i] <= x[i];
+		y_a[i] <= y[i];
+		z_a[i] <= z[i];
 		
-		x[i+1] <= add_sub_x_res[i+1];
-		y[i+1] <= add_sub_y_res[i+1];
-		z[i+1] <= add_sub_z_res[i+1];
-		
-		
-		a_tmp[i] <= { z[i][31]^y[i][31],y[i][30:23]-index[i],y[i][22:0]};
-		b_tmp[i] <= {~z[i][31]^x[i][31],x[i][30:23]-index[i],x[i][22:0]};
-		z_tmp[i] <= { z[i][31]^atan_table[i][31] ,  atan_table[i][30:0]};
-		
-		/*
-		a_tmp_s[i] = z[i][31]^y[i][31];
-		a_tmp_e[i] = y[i][30:23]-index[i];
-		a_tmp_m[i] = y[i][22:0];
-		
-		a_tmp[i] = {a_tmp_s[i],a_tmp_e[i],a_tmp_m[i]};
-		
-		b_tmp_s[i] = ~z[i][31]^x[i][31];
-		b_tmp_e[i] = x[i][30:23] - index[i];
-		b_tmp_m[i] = x[i][22:0];
-		
-		b_tmp[i] = {b_tmp_s[i],b_tmp_e[i],b_tmp_m[i]};
-		
-		z_tmp_s[i]= z[i][31]^atan_table[i][31];
-		
-		z_tmp[i] = { z_tmp_s[i],atan_table[i][30:0]};
-		*/
-		
-      /*
-      TODO:
-       - have a way to stage additions, 
-      */
+		x_b[i] <= {z[i][31]^~y[i][31],((y[i][30:23]>=8'd2) ? (y[i][30:23]-index[i]) : (8'd0)),y[i][22:0]};
+		y_b[i] <= {z[i][31]^x[i][31] ,((x[i][30:23]>=8'd2) ? (x[i][30:23]-index[i]) : (8'd0)),x[i][22:0]};
+		z_b[i] <= {z[i][31]^~atan_table[i][31] ,  atan_table[i][30:0]};
 
     end
   end

@@ -32,7 +32,7 @@ initial
 	begin
 		//test 1 (time 0ns)
 		x_start = 32'h3F800000;
-		y_start = 32'h3F800000;
+		y_start = 32'h00000000;
 		theta	= 32'h3F800000;
 		x_cos_correct = 32'h3F0A5140;
 		y_sin_correct = 32'h3F576AA4;
