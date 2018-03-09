@@ -39,8 +39,8 @@ assign a_e_tmp = dataa[30:23];
 assign b_e_tmp = datab[30:23];
 
 //initialise mantissa
-assign a_m_tmp = (a_e==8'd0) ? {1'b0, dataa[22:0]} : {1'b1, dataa[22:0],1'b0};
-assign b_m_tmp = (b_e==8'd0) ? {1'b0, dataa[22:0]} : {1'b1, datab[22:0],1'b0};
+assign a_m_tmp = (a_e_tmp==8'd0) ? {1'b0, dataa[22:0],1'b0} : {1'b1, dataa[22:0],1'b0};
+assign b_m_tmp = (b_e_tmp==8'd0) ? {1'b0, dataa[22:0],1'b0} : {1'b1, datab[22:0],1'b0};
 
 assign {a_m,b_m,a_e,b_e} = (a_e_tmp == b_e_tmp) ? 	((a_m_tmp>=b_m_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) :
 													((a_e_tmp >b_e_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) ;

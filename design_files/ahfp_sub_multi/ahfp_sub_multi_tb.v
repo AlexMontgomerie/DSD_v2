@@ -22,9 +22,9 @@ initial // Clock generator
 initial
 	begin
 		//test 1 (time 0ns)
-		dataa 			= 32'h3F800000;
+		dataa 			= 32'h00000000;
 		datab			= 32'h00000000;
-		result_correct	= 32'h3F800000;
+		result_correct	= 32'h00000000;
 
 		//test 2 (time 0ns)
 		#20 dataa 		= 32'h3F800000;

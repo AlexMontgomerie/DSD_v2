@@ -28,6 +28,14 @@ add wave -position insertpoint  \
 sim:/test_ahfp_add/dut/z_e
 add wave -position insertpoint  \
 sim:/test_ahfp_add/dut/z_m
+add wave -position insertpoint  \
+sim:/test_ahfp_add/dut/a_m_tmp
+add wave -position insertpoint  \
+sim:/test_ahfp_add/dut/b_m_tmp
+add wave -position insertpoint  \
+sim:/test_ahfp_add/dut/a_e_tmp
+add wave -position insertpoint  \
+sim:/test_ahfp_add/dut/b_e_tmp
 
 #run simulation
 run 500
