@@ -26,13 +26,13 @@ module ahfp_cordic( clk,
   wire [31:0] y [0:N-1];
   wire [31:0] z [0:N-1];
   
-  reg [31:0] x_a [0:N-1];
-  reg [31:0] y_a [0:N-1];
-  reg [31:0] z_a [0:N-1];
+  reg [31:0] x_a [0:N-2];
+  reg [31:0] y_a [0:N-2];
+  reg [31:0] z_a [0:N-2];
   
-  reg [31:0] x_b [0:N-1];
-  reg [31:0] y_b [0:N-1];
-  reg [31:0] z_b [0:N-1];
+  reg [31:0] x_b [0:N-2];
+  reg [31:0] y_b [0:N-2];
+  reg [31:0] z_b [0:N-2];
   
   wire [31:0] atan_table [0:N-1]; 
   //TODO: generate atan
@@ -78,7 +78,15 @@ module ahfp_cordic( clk,
   wire [31:0] add_sub_y_res [0:N-1];
   wire [31:0] add_sub_z_res [0:N-1];
   
-  assign x[0] = x_start;
+  wire [31:0] an;
+  assign an = 32'h3F1B74F4;
+  
+  ahfp_mult mul(
+	x_start,
+	an,
+	x[0]);  
+  
+  //assign x[0] = x_start;
   assign y[0] = y_start;
   assign z[0] = theta;
   

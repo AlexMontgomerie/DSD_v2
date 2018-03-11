@@ -18,6 +18,7 @@ input	[31:0] datab;
 
 //output
 output	[31:0] result;
+reg		[31:0] res;
 
 reg	[24:0] 	a_m, b_m;
 reg	[24:0] 	a_m_tmp, b_m_tmp;
@@ -98,10 +99,12 @@ always @ (posedge clk) begin
 	///////////////
 
 	//Stage 7
-	result <= underflow ? 32'd0 
-	                    : overflow ? {z_s_final, 31'h7F800000}
-						: {z_s_final, z_e_final, z_m_final};
+	res <= underflow ? 32'd0 
+	                : overflow ? {z_s_final, 31'h7F800000}
+					: {z_s_final, z_e_final, z_m_final};
 	///////////////
 	end
 
+assign result = res;
+	
 endmodule	

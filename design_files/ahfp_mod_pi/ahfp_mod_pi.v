@@ -10,12 +10,12 @@ output 	[31:0] result;
 wire [31:0] floor_in;
 wire [31:0] floor_out;
 
-reg
+//TODO: need to buffer data for last sub
 
-ahfp_mult (	data,
-			p_inv,
-			floor_in
-			);
+ahfp_mult mul (	data,
+				p_inv,
+				floor_in
+				);
 
 ahfp_floor floor(	floor_in,
 					floor_out
