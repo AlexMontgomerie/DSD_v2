@@ -1,5 +1,5 @@
 Analysis & Synthesis report for design_test
-Mon Mar 12 14:48:58 2018
+Mon Mar 12 17:25:06 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -19,11 +19,11 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
  11. General Register Statistics
  12. Registers Packed Into Inferred Megafunctions
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for ahfp_add_multi:add|altshift_taps:z_m_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4
- 15. Parameter Settings for Inferred Entity Instance: ahfp_add_multi:add|altshift_taps:z_m_rtl_0
+ 14. Source assignments for ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4
+ 15. Parameter Settings for Inferred Entity Instance: ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0
  16. altshift_taps Parameter Settings by Entity Instance
- 17. Port Connectivity Checks: "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder"
- 18. Port Connectivity Checks: "ahfp_pipeline_buffer:buffer"
+ 17. Port Connectivity Checks: "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder"
+ 18. Port Connectivity Checks: "ahfp_add_sub_multi:inst|ahfp_pipeline_buffer:buffer"
  19. Elapsed Time Per Partition
  20. Analysis & Synthesis Messages
  21. Analysis & Synthesis Suppressed Messages
@@ -52,13 +52,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 12 14:48:58 2018            ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 12 17:25:06 2018            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; design_test                                      ;
-; Top-level Entity Name              ; ahfp_add_sub_multi                               ;
+; Top-level Entity Name              ; design_test_top                                  ;
 ; Family                             ; Cyclone III                                      ;
-; Total logic elements               ; 1,442                                            ;
-;     Total combinational functions  ; 1,372                                            ;
+; Total logic elements               ; 1,444                                            ;
+;     Total combinational functions  ; 1,374                                            ;
 ;     Dedicated logic registers      ; 438                                              ;
 ; Total registers                    ; 438                                              ;
 ; Total pins                         ; 97                                               ;
@@ -75,7 +75,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP3C16F484C6       ;                    ;
-; Top-level entity name                                                      ; ahfp_add_sub_multi ; design_test        ;
+; Top-level entity name                                                      ; design_test_top    ; design_test        ;
 ; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -174,147 +174,181 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
-+-------------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                            ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
-+-------------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
-; ../design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v  ;         ;
-; ../design_files/ahfp_add_multi/ahfp_add_multi.v             ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_add_multi/ahfp_add_multi.v              ;         ;
-; ../design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v     ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v      ;         ;
-; ../design_files/ahfp_lzd/ahfp_lzd64.v                       ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_lzd/ahfp_lzd64.v                        ;         ;
-; ../design_files/ahfp_lzd/ahfp_lzd48.v                       ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_lzd/ahfp_lzd48.v                        ;         ;
-; ../design_files/ahfp_lzd/ahfp_lzd.v                         ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_lzd/ahfp_lzd.v                          ;         ;
-; ../design_files/ahfp_sub_multi/ahfp_sub_multi.v             ; yes             ; User Verilog HDL File        ; H:/DSD_v2/design_files/ahfp_sub_multi/ahfp_sub_multi.v              ;         ;
-; altshift_taps.tdf                                           ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift_taps.tdf ;         ;
-; altdpram.inc                                                ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc      ;         ;
-; lpm_counter.inc                                             ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc   ;         ;
-; lpm_compare.inc                                             ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc   ;         ;
-; lpm_constant.inc                                            ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc  ;         ;
-; db/shift_taps_55m.tdf                                       ; yes             ; Auto-Generated Megafunction  ; H:/DSD_v2/design_test/db/shift_taps_55m.tdf                         ;         ;
-; db/altsyncram_uj31.tdf                                      ; yes             ; Auto-Generated Megafunction  ; H:/DSD_v2/design_test/db/altsyncram_uj31.tdf                        ;         ;
-; db/add_sub_p2e.tdf                                          ; yes             ; Auto-Generated Megafunction  ; H:/DSD_v2/design_test/db/add_sub_p2e.tdf                            ;         ;
-; db/cntr_tnf.tdf                                             ; yes             ; Auto-Generated Megafunction  ; H:/DSD_v2/design_test/db/cntr_tnf.tdf                               ;         ;
-; db/cmpr_ffc.tdf                                             ; yes             ; Auto-Generated Megafunction  ; H:/DSD_v2/design_test/db/cmpr_ffc.tdf                               ;         ;
-+-------------------------------------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++-------------------------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                            ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                        ; Library ;
++-------------------------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+---------+
+; ../design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v  ;         ;
+; ../design_files/ahfp_add_multi/ahfp_add_multi.v             ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_add_multi/ahfp_add_multi.v              ;         ;
+; ../design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v     ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v      ;         ;
+; ../design_files/ahfp_lzd/ahfp_lzd64.v                       ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_lzd/ahfp_lzd64.v                        ;         ;
+; ../design_files/ahfp_lzd/ahfp_lzd48.v                       ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_lzd/ahfp_lzd48.v                        ;         ;
+; ../design_files/ahfp_lzd/ahfp_lzd.v                         ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_lzd/ahfp_lzd.v                          ;         ;
+; ../design_files/ahfp_sub_multi/ahfp_sub_multi.v             ; yes             ; User Verilog HDL File              ; H:/DSD_v2/design_files/ahfp_sub_multi/ahfp_sub_multi.v              ;         ;
+; design_test_top.bdf                                         ; yes             ; User Block Diagram/Schematic File  ; H:/DSD_v2/design_test/design_test_top.bdf                           ;         ;
+; altshift_taps.tdf                                           ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift_taps.tdf ;         ;
+; altdpram.inc                                                ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc      ;         ;
+; lpm_counter.inc                                             ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_counter.inc   ;         ;
+; lpm_compare.inc                                             ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_compare.inc   ;         ;
+; lpm_constant.inc                                            ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_constant.inc  ;         ;
+; db/shift_taps_55m.tdf                                       ; yes             ; Auto-Generated Megafunction        ; H:/DSD_v2/design_test/db/shift_taps_55m.tdf                         ;         ;
+; db/altsyncram_uj31.tdf                                      ; yes             ; Auto-Generated Megafunction        ; H:/DSD_v2/design_test/db/altsyncram_uj31.tdf                        ;         ;
+; db/add_sub_p2e.tdf                                          ; yes             ; Auto-Generated Megafunction        ; H:/DSD_v2/design_test/db/add_sub_p2e.tdf                            ;         ;
+; db/cntr_tnf.tdf                                             ; yes             ; Auto-Generated Megafunction        ; H:/DSD_v2/design_test/db/cntr_tnf.tdf                               ;         ;
+; db/cmpr_ffc.tdf                                             ; yes             ; Auto-Generated Megafunction        ; H:/DSD_v2/design_test/db/cmpr_ffc.tdf                               ;         ;
++-------------------------------------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 1,442     ;
-;                                             ;           ;
-; Total combinational functions               ; 1372      ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 575       ;
-;     -- 3 input functions                    ; 664       ;
-;     -- <=2 input functions                  ; 133       ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1143      ;
-;     -- arithmetic mode                      ; 229       ;
-;                                             ;           ;
-; Total registers                             ; 438       ;
-;     -- Dedicated logic registers            ; 438       ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 97        ;
-; Total memory bits                           ; 162       ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 492       ;
-; Total fan-out                               ; 5992      ;
-; Average fan-out                             ; 2.91      ;
-+---------------------------------------------+-----------+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 1,444         ;
+;                                             ;               ;
+; Total combinational functions               ; 1374          ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 566           ;
+;     -- 3 input functions                    ; 676           ;
+;     -- <=2 input functions                  ; 132           ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 1145          ;
+;     -- arithmetic mode                      ; 229           ;
+;                                             ;               ;
+; Total registers                             ; 438           ;
+;     -- Dedicated logic registers            ; 438           ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 97            ;
+; Total memory bits                           ; 162           ;
+; Embedded Multiplier 9-bit elements          ; 0             ;
+; Maximum fan-out node                        ; iCLK_50~input ;
+; Maximum fan-out                             ; 492           ;
+; Total fan-out                               ; 5990          ;
+; Average fan-out                             ; 2.91          ;
++---------------------------------------------+---------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                             ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+--------------+
-; |ahfp_add_sub_multi                       ; 1372 (73)         ; 438 (0)      ; 162         ; 0            ; 0       ; 0         ; 97   ; 0            ; |ahfp_add_sub_multi                                                                                                      ; work         ;
-;    |ahfp_add_multi:add|                   ; 418 (411)         ; 233 (229)    ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_add_multi:add                                                                                   ; work         ;
-;       |altshift_taps:z_m_rtl_0|           ; 7 (0)             ; 4 (0)        ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_add_multi:add|altshift_taps:z_m_rtl_0                                                           ; work         ;
-;          |shift_taps_55m:auto_generated|  ; 7 (2)             ; 4 (2)        ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_add_multi:add|altshift_taps:z_m_rtl_0|shift_taps_55m:auto_generated                             ; work         ;
-;             |altsyncram_uj31:altsyncram4| ; 0 (0)             ; 0 (0)        ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_add_multi:add|altshift_taps:z_m_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4 ; work         ;
-;             |cntr_tnf:cntr1|              ; 5 (5)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_add_multi:add|altshift_taps:z_m_rtl_0|shift_taps_55m:auto_generated|cntr_tnf:cntr1              ; work         ;
-;    |ahfp_pipeline_buffer:buffer|          ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_pipeline_buffer:buffer                                                                          ; work         ;
-;    |ahfp_sub_multi:sub|                   ; 881 (820)         ; 195 (195)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub                                                                                   ; work         ;
-;       |ahfp_lzd48:lzd48|                  ; 61 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48                                                                  ; work         ;
-;          |ahfp_lzd64:msb_finder|          ; 61 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder                                            ; work         ;
-;             |lzd32:hi|                    ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi                                   ; work         ;
-;                |lzd16:lo|                 ; 6 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo                          ; work         ;
-;                   |lzd8:hi|               ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:hi                  ; work         ;
-;                      |lzd4:hi|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:hi|lzd4:hi          ; work         ;
-;                      |lzd4:lo|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:hi|lzd4:lo          ; work         ;
-;                   |lzd8:lo|               ; 3 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:lo                  ; work         ;
-;                      |lzd4:hi|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:lo|lzd4:hi          ; work         ;
-;             |lzd32:lo|                    ; 27 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo                                   ; work         ;
-;                |lzd16:hi|                 ; 14 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi                          ; work         ;
-;                   |lzd8:hi|               ; 3 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi|lzd8:hi                  ; work         ;
-;                      |lzd4:hi|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi|lzd8:hi|lzd4:hi          ; work         ;
-;                   |lzd8:lo|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi|lzd8:lo                  ; work         ;
-;                |lzd16:lo|                 ; 13 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo                          ; work         ;
-;                   |lzd8:hi|               ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:hi                  ; work         ;
-;                      |lzd4:hi|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:hi|lzd4:hi          ; work         ;
-;                   |lzd8:lo|               ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo                  ; work         ;
-;                      |lzd4:hi|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo|lzd4:hi          ; work         ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                     ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Library Name ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |design_test_top                             ; 1374 (1)          ; 438 (0)      ; 162         ; 0            ; 0       ; 0         ; 97   ; 0            ; |design_test_top                                                                                                                              ; work         ;
+;    |ahfp_add_sub_multi:inst|                 ; 1373 (72)         ; 438 (0)      ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst                                                                                                      ; work         ;
+;       |ahfp_add_multi:add|                   ; 411 (411)         ; 229 (229)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add                                                                                   ; work         ;
+;       |ahfp_pipeline_buffer:buffer|          ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_pipeline_buffer:buffer                                                                          ; work         ;
+;       |ahfp_sub_multi:sub|                   ; 890 (820)         ; 199 (195)    ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub                                                                                   ; work         ;
+;          |ahfp_lzd48:lzd48|                  ; 63 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48                                                                  ; work         ;
+;             |ahfp_lzd64:msb_finder|          ; 63 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder                                            ; work         ;
+;                |lzd32:hi|                    ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi                                   ; work         ;
+;                   |lzd16:lo|                 ; 7 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo                          ; work         ;
+;                      |lzd8:hi|               ; 4 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:hi                  ; work         ;
+;                         |lzd4:hi|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:hi|lzd4:hi          ; work         ;
+;                         |lzd4:lo|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:hi|lzd4:lo          ; work         ;
+;                      |lzd8:lo|               ; 3 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:lo                  ; work         ;
+;                         |lzd4:hi|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:hi|lzd16:lo|lzd8:lo|lzd4:hi          ; work         ;
+;                |lzd32:lo|                    ; 27 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo                                   ; work         ;
+;                   |lzd16:hi|                 ; 14 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi                          ; work         ;
+;                      |lzd8:hi|               ; 3 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi|lzd8:hi                  ; work         ;
+;                         |lzd4:hi|            ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi|lzd8:hi|lzd4:hi          ; work         ;
+;                      |lzd8:lo|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:hi|lzd8:lo                  ; work         ;
+;                   |lzd16:lo|                 ; 13 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo                          ; work         ;
+;                      |lzd8:hi|               ; 2 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:hi                  ; work         ;
+;                         |lzd4:hi|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:hi|lzd4:hi          ; work         ;
+;                      |lzd8:lo|               ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo                  ; work         ;
+;                         |lzd4:hi|            ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo|lzd4:hi          ; work         ;
+;          |altshift_taps:z_e_rtl_0|           ; 7 (0)             ; 4 (0)        ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0                                                           ; work         ;
+;             |shift_taps_55m:auto_generated|  ; 7 (2)             ; 4 (2)        ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0|shift_taps_55m:auto_generated                             ; work         ;
+;                |altsyncram_uj31:altsyncram4| ; 0 (0)             ; 0 (0)        ; 162         ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4 ; work         ;
+;                |cntr_tnf:cntr1|              ; 5 (5)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0|shift_taps_55m:auto_generated|cntr_tnf:cntr1              ; work         ;
++----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                    ;
-+-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; ahfp_add_multi:add|altshift_taps:z_m_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 3            ; 54           ; 3            ; 54           ; 162  ; None ;
-+-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                                    ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 3            ; 54           ; 3            ; 54           ; 162  ; None ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; ahfp_sub_multi:sub|b_m_tmp[24..47]      ; Stuck at GND due to stuck port data_in ;
-; ahfp_sub_multi:sub|a_m_tmp[24..47]      ; Stuck at GND due to stuck port data_in ;
-; ahfp_sub_multi:sub|b_m[24..47]          ; Stuck at GND due to stuck port data_in ;
-; ahfp_sub_multi:sub|a_m[24..47]          ; Stuck at GND due to stuck port data_in ;
-; ahfp_sub_multi:sub|underflow            ; Stuck at GND due to stuck port data_in ;
-; ahfp_sub_multi:sub|overflow             ; Stuck at GND due to stuck port data_in ;
-; ahfp_add_multi:add|overflow             ; Stuck at GND due to stuck port data_in ;
-; ahfp_add_multi:add|underflow            ; Stuck at GND due to stuck port data_in ;
-; ahfp_sub_multi:sub|e_diff[5..7]         ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 103 ;                                        ;
-+-----------------------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++------------------------------------------------------------+----------------------------------------+
+; Register name                                              ; Reason for Removal                     ;
++------------------------------------------------------------+----------------------------------------+
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m_tmp[24..47] ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m_tmp[24..47] ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[24..47]     ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[24..47]     ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|underflow       ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|overflow        ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_add_multi:add|overflow        ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_add_multi:add|underflow       ; Stuck at GND due to stuck port data_in ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|e_diff[5..7]    ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 103                    ;                                        ;
++------------------------------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                      ;
-+--------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                  ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+--------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; ahfp_sub_multi:sub|b_m_tmp[24] ; Stuck at GND              ; ahfp_sub_multi:sub|b_m[24], ahfp_sub_multi:sub|b_m[25], ahfp_sub_multi:sub|b_m[26], ;
-;                                ; due to stuck port data_in ; ahfp_sub_multi:sub|b_m[27], ahfp_sub_multi:sub|b_m[28], ahfp_sub_multi:sub|b_m[29], ;
-;                                ;                           ; ahfp_sub_multi:sub|b_m[30], ahfp_sub_multi:sub|b_m[31], ahfp_sub_multi:sub|b_m[32], ;
-;                                ;                           ; ahfp_sub_multi:sub|b_m[33], ahfp_sub_multi:sub|b_m[34], ahfp_sub_multi:sub|b_m[35], ;
-;                                ;                           ; ahfp_sub_multi:sub|b_m[36], ahfp_sub_multi:sub|b_m[37], ahfp_sub_multi:sub|b_m[38], ;
-;                                ;                           ; ahfp_sub_multi:sub|b_m[39], ahfp_sub_multi:sub|b_m[40], ahfp_sub_multi:sub|b_m[41], ;
-;                                ;                           ; ahfp_sub_multi:sub|b_m[42], ahfp_sub_multi:sub|b_m[43], ahfp_sub_multi:sub|b_m[44], ;
-;                                ;                           ; ahfp_sub_multi:sub|b_m[45], ahfp_sub_multi:sub|b_m[46], ahfp_sub_multi:sub|b_m[47], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[24], ahfp_sub_multi:sub|a_m[25], ahfp_sub_multi:sub|a_m[26], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[27], ahfp_sub_multi:sub|a_m[28], ahfp_sub_multi:sub|a_m[29], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[30], ahfp_sub_multi:sub|a_m[31], ahfp_sub_multi:sub|a_m[32], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[33], ahfp_sub_multi:sub|a_m[34], ahfp_sub_multi:sub|a_m[35], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[36], ahfp_sub_multi:sub|a_m[37], ahfp_sub_multi:sub|a_m[38], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[39], ahfp_sub_multi:sub|a_m[40], ahfp_sub_multi:sub|a_m[41], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[42], ahfp_sub_multi:sub|a_m[43], ahfp_sub_multi:sub|a_m[44], ;
-;                                ;                           ; ahfp_sub_multi:sub|a_m[45], ahfp_sub_multi:sub|a_m[46], ahfp_sub_multi:sub|a_m[47]  ;
-+--------------------------------+---------------------------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                              ;
++--------------------------------------------------------+---------------------------+-----------------------------------------------------+
+; Register name                                          ; Reason for Removal        ; Registers Removed due to This Register              ;
++--------------------------------------------------------+---------------------------+-----------------------------------------------------+
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m_tmp[24] ; Stuck at GND              ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[24], ;
+;                                                        ; due to stuck port data_in ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[25], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[26], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[27], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[28], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[29], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[30], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[31], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[32], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[33], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[34], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[35], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[36], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[37], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[38], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[39], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[40], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[41], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[42], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[43], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[44], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[45], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[46], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m[47], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[24], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[25], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[26], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[27], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[28], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[29], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[30], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[31], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[32], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[33], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[34], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[35], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[36], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[37], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[38], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[39], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[40], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[41], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[42], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[43], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[44], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[45], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[46], ;
+;                                                        ;                           ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[47]  ;
++--------------------------------------------------------+---------------------------+-----------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -332,100 +366,100 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                    ;
-+-------------------------------------+------------------------------+------------+
-; Register Name                       ; Megafunction                 ; Type       ;
-+-------------------------------------+------------------------------+------------+
-; ahfp_add_multi:add|res[0..22]       ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_add_multi:add|z_m_final[0..22] ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_add_multi:add|z_m[0..22]       ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_sub_multi:sub|res[0..30]       ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_sub_multi:sub|z_m_final[0..22] ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_sub_multi:sub|z_m[0..22]       ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_sub_multi:sub|z_e_final[0..7]  ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-; ahfp_sub_multi:sub|z_e[0..7]        ; ahfp_add_multi:add|z_m_rtl_0 ; SHIFT_TAPS ;
-+-------------------------------------+------------------------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                    ;
++-------------------------------------------------------------+------------------------------------------------------+------------+
+; Register Name                                               ; Megafunction                                         ; Type       ;
++-------------------------------------------------------------+------------------------------------------------------+------------+
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|res[0..30]       ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_final[0..7]  ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e[0..7]        ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_add_multi:add|res[0..22]       ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_add_multi:add|z_m_final[0..22] ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_add_multi:add|z_m[0..22]       ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_final[0..22] ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
+; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m[0..22]       ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0 ; SHIFT_TAPS ;
++-------------------------------------------------------------+------------------------------------------------------+------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |ahfp_add_sub_multi|ahfp_add_multi:add|man_tmp[1]  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |ahfp_add_sub_multi|ahfp_add_multi:add|exp_tmp[0]  ;
-; 4:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|b_e[3]      ;
-; 4:1                ; 66 bits   ; 132 LEs       ; 66 LEs               ; 66 LEs                 ; Yes        ; |ahfp_add_sub_multi|ahfp_add_multi:add|a_m[2]      ;
-; 4:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; Yes        ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|b_m_tmp[0]  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_add_multi:add|ShiftRight0 ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ShiftLeft0  ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_add_multi:add|ShiftRight0 ;
-; 3:1                ; 39 bits   ; 78 LEs        ; 78 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|sub_b[28]                      ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ShiftLeft0  ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ShiftLeft0  ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_add_multi:add|ShiftRight0 ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|ShiftLeft0  ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_add_multi:add|ShiftRight0 ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_add_multi:add|ShiftRight0 ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-; 12:1               ; 7 bits    ; 56 LEs        ; 35 LEs               ; 21 LEs                 ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |ahfp_add_sub_multi|ahfp_sub_multi:sub|z_m_tmp     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
+; 3:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|man_tmp[15] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|exp_tmp[6]  ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|a_m[2]      ;
+; 4:1                ; 66 bits   ; 132 LEs       ; 66 LEs               ; 66 LEs                 ; Yes        ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|b_m[1]      ;
+; 4:1                ; 23 bits   ; 46 LEs        ; 46 LEs               ; 0 LEs                  ; Yes        ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|b_m_tmp[14] ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|ShiftRight0 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ShiftLeft0  ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|ShiftRight0 ;
+; 3:1                ; 39 bits   ; 78 LEs        ; 78 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|sub_a[9]                       ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ShiftLeft0  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ShiftLeft0  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|ShiftRight0 ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ShiftLeft0  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|ShiftRight0 ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_add_multi:add|ShiftRight0 ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 35 LEs               ; 21 LEs                 ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_m_tmp     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for ahfp_add_multi:add|altshift_taps:z_m_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4 ;
-+---------------------------------+--------------------+------+---------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                            ;
-+---------------------------------+--------------------+------+---------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                             ;
-+---------------------------------+--------------------+------+---------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0|shift_taps_55m:auto_generated|altsyncram_uj31:altsyncram4 ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                    ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                     ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: ahfp_add_multi:add|altshift_taps:z_m_rtl_0 ;
-+----------------+----------------+-----------------------------------------------------------+
-; Parameter Name ; Value          ; Type                                                      ;
-+----------------+----------------+-----------------------------------------------------------+
-; WIDTH_BYTEENA  ; 1              ; Untyped                                                   ;
-; NUMBER_OF_TAPS ; 1              ; Untyped                                                   ;
-; TAP_DISTANCE   ; 3              ; Untyped                                                   ;
-; WIDTH          ; 54             ; Untyped                                                   ;
-; POWER_UP_STATE ; CLEARED        ; Untyped                                                   ;
-; CBXI_PARAMETER ; shift_taps_55m ; Untyped                                                   ;
-+----------------+----------------+-----------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0 ;
++----------------+----------------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value          ; Type                                                                              ;
++----------------+----------------+-----------------------------------------------------------------------------------+
+; WIDTH_BYTEENA  ; 1              ; Untyped                                                                           ;
+; NUMBER_OF_TAPS ; 1              ; Untyped                                                                           ;
+; TAP_DISTANCE   ; 3              ; Untyped                                                                           ;
+; WIDTH          ; 54             ; Untyped                                                                           ;
+; POWER_UP_STATE ; CLEARED        ; Untyped                                                                           ;
+; CBXI_PARAMETER ; shift_taps_55m ; Untyped                                                                           ;
++----------------+----------------+-----------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------+
-; altshift_taps Parameter Settings by Entity Instance                     ;
-+----------------------------+--------------------------------------------+
-; Name                       ; Value                                      ;
-+----------------------------+--------------------------------------------+
-; Number of entity instances ; 1                                          ;
-; Entity Instance            ; ahfp_add_multi:add|altshift_taps:z_m_rtl_0 ;
-;     -- NUMBER_OF_TAPS      ; 1                                          ;
-;     -- TAP_DISTANCE        ; 3                                          ;
-;     -- WIDTH               ; 54                                         ;
-+----------------------------+--------------------------------------------+
++-------------------------------------------------------------------------------------------------+
+; altshift_taps Parameter Settings by Entity Instance                                             ;
++----------------------------+--------------------------------------------------------------------+
+; Name                       ; Value                                                              ;
++----------------------------+--------------------------------------------------------------------+
+; Number of entity instances ; 1                                                                  ;
+; Entity Instance            ; ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0 ;
+;     -- NUMBER_OF_TAPS      ; 1                                                                  ;
+;     -- TAP_DISTANCE        ; 3                                                                  ;
+;     -- WIDTH               ; 54                                                                 ;
++----------------------------+--------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder" ;
-+------------+-------+----------+-------------------------------------------------------+
-; Port       ; Type  ; Severity ; Details                                               ;
-+------------+-------+----------+-------------------------------------------------------+
-; in[63..48] ; Input ; Info     ; Stuck at GND                                          ;
-+------------+-------+----------+-------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder" ;
++------------+-------+----------+-------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                       ;
++------------+-------+----------+-------------------------------------------------------------------------------+
+; in[63..48] ; Input ; Info     ; Stuck at GND                                                                  ;
++------------+-------+----------+-------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ahfp_pipeline_buffer:buffer"                                                                                                                 ;
+; Port Connectivity Checks: "ahfp_add_sub_multi:inst|ahfp_pipeline_buffer:buffer"                                                                                         ;
 +------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                                                                                      ;
 +------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -449,7 +483,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 12 14:48:52 2018
+    Info: Processing started: Mon Mar 12 17:24:59 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off design_test -c design_test
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file /dsd_v2/design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v
@@ -479,26 +513,27 @@ Info (12021): Found 6 design units, including 6 entities, in source file /dsd_v2
     Info (12023): Found entity 6: lzd48
 Info (12021): Found 1 design units, including 1 entities, in source file /dsd_v2/design_files/ahfp_sub_multi/ahfp_sub_multi.v
     Info (12023): Found entity 1: ahfp_sub_multi
-Info (12021): Found 1 design units, including 1 entities, in source file design_test_top.v
+Info (12021): Found 1 design units, including 1 entities, in source file design_test_top.bdf
     Info (12023): Found entity 1: design_test_top
-Info (12127): Elaborating entity "ahfp_add_sub_multi" for the top level hierarchy
-Info (12128): Elaborating entity "ahfp_pipeline_buffer" for hierarchy "ahfp_pipeline_buffer:buffer"
-Info (12128): Elaborating entity "ahfp_add_multi" for hierarchy "ahfp_add_multi:add"
-Info (12128): Elaborating entity "ahfp_sub_multi" for hierarchy "ahfp_sub_multi:sub"
+Info (12127): Elaborating entity "design_test_top" for the top level hierarchy
+Info (12128): Elaborating entity "ahfp_add_sub_multi" for hierarchy "ahfp_add_sub_multi:inst"
+Info (12128): Elaborating entity "ahfp_pipeline_buffer" for hierarchy "ahfp_add_sub_multi:inst|ahfp_pipeline_buffer:buffer"
+Info (12128): Elaborating entity "ahfp_add_multi" for hierarchy "ahfp_add_sub_multi:inst|ahfp_add_multi:add"
+Info (12128): Elaborating entity "ahfp_sub_multi" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub"
 Warning (10230): Verilog HDL assignment warning at ahfp_sub_multi.v(90): truncated value with size 48 to match size of target (23)
-Info (12128): Elaborating entity "ahfp_lzd48" for hierarchy "ahfp_sub_multi:sub|ahfp_lzd48:lzd48"
-Info (12128): Elaborating entity "ahfp_lzd64" for hierarchy "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder"
-Info (12128): Elaborating entity "lzd32" for hierarchy "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo"
-Info (12128): Elaborating entity "lzd16" for hierarchy "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo"
-Info (12128): Elaborating entity "lzd8" for hierarchy "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo"
-Info (12128): Elaborating entity "lzd4" for hierarchy "ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo|lzd4:lo"
+Info (12128): Elaborating entity "ahfp_lzd48" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48"
+Info (12128): Elaborating entity "ahfp_lzd64" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder"
+Info (12128): Elaborating entity "lzd32" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo"
+Info (12128): Elaborating entity "lzd16" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo"
+Info (12128): Elaborating entity "lzd8" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo"
+Info (12128): Elaborating entity "lzd4" for hierarchy "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|ahfp_lzd48:lzd48|ahfp_lzd64:msb_finder|lzd32:lo|lzd16:lo|lzd8:lo|lzd4:lo"
 Info (19000): Inferred 1 megafunctions from design logic
-    Info (276034): Inferred altshift_taps megafunction from the following design logic: "ahfp_add_multi:add|z_m_rtl_0"
+    Info (276034): Inferred altshift_taps megafunction from the following design logic: "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|z_e_rtl_0"
         Info (286033): Parameter NUMBER_OF_TAPS set to 1
         Info (286033): Parameter TAP_DISTANCE set to 3
         Info (286033): Parameter WIDTH set to 54
-Info (12130): Elaborated megafunction instantiation "ahfp_add_multi:add|altshift_taps:z_m_rtl_0"
-Info (12133): Instantiated megafunction "ahfp_add_multi:add|altshift_taps:z_m_rtl_0" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0"
+Info (12133): Instantiated megafunction "ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0" with the following parameter:
     Info (12134): Parameter "NUMBER_OF_TAPS" = "1"
     Info (12134): Parameter "TAP_DISTANCE" = "3"
     Info (12134): Parameter "WIDTH" = "54"
@@ -517,15 +552,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file H:/DSD_v2/design_test/output_files/design_test.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1639 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1641 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 65 input pins
     Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 1488 logic cells
+    Info (21061): Implemented 1490 logic cells
     Info (21064): Implemented 54 RAM segments
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 484 megabytes
-    Info: Processing ended: Mon Mar 12 14:48:58 2018
-    Info: Elapsed time: 00:00:06
+    Info: Peak virtual memory: 483 megabytes
+    Info: Processing ended: Mon Mar 12 17:25:06 2018
+    Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:05
 
 

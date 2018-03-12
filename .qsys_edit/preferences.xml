@@ -3,18 +3,19 @@
  <debug showDebugMenu="0" />
  <systemtable>
   <columns>
-   <connections preferredWidth="127" />
+   <connections preferredWidth="143" />
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
  <clocktable>
   <columns>
-   <clockname preferredWidth="536" />
-   <clocksource preferredWidth="536" />
-   <frequency preferredWidth="536" />
+   <clockname preferredWidth="487" />
+   <clocksource preferredWidth="487" />
+   <frequency preferredWidth="486" />
   </columns>
  </clocktable>
- <library expandedCategories="Project,Library" />
+ <library
+   expandedCategories="Library/Peripherals/Debug and Performance,Library/Peripherals,Library/Interface Protocols/Serial,Library/DSP/Video and Image Processing,Library/Qsys Interconnect,Library/Bridges/Streaming,Library/Interface Protocols,Library/Interface Protocols/PCI,Library/Bridges,Library/Memories and Memory Controllers/External Memory Interfaces,Library/Peripherals/Display,Library/Memories and Memory Controllers/On-Chip,Library/Microcontroller Peripherals,Library/Memories and Memory Controllers/External Memory Interfaces/Performance Monitors,Library/Qsys Interconnect/Memory-Mapped,Library/Memories and Memory Controllers,Library/Memories and Memory Controllers/External Memory Interfaces/Pattern Generators,Project,Library/DSP,Library/Verification/Simulation,Library/Verification,Library,Library/PLL,Library/Memories and Memory Controllers/External Memory Interfaces/Flash Interfaces,Library/Bridges/Memory-Mapped" />
  <window width="1920" height="1040" x="0" y="0" />
  <generation path="_PROJECT_NAME_" />
  <hdlexample language="VERILOG" />

@@ -11,7 +11,17 @@
 			sdram_wire_dq                      : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
 			sdram_wire_dqm                     : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_wire_ras_n                   : out   std_logic;                                        -- ras_n
-			sdram_wire_we_n                    : out   std_logic                                         -- we_n
+			sdram_wire_we_n                    : out   std_logic;                                        -- we_n
+			mm_bridge_0_m0_waitrequest         : in    std_logic                     := 'X';             -- waitrequest
+			mm_bridge_0_m0_readdata            : in    std_logic_vector(31 downto 0) := (others => 'X'); -- readdata
+			mm_bridge_0_m0_readdatavalid       : in    std_logic                     := 'X';             -- readdatavalid
+			mm_bridge_0_m0_burstcount          : out   std_logic_vector(0 downto 0);                     -- burstcount
+			mm_bridge_0_m0_writedata           : out   std_logic_vector(31 downto 0);                    -- writedata
+			mm_bridge_0_m0_address             : out   std_logic_vector(9 downto 0);                     -- address
+			mm_bridge_0_m0_write               : out   std_logic;                                        -- write
+			mm_bridge_0_m0_read                : out   std_logic;                                        -- read
+			mm_bridge_0_m0_byteenable          : out   std_logic_vector(3 downto 0);                     -- byteenable
+			mm_bridge_0_m0_debugaccess         : out   std_logic                                         -- debugaccess
 		);
 	end component first_nios2_system;
 

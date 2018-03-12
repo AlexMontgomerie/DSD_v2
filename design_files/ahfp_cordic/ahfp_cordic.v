@@ -11,7 +11,7 @@ module ahfp_cordic( clk,
   
   //parameters
   parameter width = 32;
-  parameter N     = 10;  
+  parameter N     = 5;  
 
   //inputs
   input clk;

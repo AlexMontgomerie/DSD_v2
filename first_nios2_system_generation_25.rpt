@@ -1,0 +1,165 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: ip-generate --project-directory=H:/DSD_v2/ --output-directory=H:/DSD_v2/first_nios2_system/ --report-file=bsf:H:/DSD_v2/first_nios2_system.bsf --system-info=DEVICE_FAMILY="Cyclone III" --system-info=DEVICE=EP3C16F484C6 --system-info=DEVICE_SPEEDGRADE=6 --component-file=H:/DSD_v2/first_nios2_system.qsys
+Progress: Loading DSD_v2/first_nios2_system.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 13.0]
+Progress: Parameterizing module clk_0
+Progress: Adding cpu [altera_nios2_qsys 13.0]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 13.0.1.99.2]
+Progress: Parameterizing module jtag_uart
+Progress: Adding sys_clk_timer [altera_avalon_timer 13.0.1.99.2]
+Progress: Parameterizing module sys_clk_timer
+Progress: Adding sysid [altera_avalon_sysid_qsys 13.0]
+Progress: Parameterizing module sysid
+Progress: Adding led_pio [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module led_pio
+Progress: Adding sdram [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Progress: Parameterizing module sdram
+Progress: Adding altfp_mult [altfp_mult 1.0]
+Progress: Parameterizing module altfp_mult
+Progress: Adding altfp_add [altfp_add 1.0]
+Progress: Parameterizing module altfp_add
+Progress: Adding altfp_sub [altfp_sub 1.0]
+Progress: Parameterizing module altfp_sub
+Progress: Adding sdram_extern [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Progress: Parameterizing module sdram_extern
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: first_nios2_system.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: first_nios2_system.sysid: Time stamp will be automatically updated when this component is generated.
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: ip-generate --project-directory=H:/DSD_v2/ --output-directory=H:/DSD_v2/first_nios2_system/synthesis/ --file-set=QUARTUS_SYNTH --report-file=sopcinfo:H:/DSD_v2/first_nios2_system.sopcinfo --report-file=html:H:/DSD_v2/first_nios2_system.html --report-file=qip:H:/DSD_v2/first_nios2_system/synthesis/first_nios2_system.qip --report-file=cmp:H:/DSD_v2/first_nios2_system.cmp --report-file=svd --system-info=DEVICE_FAMILY="Cyclone III" --system-info=DEVICE=EP3C16F484C6 --system-info=DEVICE_SPEEDGRADE=6 --component-file=H:/DSD_v2/first_nios2_system.qsys --language=VERILOG
+Progress: Loading DSD_v2/first_nios2_system.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 13.0]
+Progress: Parameterizing module clk_0
+Progress: Adding cpu [altera_nios2_qsys 13.0]
+Progress: Parameterizing module cpu
+Progress: Adding jtag_uart [altera_avalon_jtag_uart 13.0.1.99.2]
+Progress: Parameterizing module jtag_uart
+Progress: Adding sys_clk_timer [altera_avalon_timer 13.0.1.99.2]
+Progress: Parameterizing module sys_clk_timer
+Progress: Adding sysid [altera_avalon_sysid_qsys 13.0]
+Progress: Parameterizing module sysid
+Progress: Adding led_pio [altera_avalon_pio 13.0.1.99.2]
+Progress: Parameterizing module led_pio
+Progress: Adding sdram [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Progress: Parameterizing module sdram
+Progress: Adding altfp_mult [altfp_mult 1.0]
+Progress: Parameterizing module altfp_mult
+Progress: Adding altfp_add [altfp_add 1.0]
+Progress: Parameterizing module altfp_add
+Progress: Adding altfp_sub [altfp_sub 1.0]
+Progress: Parameterizing module altfp_sub
+Progress: Adding sdram_extern [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Progress: Parameterizing module sdram_extern
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: first_nios2_system.sysid: System ID is not assigned automatically. Edit the System ID parameter to provide a unique ID
+Info: first_nios2_system.sysid: Time stamp will be automatically updated when this component is generated.
+Info: first_nios2_system: Generating first_nios2_system "first_nios2_system" for QUARTUS_SYNTH
+Info: pipeline_bridge_swap_transform: After transform: 11 modules, 27 connections
+Info: merlin_custom_instruction_transform: After transform: 16 modules, 32 connections
+Info: merlin_translator_transform: After transform: 24 modules, 56 connections
+Info: merlin_domain_transform: After transform: 40 modules, 137 connections
+Info: merlin_router_transform: After transform: 48 modules, 161 connections
+Info: merlin_traffic_limiter_transform: After transform: 49 modules, 165 connections
+Info: merlin_burst_transform: After transform: 50 modules, 168 connections
+Info: reset_adaptation_transform: After transform: 51 modules, 170 connections
+Info: merlin_network_to_switch_transform: After transform: 66 modules, 202 connections
+Info: merlin_width_transform: After transform: 68 modules, 208 connections
+Info: limiter_update_transform: After transform: 68 modules, 209 connections
+Info: merlin_mm_transform: After transform: 68 modules, 209 connections
+Info: merlin_interrupt_mapper_transform: After transform: 69 modules, 212 connections
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_translator:ci_slave:ci_slave_result (result)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_ipending (ipending)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_xconnect:ci_slave:ci_slave_estatus (estatus)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_slave_translator0:ci_master:ci_master_clken (clk_en)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_slave_translator0:ci_master:ci_master_reset (reset)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_slave_translator1:ci_master:ci_master_clken (clk_en)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_slave_translator1:ci_master:ci_master_reset (reset)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_slave_translator2:ci_master:ci_master_clken (clk_en)"
+Warning: first_nios2_system: "No matching role found for cpu_custom_instruction_master_multi_slave_translator2:ci_master:ci_master_reset (reset)"
+Info: cpu: Starting RTL generation for module 'first_nios2_system_cpu'
+Info: cpu:   Generation command is [exec C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/eperl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -I C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -- C:/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=first_nios2_system_cpu --dir=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0001_cpu_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0001_cpu_gen//first_nios2_system_cpu_processor_configuration.pl  --do_build_sim=0    --bogus  ]
+Info: cpu: # 2018.03.12 21:16:59 (*) Starting Nios II generation
+Info: cpu: # 2018.03.12 21:16:59 (*)   Checking for plaintext license.
+Info: cpu: # 2018.03.12 21:16:59 (*)   Couldn't query license setup in Quartus directory C:/altera/13.0sp1/quartus
+Info: cpu: # 2018.03.12 21:16:59 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2018.03.12 21:16:59 (*)   Plaintext license not found.
+Info: cpu: # 2018.03.12 21:16:59 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2018.03.12 21:17:00 (*)   Couldn't query license setup in Quartus directory C:/altera/13.0sp1/quartus
+Info: cpu: # 2018.03.12 21:17:00 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2018.03.12 21:17:00 (*)   Encrypted license found.  SOF will not be time-limited.
+Info: cpu: # 2018.03.12 21:17:00 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2018.03.12 21:17:00 (*)   Creating all objects for CPU
+Info: cpu: # 2018.03.12 21:17:01 (*)     Pipeline frontend
+Info: cpu: # 2018.03.12 21:17:02 (*)   Generating RTL from CPU objects
+Info: cpu: # 2018.03.12 21:17:04 (*)   Creating encrypted RTL
+Info: cpu: # 2018.03.12 21:17:04 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'first_nios2_system_cpu'
+Info: cpu: "first_nios2_system" instantiated altera_nios2_qsys "cpu"
+Info: jtag_uart: Starting RTL generation for module 'first_nios2_system_jtag_uart'
+Info: jtag_uart:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=first_nios2_system_jtag_uart --dir=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0002_jtag_uart_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0002_jtag_uart_gen//first_nios2_system_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart: Done RTL generation for module 'first_nios2_system_jtag_uart'
+Info: jtag_uart: "first_nios2_system" instantiated altera_avalon_jtag_uart "jtag_uart"
+Info: sys_clk_timer: Starting RTL generation for module 'first_nios2_system_sys_clk_timer'
+Info: sys_clk_timer:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=first_nios2_system_sys_clk_timer --dir=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0003_sys_clk_timer_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0003_sys_clk_timer_gen//first_nios2_system_sys_clk_timer_component_configuration.pl  --do_build_sim=0  ]
+Info: sys_clk_timer: Done RTL generation for module 'first_nios2_system_sys_clk_timer'
+Info: sys_clk_timer: "first_nios2_system" instantiated altera_avalon_timer "sys_clk_timer"
+Info: sysid: "first_nios2_system" instantiated altera_avalon_sysid_qsys "sysid"
+Info: led_pio: Starting RTL generation for module 'first_nios2_system_led_pio'
+Info: led_pio:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=first_nios2_system_led_pio --dir=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0005_led_pio_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0005_led_pio_gen//first_nios2_system_led_pio_component_configuration.pl  --do_build_sim=0  ]
+Info: led_pio: Done RTL generation for module 'first_nios2_system_led_pio'
+Info: led_pio: "first_nios2_system" instantiated altera_avalon_pio "led_pio"
+Info: sdram: Starting RTL generation for module 'first_nios2_system_sdram'
+Info: sdram:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=first_nios2_system_sdram --dir=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0006_sdram_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0006_sdram_gen//first_nios2_system_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram: Done RTL generation for module 'first_nios2_system_sdram'
+Info: sdram: "first_nios2_system" instantiated altera_avalon_new_sdram_controller "sdram"
+Info: altfp_mult: "first_nios2_system" instantiated altfp_mult "altfp_mult"
+Info: altfp_add: "first_nios2_system" instantiated altfp_add "altfp_add"
+Info: altfp_sub: "first_nios2_system" instantiated altfp_sub "altfp_sub"
+Info: sdram_extern: Starting RTL generation for module 'first_nios2_system_sdram_extern'
+Info: sdram_extern:   Generation command is [exec C:/altera/13.0sp1/quartus/bin/perl/bin/perl.exe -I C:/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I C:/altera/13.0sp1/quartus/sopc_builder/bin/europa -I C:/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I C:/altera/13.0sp1/quartus/sopc_builder/bin -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=first_nios2_system_sdram_extern --dir=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0010_sdram_extern_gen/ --quartus_dir=C:/altera/13.0sp1/quartus --verilog --config=C:/Users/am9215/AppData/Local/Temp/alt7602_485625644114151119.dir/0010_sdram_extern_gen//first_nios2_system_sdram_extern_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram_extern: Done RTL generation for module 'first_nios2_system_sdram_extern'
+Info: sdram_extern: "first_nios2_system" instantiated altera_avalon_new_sdram_controller "sdram_extern"
+Info: cpu_custom_instruction_master_translator: "first_nios2_system" instantiated altera_customins_master_translator "cpu_custom_instruction_master_translator"
+Info: cpu_custom_instruction_master_multi_xconnect: "first_nios2_system" instantiated altera_customins_xconnect "cpu_custom_instruction_master_multi_xconnect"
+Info: cpu_custom_instruction_master_multi_slave_translator0: "first_nios2_system" instantiated altera_customins_slave_translator "cpu_custom_instruction_master_multi_slave_translator0"
+Info: cpu_instruction_master_translator: "first_nios2_system" instantiated altera_merlin_master_translator "cpu_instruction_master_translator"
+Info: cpu_jtag_debug_module_translator: "first_nios2_system" instantiated altera_merlin_slave_translator "cpu_jtag_debug_module_translator"
+Info: cpu_instruction_master_translator_avalon_universal_master_0_agent: "first_nios2_system" instantiated altera_merlin_master_agent "cpu_instruction_master_translator_avalon_universal_master_0_agent"
+Info: cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent: "first_nios2_system" instantiated altera_merlin_slave_agent "cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent"
+Info: cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo: "first_nios2_system" instantiated altera_avalon_sc_fifo "cpu_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo"
+Info: addr_router: "first_nios2_system" instantiated altera_merlin_router "addr_router"
+Info: addr_router_001: "first_nios2_system" instantiated altera_merlin_router "addr_router_001"
+Info: id_router: "first_nios2_system" instantiated altera_merlin_router "id_router"
+Info: id_router_001: "first_nios2_system" instantiated altera_merlin_router "id_router_001"
+Info: id_router_002: "first_nios2_system" instantiated altera_merlin_router "id_router_002"
+Info: limiter: "first_nios2_system" instantiated altera_merlin_traffic_limiter "limiter"
+Info: burst_adapter: "first_nios2_system" instantiated altera_merlin_burst_adapter "burst_adapter"
+Info: rst_controller: "first_nios2_system" instantiated altera_reset_controller "rst_controller"
+Info: cmd_xbar_demux: "first_nios2_system" instantiated altera_merlin_demultiplexer "cmd_xbar_demux"
+Info: cmd_xbar_demux_001: "first_nios2_system" instantiated altera_merlin_demultiplexer "cmd_xbar_demux_001"
+Info: cmd_xbar_mux: "first_nios2_system" instantiated altera_merlin_multiplexer "cmd_xbar_mux"
+Info: rsp_xbar_demux: "first_nios2_system" instantiated altera_merlin_demultiplexer "rsp_xbar_demux"
+Info: rsp_xbar_demux_002: "first_nios2_system" instantiated altera_merlin_demultiplexer "rsp_xbar_demux_002"
+Info: rsp_xbar_mux: "first_nios2_system" instantiated altera_merlin_multiplexer "rsp_xbar_mux"
+Info: Reusing file H:/DSD_v2/first_nios2_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: rsp_xbar_mux_001: "first_nios2_system" instantiated altera_merlin_multiplexer "rsp_xbar_mux_001"
+Info: Reusing file H:/DSD_v2/first_nios2_system/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: width_adapter: "first_nios2_system" instantiated altera_merlin_width_adapter "width_adapter"
+Info: Reusing file H:/DSD_v2/first_nios2_system/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file H:/DSD_v2/first_nios2_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: irq_mapper: "first_nios2_system" instantiated altera_irq_mapper "irq_mapper"
+Info: first_nios2_system: Done first_nios2_system" with 36 modules, 90 files, 2126324 bytes
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

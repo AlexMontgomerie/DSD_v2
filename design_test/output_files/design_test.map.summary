@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Mon Mar 12 14:48:58 2018
+Analysis & Synthesis Status : Successful - Mon Mar 12 17:25:06 2018
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : design_test
-Top-level Entity Name : ahfp_add_sub_multi
+Top-level Entity Name : design_test_top
 Family : Cyclone III
-Total logic elements : 1,442
-    Total combinational functions : 1,372
+Total logic elements : 1,444
+    Total combinational functions : 1,374
     Dedicated logic registers : 438
 Total registers : 438
 Total pins : 97

@@ -124,7 +124,6 @@ module first_nios2_system_cpu_test_bench (
   wire             M_wr_data_unfiltered_9_is_x;
   wire             W_op_add;
   wire             W_op_addi;
-  wire             W_op_ahfp_mult_0;
   wire             W_op_altfp_add_0;
   wire             W_op_altfp_mult_0;
   wire             W_op_altfp_sub_0;
@@ -381,7 +380,6 @@ module first_nios2_system_cpu_test_bench (
   assign W_op_rsvx56 = W_op_opx & (W_iw_opx == 56);
   assign W_op_rsvx60 = W_op_opx & (W_iw_opx == 60);
   assign W_op_rsvx63 = W_op_opx & (W_iw_opx == 63);
-  assign W_op_ahfp_mult_0 = W_op_custom & ({W_iw_custom_n[1 : 0]} == 2'h0);
   assign W_op_altfp_add_0 = W_op_custom & ({W_iw_custom_n[1 : 0]} == 2'h2);
   assign W_op_altfp_mult_0 = W_op_custom & ({W_iw_custom_n[1 : 0]} == 2'h1);
   assign W_op_altfp_sub_0 = W_op_custom & ({W_iw_custom_n[1 : 0]} == 2'h3);

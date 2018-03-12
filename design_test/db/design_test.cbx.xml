@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="design_test">
-		<CBX_INST_ENTRY INSTANCE_NAME="|ahfp_add_sub_multi|ahfp_add_multi:add|altshift_taps:z_m_rtl_0" CBX_FILE_NAME="shift_taps_55m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|design_test_top|ahfp_add_sub_multi:inst|ahfp_sub_multi:sub|altshift_taps:z_e_rtl_0" CBX_FILE_NAME="shift_taps_55m.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
