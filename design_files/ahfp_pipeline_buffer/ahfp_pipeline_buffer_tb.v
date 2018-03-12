@@ -1,14 +1,12 @@
 // Test bench for fp multiplier
 // testbench reference: https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf
-`define N 10
+`define STAGES 10
 `timescale 1ns / 1ns
 module test_ahfp_pipeline_buffer;
 
 reg clk;
 reg [31:0] data,result_correct;
 wire [31:0] result;
-
-parameter STAGES = 10;
 
 ahfp_pipeline_buffer dut (	.clk(clk),
 							.in(data),
@@ -25,7 +23,7 @@ initial
 	begin
 		//test 1 (time 0ns)
 		data 			<= #0 			32'h3F800000;
-		result_correct	<= #(STAGES*20) 32'h3F800000;
+		result_correct	<= #(`STAGES*20) 32'h3F800000;
 		
 	end
 
@@ -39,3 +37,4 @@ initial
 	end
 
 endmodule
+`undef STAGES

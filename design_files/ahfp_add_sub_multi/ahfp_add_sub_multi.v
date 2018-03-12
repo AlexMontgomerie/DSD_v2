@@ -27,11 +27,14 @@ wire out_mux, out_mux_buf;
 // 0 - addition
 // 1 - subtraction
 
+`define STAGES 5
 ahfp_pipeline_buffer buffer(.clk(clk),
 							.in(out_mux),
 							.out(out_mux_buf)
 							);
 
+`undef STAGES
+							
 ahfp_add_multi add (.clk(clk),
 					.dataa(add_a),
 					.datab(add_b),

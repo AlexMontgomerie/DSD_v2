@@ -67,8 +67,8 @@ always @(posedge clk) begin
 	{a_m,b_m,a_e,b_e} <= (a_e_tmp == b_e_tmp) ? 	((a_m_tmp>=b_m_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) :
 													((a_e_tmp >b_e_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) ;
 
-	z_s_2 <= (a_e_tmp != b_e_tmp) ? ((a_e_tmp > b_e_tmp) 				? 1'b0 : 1'b1 ) : 
-									((a_m_tmp[22:0] > b_m_tmp[22:0]) 	? 1'b0 : 1'b1 ) ;
+	z_s_2 <= (a_e_tmp != b_e_tmp) ? ((a_e_tmp >= b_e_tmp) 				? 1'b0 : 1'b1 ) : 
+									((a_m_tmp[22:0] >= b_m_tmp[22:0]) 	? 1'b0 : 1'b1 ) ;
 
 	//Stage 3
 	e_diff <= (e_diff_init>8'd24) ? 8'd0 : e_diff_init;	
