@@ -5,6 +5,20 @@
 
 #define N 10
 
+char *convert(float num)
+{
+	char *ret = malloc(32);
+	int   ipart = (int)floor(num);
+	float fpart = num - floor(num);
+	while (fpart - floor(fpart) != 0.0)
+		fpart *= 10.0;
+	sprintf(ret, "%c0x%x.%x\n",
+		     num >= 0.0 ? '+' : '-',
+		     ipart,
+		     (int) fpart);
+	return ret;
+}
+
 float angle[9] ={-1.0f,0.01f,1.5f,1.4321f,1.01232f,-0.3434545f,1.2334543f,0.0005f,1.111f};
 float xcos[9];
 float xsin[9];
@@ -16,6 +30,8 @@ void cordic(float x_init, float y_init, float angle_init) {
 	for(i=0;i<N;i++)
 		a_n = a_n * sqrt(1+pow(2,(-2*i)));
 
+
+	//TODO: print a_n as fixed
 	a_n = 1/a_n;
 	
 	uint32_t *a_n_ 	= (uint32_t*)&a_n;	
