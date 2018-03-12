@@ -38,19 +38,30 @@
 
 set_global_assignment -name FAMILY "Cyclone III"
 set_global_assignment -name DEVICE EP3C16F484C6
-set_global_assignment -name TOP_LEVEL_ENTITY ahfp_mult
+set_global_assignment -name TOP_LEVEL_ENTITY ahfp_add_sub_multi
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:39:39  FEBRUARY 20, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
-set_global_assignment -name VERILOG_FILE ../design_files/ahfp_mult.v
-set_global_assignment -name VERILOG_FILE ../design_files/ahfp_add.v
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name VERILOG_FILE design_test_top.v
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_add_multi/ahfp_add_multi.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd64.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd48.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd32.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd16.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd8.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd4.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_lzd/ahfp_lzd.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_sub_multi/ahfp_sub_multi.v
+set_global_assignment -name VERILOG_FILE design_test_top.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

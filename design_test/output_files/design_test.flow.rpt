@@ -1,5 +1,5 @@
 Flow report for design_test
-Tue Feb 20 17:00:05 2018
+Mon Mar 12 14:49:25 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,21 +40,21 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Tue Feb 20 16:59:59 2018            ;
+; Flow Status                        ; Successful - Mon Mar 12 14:49:20 2018            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; design_test                                      ;
-; Top-level Entity Name              ; ahfp_mult                                        ;
+; Top-level Entity Name              ; ahfp_add_sub_multi                               ;
 ; Family                             ; Cyclone III                                      ;
 ; Device                             ; EP3C16F484C6                                     ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 163 / 15,408 ( 1 % )                             ;
-;     Total combinational functions  ; 163 / 15,408 ( 1 % )                             ;
-;     Dedicated logic registers      ; 0 / 15,408 ( 0 % )                               ;
-; Total registers                    ; 0                                                ;
-; Total pins                         ; 96 / 347 ( 28 % )                                ;
+; Total logic elements               ; 1,426 / 15,408 ( 9 % )                           ;
+;     Total combinational functions  ; 1,372 / 15,408 ( 9 % )                           ;
+;     Dedicated logic registers      ; 438 / 15,408 ( 3 % )                             ;
+; Total registers                    ; 438                                              ;
+; Total pins                         ; 97 / 347 ( 28 % )                                ;
 ; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 0 / 516,096 ( 0 % )                              ;
-; Embedded Multiplier 9-bit elements ; 7 / 112 ( 6 % )                                  ;
+; Total memory bits                  ; 162 / 516,096 ( < 1 % )                          ;
+; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                                  ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                                    ;
 +------------------------------------+--------------------------------------------------+
 
@@ -64,27 +64,29 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/20/2018 16:59:43 ;
+; Start date & time ; 03/12/2018 14:48:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; design_test         ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                 ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 176831338962897.151914598301224 ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --         ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                            ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; 16764057                        ; --            ; ahfp_mult   ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; ahfp_mult   ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; ahfp_mult   ; Top        ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                    ; ahfp_mult                       ; design_test   ; --          ; --         ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                              ;
++-------------------------------------+---------------------------------------+---------------+--------------------+------------+
+; Assignment Name                     ; Value                                 ; Default Value ; Entity Name        ; Section Id ;
++-------------------------------------+---------------------------------------+---------------+--------------------+------------+
+; COMPILER_SIGNATURE_ID               ; 176831339027090.152086613202776       ; --            ; --                 ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --                 ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --                 ; --         ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                  ; --            ; --                 ; --         ;
+; PARTITION_COLOR                     ; 16764057                              ; --            ; ahfp_add_sub_multi ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; ahfp_add_sub_multi ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; ahfp_add_sub_multi ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --                 ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --                 ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --            ; --                 ; --         ;
+; TOP_LEVEL_ENTITY                    ; ahfp_add_sub_multi                    ; design_test   ; --                 ; --         ;
++-------------------------------------+---------------------------------------+---------------+--------------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -92,11 +94,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 489 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:07     ; 2.0                     ; 1104 MB             ; 00:00:07                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 430 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 499 MB              ; 00:00:03                           ;
-; Total                     ; 00:00:15     ; --                      ; --                  ; 00:00:13                           ;
+; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 484 MB              ; 00:00:05                           ;
+; Fitter                    ; 00:00:15     ; 2.2                     ; 1122 MB             ; 00:00:17                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 424 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 505 MB              ; 00:00:03                           ;
+; Total                     ; 00:00:25     ; --                      ; --                  ; 00:00:26                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -105,10 +107,10 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; eews506a-040     ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; eews506a-042     ; Windows 7 ; 6.1        ; x86_64         ;
+; Fitter                    ; eews506a-042     ; Windows 7 ; 6.1        ; x86_64         ;
+; Assembler                 ; eews506a-042     ; Windows 7 ; 6.1        ; x86_64         ;
+; TimeQuest Timing Analyzer ; eews506a-042     ; Windows 7 ; 6.1        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
