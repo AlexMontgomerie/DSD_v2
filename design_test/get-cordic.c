@@ -29,8 +29,8 @@ int main()
     
     angle[i]  = pow(2,-i);
     tan_arr[i]   = atan(angle[i]);    
-
-    uint32_t *tan_arr_      = (uint32_t*)tan_arr;
+	uintconvert
+    uint32_t *tan_arr_   = (uint32_t*)tan_arr;
     uint32_t *angle_     = (uint32_t*)angle;
 	//TODO: print tan_arr as fixed
     printf("tanh(%f) = %f\ntanh(0x%X), 0x%X\n\n",
