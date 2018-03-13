@@ -5,6 +5,18 @@
 
 #define N 10
 
+
+#define FIXED_ONE (powf(2.0f,29))
+#define SGNBIT(x) (((x)>0.0 ? 0 : 1) << 31)
+
+#define FIXED_BIT 29
+
+uint32_t FLOAT2FIXED(float x)
+{
+	uint32_t mantissa = (uint32_t)(x * FIXED_ONE);
+	return SGNBIT(x) | mantissa;
+}
+
 char *convert(float num)
 {
 	char *ret = malloc(32);
@@ -33,6 +45,7 @@ void cordic(float x_init, float y_init, float angle_init) {
 
 	//TODO: print a_n as fixed
 	a_n = 1/a_n;
+	printf("0x%x\n", FLOAT2FIXED(a_n));
 	
 	uint32_t *a_n_ 	= (uint32_t*)&a_n;	
 	//printf("a_n = %f  (0x%X) \n\n",a_n,*a_n_);
