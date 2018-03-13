@@ -49,21 +49,21 @@ module first_nios2_system_id_router_001_default_decode
                DEFAULT_RD_CHANNEL = -1,
                DEFAULT_DESTID = 1 
    )
-  (output [69 - 67 : 0] default_destination_id,
-   output [7-1 : 0] default_wr_channel,
-   output [7-1 : 0] default_rd_channel,
-   output [7-1 : 0] default_src_channel
+  (output [76 - 74 : 0] default_destination_id,
+   output [6-1 : 0] default_wr_channel,
+   output [6-1 : 0] default_rd_channel,
+   output [6-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[69 - 67 : 0];
+    DEFAULT_DESTID[76 - 74 : 0];
 
   generate begin : default_decode
     if (DEFAULT_CHANNEL == -1) begin
       assign default_src_channel = '0;
     end
     else begin
-      assign default_src_channel = 7'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 6'b1 << DEFAULT_CHANNEL;
     end
   end
   endgenerate
@@ -74,8 +74,8 @@ module first_nios2_system_id_router_001_default_decode
       assign default_rd_channel = '0;
     end
     else begin
-      assign default_wr_channel = 7'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 7'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 6'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 6'b1 << DEFAULT_RD_CHANNEL;
     end
   end
   endgenerate
@@ -95,7 +95,7 @@ module first_nios2_system_id_router_001
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [80-1 : 0]    sink_data,
+    input  [87-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -104,8 +104,8 @@ module first_nios2_system_id_router_001
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [80-1    : 0] src_data,
-    output reg [7-1 : 0] src_channel,
+    output reg [87-1    : 0] src_data,
+    output reg [6-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -114,18 +114,18 @@ module first_nios2_system_id_router_001
     // -------------------------------------------------------
     // Local parameters and variables
     // -------------------------------------------------------
-    localparam PKT_ADDR_H = 42;
+    localparam PKT_ADDR_H = 49;
     localparam PKT_ADDR_L = 18;
-    localparam PKT_DEST_ID_H = 69;
-    localparam PKT_DEST_ID_L = 67;
-    localparam PKT_PROTECTION_H = 73;
-    localparam PKT_PROTECTION_L = 71;
-    localparam ST_DATA_W = 80;
-    localparam ST_CHANNEL_W = 7;
+    localparam PKT_DEST_ID_H = 76;
+    localparam PKT_DEST_ID_L = 74;
+    localparam PKT_PROTECTION_H = 80;
+    localparam PKT_PROTECTION_L = 78;
+    localparam ST_DATA_W = 87;
+    localparam ST_CHANNEL_W = 6;
     localparam DECODER_TYPE = 1;
 
-    localparam PKT_TRANS_WRITE = 45;
-    localparam PKT_TRANS_READ  = 46;
+    localparam PKT_TRANS_WRITE = 52;
+    localparam PKT_TRANS_READ  = 53;
 
     localparam PKT_ADDR_W = PKT_ADDR_H-PKT_ADDR_L + 1;
     localparam PKT_DEST_ID_W = PKT_DEST_ID_H-PKT_DEST_ID_L + 1;
@@ -161,7 +161,7 @@ module first_nios2_system_id_router_001
     assign src_endofpacket   = sink_endofpacket;
 
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [7-1 : 0] default_src_channel;
+    wire [6-1 : 0] default_src_channel;
 
 
 
@@ -187,11 +187,15 @@ module first_nios2_system_id_router_001
 
 
         if (destid == 1 ) begin
-            src_channel = 7'b01;
+            src_channel = 6'b001;
         end
 
         if (destid == 0 ) begin
-            src_channel = 7'b10;
+            src_channel = 6'b010;
+        end
+
+        if (destid == 2 ) begin
+            src_channel = 6'b100;
         end
 
 

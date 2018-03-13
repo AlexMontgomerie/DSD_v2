@@ -1,0 +1,250 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 496 288)
+	(text "custom_master_ah" (rect 5 0 84 12)(font "Arial" ))
+	(text "inst" (rect 8 256 20 268)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 27 31 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "reset" (rect 0 0 20 12)(font "Arial" ))
+		(text "reset" (rect 21 43 41 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "control_fixed_location" (rect 0 0 84 12)(font "Arial" ))
+		(text "control_fixed_location" (rect 21 59 105 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "control_read_base[ADDRESS_WIDTH-1..0]" (rect 0 0 184 12)(font "Arial" ))
+		(text "control_read_base[ADDRESS_WIDTH-1..0]" (rect 21 75 205 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "control_read_length[ADDRESS_WIDTH-1..0]" (rect 0 0 187 12)(font "Arial" ))
+		(text "control_read_length[ADDRESS_WIDTH-1..0]" (rect 21 91 208 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "control_write_base[ADDRESS_WIDTH-1..0]" (rect 0 0 184 12)(font "Arial" ))
+		(text "control_write_base[ADDRESS_WIDTH-1..0]" (rect 21 107 205 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "control_write_length[ADDRESS_WIDTH-1..0]" (rect 0 0 187 12)(font "Arial" ))
+		(text "control_write_length[ADDRESS_WIDTH-1..0]" (rect 21 123 208 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "control_go" (rect 0 0 41 12)(font "Arial" ))
+		(text "control_go" (rect 21 139 62 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "user_read_buffer" (rect 0 0 71 12)(font "Arial" ))
+		(text "user_read_buffer" (rect 21 155 92 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 1))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "user_write_buffer" (rect 0 0 71 12)(font "Arial" ))
+		(text "user_write_buffer" (rect 21 171 92 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "user_buffer_input_data[DATA_WIDTH-1..0]" (rect 0 0 184 12)(font "Arial" ))
+		(text "user_buffer_input_data[DATA_WIDTH-1..0]" (rect 21 187 205 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "master_readdata[DATA_WIDTH-1..0]" (rect 0 0 158 12)(font "Arial" ))
+		(text "master_readdata[DATA_WIDTH-1..0]" (rect 21 203 179 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 3))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "master_readdatavalid" (rect 0 0 86 12)(font "Arial" ))
+		(text "master_readdatavalid" (rect 21 219 107 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 1))
+	)
+	(port
+		(pt 0 240)
+		(input)
+		(text "master_waitrequest" (rect 0 0 77 12)(font "Arial" ))
+		(text "master_waitrequest" (rect 21 235 98 247)(font "Arial" ))
+		(line (pt 0 240)(pt 16 240)(line_width 1))
+	)
+	(port
+		(pt 480 32)
+		(output)
+		(text "control_done" (rect 0 0 50 12)(font "Arial" ))
+		(text "control_done" (rect 409 27 459 39)(font "Arial" ))
+		(line (pt 480 32)(pt 464 32)(line_width 1))
+	)
+	(port
+		(pt 480 48)
+		(output)
+		(text "control_early_done" (rect 0 0 76 12)(font "Arial" ))
+		(text "control_early_done" (rect 383 43 459 55)(font "Arial" ))
+		(line (pt 480 48)(pt 464 48)(line_width 1))
+	)
+	(port
+		(pt 480 64)
+		(output)
+		(text "user_buffer_output_data[DATA_WIDTH-1..0]" (rect 0 0 189 12)(font "Arial" ))
+		(text "user_buffer_output_data[DATA_WIDTH-1..0]" (rect 270 59 459 71)(font "Arial" ))
+		(line (pt 480 64)(pt 464 64)(line_width 3))
+	)
+	(port
+		(pt 480 80)
+		(output)
+		(text "user_data_available" (rect 0 0 79 12)(font "Arial" ))
+		(text "user_data_available" (rect 380 75 459 87)(font "Arial" ))
+		(line (pt 480 80)(pt 464 80)(line_width 1))
+	)
+	(port
+		(pt 480 96)
+		(output)
+		(text "user_buffer_full" (rect 0 0 64 12)(font "Arial" ))
+		(text "user_buffer_full" (rect 395 91 459 103)(font "Arial" ))
+		(line (pt 480 96)(pt 464 96)(line_width 1))
+	)
+	(port
+		(pt 480 112)
+		(output)
+		(text "master_address[ADDRESS_WIDTH-1..0]" (rect 0 0 175 12)(font "Arial" ))
+		(text "master_address[ADDRESS_WIDTH-1..0]" (rect 284 107 459 119)(font "Arial" ))
+		(line (pt 480 112)(pt 464 112)(line_width 3))
+	)
+	(port
+		(pt 480 128)
+		(output)
+		(text "master_read" (rect 0 0 51 12)(font "Arial" ))
+		(text "master_read" (rect 408 123 459 135)(font "Arial" ))
+		(line (pt 480 128)(pt 464 128)(line_width 1))
+	)
+	(port
+		(pt 480 144)
+		(output)
+		(text "master_write" (rect 0 0 51 12)(font "Arial" ))
+		(text "master_write" (rect 408 139 459 151)(font "Arial" ))
+		(line (pt 480 144)(pt 464 144)(line_width 1))
+	)
+	(port
+		(pt 480 160)
+		(output)
+		(text "master_byteenable[1..0]" (rect 0 0 95 12)(font "Arial" ))
+		(text "master_byteenable[1..0]" (rect 364 155 459 167)(font "Arial" ))
+		(line (pt 480 160)(pt 464 160)(line_width 3))
+	)
+	(port
+		(pt 480 176)
+		(output)
+		(text "master_writedata[DATA_WIDTH-1..0]" (rect 0 0 158 12)(font "Arial" ))
+		(text "master_writedata[DATA_WIDTH-1..0]" (rect 301 171 459 183)(font "Arial" ))
+		(line (pt 480 176)(pt 464 176)(line_width 3))
+	)
+	(port
+		(pt 480 192)
+		(output)
+		(text "master_burstcount" (rect 0 0 75 12)(font "Arial" ))
+		(text "master_burstcount" (rect 384 187 459 199)(font "Arial" ))
+		(line (pt 480 192)(pt 464 192)(line_width 1))
+	)
+	(parameter
+		"MASTER_DIRECTION"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"DATA_WIDTH"
+		"16"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"MEMORY_BASED_FIFO"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"FIFO_DEPTH"
+		"32"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"FIFO_DEPTH_LOG2"
+		"5"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"ADDRESS_WIDTH"
+		"22"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"BURST_CAPABLE"
+		"0"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"MAXIMUM_BURST_COUNT"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"BURST_COUNT_WIDTH"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 464 256)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 496 -64 596 16))
+)
