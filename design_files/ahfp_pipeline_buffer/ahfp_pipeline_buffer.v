@@ -1,15 +1,18 @@
 `ifndef STAGES
 `define STAGES 10
 `endif
+`ifndef WIDTH
+`define WIDTH 32
+`endif
 module ahfp_pipeline_buffer(clk,in,out);
 	
 	input clk;
-	input 	[31:0] in;
-	output	[31:0] out;
+	input 	[`WIDTH-1:0] in;
+	output	[`WIDTH-1:0] out;
 	
 	//parameter N = STAGES;
 	
-	reg [31:0] buffer [`STAGES-1:0];
+	reg [`WIDTH-1:0] buffer [`STAGES-1:0];
 	
 	always @(posedge clk) begin
 		buffer[0] <= in;

@@ -102,7 +102,7 @@ always @ (posedge clk) begin
 	//Stage 7
 	res <= underflow ? 32'd0 
 	                : overflow ? {z_s_final, 31'h7F800000}
-					: {z_s_final, z_e_final, z_m_final};
+					: {z_s_final, z_e_final[7:0], z_m_final[22:0]};
 	///////////////
 	end
 

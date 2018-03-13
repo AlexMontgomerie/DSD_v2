@@ -5,8 +5,7 @@ module ahfp_cordic( clk,
                     x_start,
                     y_start,
                     theta,
-                    x_cos,
-                    y_sin
+                    x_cos
                   );
   
   //parameters
@@ -19,7 +18,7 @@ module ahfp_cordic( clk,
   input [31:0] theta;
 
   //outputs
-  output [31:0] x_cos,y_sin;
+  output [31:0] x_cos;
 
   //variables
   reg [31:0] x [0:N-1];
@@ -78,7 +77,6 @@ module ahfp_cordic( clk,
   endgenerate
 
   assign x_cos = x[N-1];
-  assign y_sin = y[N-1];
 
 endmodule
 
