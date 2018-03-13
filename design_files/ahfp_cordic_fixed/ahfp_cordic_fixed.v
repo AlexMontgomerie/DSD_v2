@@ -1,12 +1,12 @@
 //http://en.wikibooks.org/wiki/Digital_Circuits/CORDIC
 
 
-module ahfp_cordic( clk,
-                    x_start,
-                    y_start,
-                    theta,
-                    x_cos
-                  );
+module ahfp_cordic_fixed( 	clk,
+							x_start,
+							y_start,
+							theta,
+							x_cos
+							);
   
   //parameters
   parameter width = 32;
@@ -43,11 +43,6 @@ module ahfp_cordic( clk,
   assign an = 32'h136e9e80;
   //TODO:
   // - assign an properly with input
-  
-  ahfp_mult mul(
-	x_start,
-	an,
-	x[0]);  
   
   //assign x[0] = x_start;
   always @(posedge clk) begin

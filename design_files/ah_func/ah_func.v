@@ -61,7 +61,7 @@ end
 
 //calculate cos
 wire	[31:0] cos;
-ahfp_cordic_fixed cordic (fixed_one,fixed_zero,fixed_theta_in_reg,cos);
+ahfp_cordic_fixed cordic (clk,fixed_one,fixed_zero,fixed_theta_in_reg,cos);
 
 //convert back to float
 wire 	[31:0] float_cos_out;
@@ -82,5 +82,10 @@ wire [31:0] mul_cos_res;
 wire [31:0] cos_add_one_res;
 ahfp_mul_multi mul_cos (clk, float_cos_out_reg, {a_buf[31],a_buf[30:23]+1,a_buf[22:0]}, mul_cos_res);
 ahfp_add_sub_multi cos_add_one (clk, mul_cos_res, float_one, cos_add_one_res); 
+
+//TODO: 
+// - do the final multiplication by initial x (use a buffer)
+// - assign the result 
+// - get a value for thirty two
 
 endmodule

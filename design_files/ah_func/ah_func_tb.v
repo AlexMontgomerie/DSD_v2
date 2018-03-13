@@ -2,13 +2,15 @@
 // testbench reference: https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf
 
 `timescale 1ns / 1ns
-module test_ahfp_add;
+module test_ah_func;
 
 reg clk;
 reg [31:0] dataa,datab,result_correct;
 wire [31:0] result;
 
-ah_func dut (	.dataa(dataa),
+ah_func dut (	
+		.clk(clk),
+		.dataa(dataa),
 		.datab(datab),
 		.result(result));
 

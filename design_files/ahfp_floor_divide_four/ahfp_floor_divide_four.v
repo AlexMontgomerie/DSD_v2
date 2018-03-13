@@ -1,4 +1,4 @@
-module floor_div_four(
+module ahfp_floor_divide_four(
 	data,
 	result
 	);
@@ -38,11 +38,10 @@ module floor_div_four(
 					(e==8'd151) 	? m & 23'b11111111111111111111110 :  
 					m;
 					
-	assign result[30:23] 	= 	(data[31]==1'b1) ? 8'd0  :
-								(e<8'd129) 		 ? 8'd0  : e-2;
-	assign result[22:0]  	= 	(data[31]==1'b1) ? 23'd0 :
-								(e<8'd129) 		 ? 23'd0 : m_tmp;
+	assign result[30:23] 	= 	(e<8'd129) 		 ? 8'd0  : e-2;
 	
-	assign result[31]		= data[31];
+	assign result[22:0]  	= 	(e<8'd129) 		 ? 23'd0 : m_tmp;
+	
+	assign result[31]		= 	data[31];
 
 endmodule
