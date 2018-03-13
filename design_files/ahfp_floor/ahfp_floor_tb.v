@@ -2,14 +2,14 @@
 // testbench reference: https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf
 
 `timescale 1ns / 1ns
-module test_floor;
+module test_ahfp_floor;
 
 reg clk;
 reg [31:0] data,result_correct;
 wire [31:0] result;
 
-floor dut (	.data(data),
-		.result(result));
+ahfp_floor dut (.data(data),
+			.result(result));
 
 initial // Clock generator
   begin

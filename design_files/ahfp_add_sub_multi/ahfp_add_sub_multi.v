@@ -1,6 +1,5 @@
 //TODO: 
 // - create a testbench
-
 module ahfp_add_sub_multi(
 	clk,
 	dataa,
@@ -27,20 +26,25 @@ wire out_mux, out_mux_buf;
 // 0 - addition
 // 1 - subtraction
 
-`define STAGES 5
+`define STAGES 7
+`define WIDTH 1
+`include "../ahfp_pipeline_buffer/ahfp_pipeline_buffer.v"
 ahfp_pipeline_buffer buffer(.clk(clk),
 							.in(out_mux),
 							.out(out_mux_buf)
 							);
 
 `undef STAGES
-							
+`undef WIDTH				
+
+`include "../ahfp_add_multi/ahfp_add_multi.v"
 ahfp_add_multi add (.clk(clk),
 					.dataa(add_a),
 					.datab(add_b),
 					.result(add_res)
 					);
 
+`include "../ahfp_sub_multi/ahfp_sub_multi.v"
 ahfp_sub_multi sub (.clk(clk),
 					.dataa(sub_a),
 					.datab(sub_b),

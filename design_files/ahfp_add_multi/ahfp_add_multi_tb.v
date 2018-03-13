@@ -8,13 +8,14 @@ reg clk;
 reg [31:0] dataa,datab,result_correct;
 wire [31:0] result;
 
-ahfp_add dut (	.dataa(dataa),
-		.datab(datab),
-		.result(result));
+ahfp_add_multi dut (.clk(clk),
+					.dataa(dataa),
+					.datab(datab),
+					.result(result));
 
 initial // Clock generator
   begin
-    clk = 0;
+    clk = 1;
     forever #10 clk = !clk;
   end
   

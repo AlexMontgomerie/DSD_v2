@@ -1,4 +1,4 @@
-module floor(
+module ahfp_floor(
 	data,
 	result
 	);
@@ -12,10 +12,6 @@ module floor(
 	assign e = data[30:23];
 	assign m = data[22:0];
 	
-	/*
-	TODO:
-	 - convert to a switch case set of statements
-	*/
 
 	wire [22:0] m_tmp;
 	
@@ -42,13 +38,11 @@ module floor(
 					(e==8'd147) 	? m & 23'b11111111111111111111000 : 
 					(e==8'd148) 	? m & 23'b11111111111111111111100 : 
 					(e==8'd149) 	? m & 23'b11111111111111111111110 :  
-				m;
+					m;
 			
-	assign result[30:23] 	= 	(data[31]==1'b1) ? 8'd0  :
-								(e<8'd127) 		 ? 8'd0  : e;
-	assign result[22:0]  	= 	(data[31]==1'b1) ? 23'd0 :
-								(e<8'd127) 		 ? 23'd0 : m_tmp;
+	assign result[30:23] 	=   (e<8'd127)  ? 8'd0  : e;
+	assign result[22:0]  	= 	(e<8'd127) 	? 23'd0 : m_tmp;
 								
-	assign result[31]		= 1'b0;
+	assign result[31]		= data[31];
 
 endmodule

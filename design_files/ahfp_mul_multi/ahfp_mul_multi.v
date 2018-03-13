@@ -28,34 +28,6 @@ reg 	[47:0] 	man_tmp;
 reg 	[7:0]	exp_tmp;
 reg 	[23:0] 	z_m_tmp;
 reg 	[7:0] 	z_e_tmp;
-
-initial
-begin
-	dataa_prev <= dataa;
-	datab_prev <= datab;
-	res <= 32'd0;
-	man_tmp <= 48'd0;
-	exp_tmp <= 8'd0;
-	z_m_tmp <= 24'd0;
-	z_e_tmp <= 8'd0;
-	z_s_1 <= 1'd0;
-	z_s_2 <= 1'd0;
-	z_s_3 <= 1'd0;
-	z_s_4 <= 1'd0;
-	z_s_final <= 1'd0;
-	a_m <= 24'd0;
-	b_m <= 24'd0;
-	z_m <= 23'd0;
-	z_m_final <= 23'd0;
-	a_e <= 8'd0; 
-	b_e <= 8'd0; 
-	z_e <= 8'd0;
-	z_e_final <= 8'd0;
-	a_s <= 1'd0;
-	b_s <= 1'd0;
-	z_s <= 1'd0;
-	
-end
 	
 always @ (posedge clk)
 	begin
@@ -89,7 +61,7 @@ always @ (posedge clk)
 		/////////////////////
 		//get temporary calculations
 		man_tmp <= a_m * b_m;
-		exp_tmp <= a_e + b_e - 8'd127;
+		exp_tmp <= (a_m[23]&b_m[23]) ? a_e + b_e - 8'd127 : 8'b0;
 		z_s_2	<= z_s_1;
 		
 		/////////////////////

@@ -22,6 +22,8 @@ add wave *
 add wave -position insertpoint  \
 sim:/test_ahfp_sub_multi/dut/a_e
 add wave -position insertpoint  \
+sim:/test_ahfp_sub_multi/dut/z_s_1
+add wave -position insertpoint  \
 sim:/test_ahfp_sub_multi/dut/a_m
 add wave -position insertpoint  \
 sim:/test_ahfp_sub_multi/dut/b_e

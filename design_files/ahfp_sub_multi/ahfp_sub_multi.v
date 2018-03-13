@@ -5,7 +5,7 @@
 // - Combinational
 // - refere to altera's ug_embedded_ip for info
 // ############################################
-
+`include "../ahfp_lzd/ahfp_lzd.v"
 module ahfp_sub_multi(
 	clk,
 	dataa,
@@ -26,7 +26,7 @@ reg	[47:0] 	a_m_tmp, b_m_tmp;
 reg	[22:0]  z_m,z_m_final;
 reg	[7:0]  	a_e, b_e, z_e,z_e_final;
 reg	[7:0]  	a_e_tmp, b_e_tmp;
-reg			z_s,z_s_2,z_s_3,z_s_4,z_s_final;
+reg			z_s,z_s_1,z_s_2,z_s_3,z_s_4,z_s_final;
 
 reg [7:0] 	z_e_tmp;
 reg [22:0] z_m_tmp;
@@ -62,13 +62,15 @@ always @(posedge clk) begin
 	a_m_tmp <= (dataa[30:23]==8'd0) ? {25'h000000, dataa[22:0]} : {25'h000001, dataa[22:0]};
 	b_m_tmp <= (datab[30:23]==8'd0) ? {25'h000000, dataa[22:0]} : {25'h000001, datab[22:0]};
 
+	z_s_1 <= (dataa[30:23] != datab[30:23]) ? 	((dataa[30:23] >  datab[30:23]) 	? 1'b0 : 1'b1 ) : 
+												((dataa[22:0]  >= datab[22:0]) 		? 1'b0 : 1'b1 ) ;	
+	
 	//Stage 2
 //performs subtraction by choosing largest minus smallest
 	{a_m,b_m,a_e,b_e} <= (a_e_tmp == b_e_tmp) ? 	((a_m_tmp>=b_m_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) :
 													((a_e_tmp >b_e_tmp) ? {a_m_tmp,b_m_tmp,a_e_tmp,b_e_tmp} : {b_m_tmp,a_m_tmp,b_e_tmp,a_e_tmp}) ;
 
-	z_s_2 <= (a_e_tmp != b_e_tmp) ? ((a_e_tmp >= b_e_tmp) 				? 1'b0 : 1'b1 ) : 
-									((a_m_tmp[22:0] >= b_m_tmp[22:0]) 	? 1'b0 : 1'b1 ) ;
+	z_s_2 <= z_s_1;
 
 	//Stage 3
 	e_diff <= (e_diff_init>8'd24) ? 8'd0 : e_diff_init;	
@@ -84,24 +86,26 @@ always @(posedge clk) begin
 	//Stage 4
 
 	
-	z_e_tmp = m_valid ? 	e_tmp - e_diff + {2'b00,shift_index} - 8'd23 :
+	z_e_tmp <= m_valid ? 	e_tmp - e_diff + {2'b00,shift_index} - 8'd23 :
 							8'd0;
 	
-	z_m_tmp = (m_valid==0 || shift_index == 6'd0) ? 	24'd0 :
+	z_m_tmp <= (m_valid==0 || shift_index == 6'd0) ? 	24'd0 :
 							(shift_index > 6'd23) 	? 	(m_tmp>>(shift_index - 6'd23))&24'h7FFFFF: //+m_tmp[shift_index-6'd24]
 														(m_tmp<<(6'd23 - shift_index))&24'h7FFFFF; 
 
 	z_s_4 <= z_s_3;
 													
 	//Stage 5
-													
+			
+	
 	z_e <= z_e_tmp;
 	z_m <= z_m_tmp;					
 	z_s <= z_s_4;
-			
+	
+		
 	//Stage 6
-	underflow <= ($signed(z_e) < $signed(8'h80));
-	overflow  <= ($signed(z_e) > $signed(8'h7F));
+	underflow <= ($signed(z_e_tmp) < $signed(8'h80));
+	overflow  <= ($signed(z_e_tmp) > $signed(8'h7F));
 
 	z_e_final <= z_e;
 	z_m_final <= z_m;
@@ -110,9 +114,7 @@ always @(posedge clk) begin
 	///////////////
 
 	//Stage 7
-	res <= underflow ? 32'd0 
-	                    : overflow ? {z_s_final, 31'h7F800000}
-						: {z_s_final, z_e_final, z_m_final};
+	res <= {z_s_final, z_e_final[7:0], z_m_final[22:0]};
 	///////////////
 end
 

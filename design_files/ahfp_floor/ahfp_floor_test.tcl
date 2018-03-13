@@ -7,8 +7,8 @@ vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_floor
 vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_floor/ahfp_floor_tb.v
 
 # simulate design
-vsim -c work.floor
-vsim -c work.test_floor
+vsim -c work.ahfp_floor
+vsim -c work.test_ahfp_floor
 
 #window views
 #view objects
