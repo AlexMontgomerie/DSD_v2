@@ -1,11 +1,11 @@
-`include ../ahfp_mul_multi/ahfp_mul_multi.v
-`include ../ahfp_mod_pi/ahfp_mod_pi.v
-`include ../ahfp_pipeline_buffer/ahfp_pipeline_buffer.v
-`include ../ahfp_floor_divide_four/ahfp_floor_divide_four.v
-`include ../ahfp_add_sub_multi/ahfp_add_sub_multi.v
-`include ../ahfp_float_2_fixed/ahfp_float_2_fixed.v
-`include ../ahfp_cordic_fixed/ahfp_cordic_fixed.v
-`include ../ahfp_fixed_2_float/ahfp_fixed_2_float.v
+`include "../ahfp_mul_multi/ahfp_mul_multi.v"
+`include "../ahfp_mod_pi/ahfp_mod_pi.v"
+`include "../ahfp_pipeline_buffer/ahfp_pipeline_buffer.v"
+`include "../ahfp_floor_divide_four/ahfp_floor_divide_four.v"
+`include "../ahfp_add_sub_multi/ahfp_add_sub_multi.v"
+`include "../ahfp_float_2_fixed/ahfp_float_2_fixed.v"
+`include "../ahfp_cordic_fixed/ahfp_cordic_fixed.v"
+`include "../ahfp_fixed_2_float/ahfp_fixed_2_float.v"
 
 module ah_func(	clk,
 				dataa,
@@ -17,6 +17,7 @@ parameter thirty_two	= 32'h00000000;
 parameter fixed_one 	= 32'h20000000;
 parameter fixed_zero 	= 32'h00000000;
 		
+input clk;
 input 	[31:0] dataa, datab;
 output 	[31:0] result;		
 		
@@ -64,7 +65,7 @@ ahfp_cordic_fixed cordic (fixed_one,fixed_zero,fixed_theta_in_reg,cos);
 
 //convert back to float
 wire 	[31:0] float_cos_out;
-wire 	[31:0] float_cos_out_reg;
+reg 	[31:0] float_cos_out_reg;
 ahfp_fixed_2_float fixed_2_float (cos,float_cos_out);
 always @(posedge clk) begin
 	float_cos_out_reg <= float_cos_out;
