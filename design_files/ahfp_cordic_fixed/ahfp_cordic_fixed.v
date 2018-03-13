@@ -26,23 +26,21 @@ module ahfp_cordic( clk,
   reg [31:0] z [0:N-1];
   
   wire [31:0] atan_table [0:N-1]; 
-  //TODO: change generate atan to fixed
-  //TODO: has to be fixed point between bits 29 and 28
-  assign atan_table[0] = 32'h3F490FDB;
-  assign atan_table[1] = 32'h3EED6338;
-  assign atan_table[2] = 32'h3E7ADBB0;
-  assign atan_table[3] = 32'h3DFEADD5;
-  assign atan_table[4] = 32'h3D7FAADE;
-  assign atan_table[5] = 32'h3CFFEAAE;
-  assign atan_table[6] = 32'h3C7FFAAB;
-  assign atan_table[7] = 32'h3BFFFEAB;
-  assign atan_table[8] = 32'h3B7FFFAB;
-  assign atan_table[9] = 32'h3AFFFFEB;
+  assign atan_table[0] = 32'h1921fb60;
+  assign atan_table[1] = 32'h0ed63380;
+  assign atan_table[2] = 32'h07d6dd80;
+  assign atan_table[3] = 32'h03fab754;
+  assign atan_table[4] = 32'h01ff55bc;
+  assign atan_table[5] = 32'h00ffeaae;
+  assign atan_table[6] = 32'h007ffd55;
+  assign atan_table[7] = 32'h003fffaa;
+  assign atan_table[8] = 32'h001ffff5;
+  assign atan_table[9] = 32'h000ffffe;
   
   wire [7:0] index [0:N-1];
   
   wire [31:0] an;
-  assign an = 32'h3F1B74F4;
+  assign an = 32'h136e9e80;
   //TODO:
   // - assign an properly with input
   
