@@ -17,10 +17,12 @@ int main()
 	for (int i = 0; i < 255; i++) {
 		testa[i] = (float)i;
 		res[i] = fn(testa[i]);
-		printf("\t\t%sdataa = 32'h%x;\n\t\tdatab = 32'h00000000;\n\t\tresult_correct = 32'h%x;\n\n",
-				i ? "#20 " : "",
-				testa_[i],
-				res_[i]);
+		// toplevel test data
+		/*printf("\t\t%sdataa = 32'h%x;\n\t\tdatab = 32'h00000000;\n\t\tresult_correct = 32'h%x;\n\n",
+		 *		i ? "#20 " : "",
+		 *		testa_[i],
+		 *		res_[i]);
+		 */
 	}
 	return 0;
 }

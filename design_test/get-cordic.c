@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define N 10
+#define N 255
 
 #define FIXED_ONE (powf(2.0f,29))
 #define SGNBIT(x) (((x)>0.0 ? 0 : 1) << 31)
@@ -12,7 +12,7 @@
 
 uint32_t FLOAT2FIXED(float x)
 {
-	uint32_t mantissa = (uint32_t)(x * FIXED_ONE);
+	uint32_t mantissa = (uint32_t)(fabs(x) * FIXED_ONE);
 	return SGNBIT(x) | mantissa;
 }
 
@@ -55,16 +55,22 @@ int main()
   for (int i = 0; i < N; i++)
   {	
     
-    angle[i]  = pow(2,-i);
-    tan_arr[i]   = atan(angle[i]);    
-    
-    uint32_t *tan_arr_   = (uint32_t*)tan_arr;
-    uint32_t *angle_     = (uint32_t*)angle;
-	//TODO: print tan_arr as fixed
-    printf("tanh(%f) = %f\ntanh(0x%X), 0x%X\ntanh(0x%8x) = 0x%08x\n\n",
+  //  angle[i]  = pow(2,-i);
+  //  tan_arr[i]   = atan(angle[i]);
+   // uint32_t *tan_arr_   = (uint32_t*)tan_arr;
+    //uint32_t *angle_     = (uint32_t*)angle;
+   // generate tangent table
+/*    printf("tanh(%f) = %f\ntanh(0x%X), 0x%X\ntanh(0x%8x) = 0x%08x\n\n",
       angle[i], tan_arr[i],
       angle_[i], tan_arr_[i],
-      f2f(angle[i]), f2f(tan_arr[i]));
+      f2f(angle[i]), f2f(tan_arr[i])
+ */
+	  float theta = M_PI * ((float)i) / ((float)N);
+	  float costh = cosf(theta);
+    printf("\t\t%sx_start <= 32'h20000000\n\t\ty_start <= 32'h00000000\n\t\ttheta <= 32'h%x\n\t\tx_cos_correct <= 32'h%x\n\n",
+		    i ? "#20 " : "",
+		    f2f(theta),
+		    f2f(costh));
    }  
   return 0;
 }
