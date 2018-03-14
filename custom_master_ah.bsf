@@ -180,8 +180,8 @@ applicable agreement for further details.
 	(port
 		(pt 480 160)
 		(output)
-		(text "master_byteenable[1..0]" (rect 0 0 95 12)(font "Arial" ))
-		(text "master_byteenable[1..0]" (rect 364 155 459 167)(font "Arial" ))
+		(text "master_byteenable[3..0]" (rect 0 0 96 12)(font "Arial" ))
+		(text "master_byteenable[3..0]" (rect 363 155 459 167)(font "Arial" ))
 		(line (pt 480 160)(pt 464 160)(line_width 3))
 	)
 	(port
@@ -205,7 +205,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"DATA_WIDTH"
-		"16"
+		"32"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
@@ -225,7 +225,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"ADDRESS_WIDTH"
-		"22"
+		"25"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter

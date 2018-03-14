@@ -58,9 +58,9 @@ module latency_aware_read_master (
 	master_waitrequest
 );
 
-	parameter DATAWIDTH = 32;
-	parameter BYTEENABLEWIDTH = 4;
-	parameter ADDRESSWIDTH = 32;
+	parameter DATAWIDTH = 16;
+	parameter BYTEENABLEWIDTH = 2;
+	parameter ADDRESSWIDTH = 24;
 	parameter FIFODEPTH = 32;
 	parameter FIFODEPTH_LOG2 = 5;
 	parameter FIFOUSEMEMORY = 1;  // set to 0 to use LEs instead
@@ -166,11 +166,9 @@ module latency_aware_read_master (
 		end
 	end	
 	
-	
-	
 	// control logic
 	assign too_many_pending_reads = (fifo_used + reads_pending) >= (FIFODEPTH - 4);
-	assign master_read = (length != 0) & (too_many_pending_reads_d1 == 0);
+	assign master_read = reset ? 1 : ~((length != 0) & (too_many_pending_reads_d1 == 0));
 	assign increment_address = (length != 0) & (too_many_pending_reads_d1 == 0) & (master_waitrequest == 0);
 	assign control_done = (reads_pending == 0) & (length == 0);  // master done posting reads and all reads have returned
 	assign control_early_done = (length == 0);  // if you need all the pending reads to return then use 'control_done' instead of this signal

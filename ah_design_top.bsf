@@ -26,8 +26,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 32)
 		(input)
-		(text "clk" (rect 0 0 10 12)(font "Arial" ))
-		(text "clk" (rect 21 27 31 39)(font "Arial" ))
+		(text "clock" (rect 0 0 20 12)(font "Arial" ))
+		(text "clock" (rect 21 27 41 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 1))
 	)
 	(port
@@ -61,8 +61,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
-		(text "user_buffer_data[15..0]" (rect 0 0 94 12)(font "Arial" ))
-		(text "user_buffer_data[15..0]" (rect 21 107 115 119)(font "Arial" ))
+		(text "user_buffer_data[31..0]" (rect 0 0 94 12)(font "Arial" ))
+		(text "user_buffer_data[31..0]" (rect 21 107 115 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
@@ -71,6 +71,13 @@ applicable agreement for further details.
 		(text "user_data_available" (rect 0 0 79 12)(font "Arial" ))
 		(text "user_data_available" (rect 21 123 100 135)(font "Arial" ))
 		(line (pt 0 128)(pt 16 128)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "clk_en" (rect 0 0 25 12)(font "Arial" ))
+		(text "clk_en" (rect 21 139 46 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 1))
 	)
 	(port
 		(pt 296 32)
@@ -96,15 +103,15 @@ applicable agreement for further details.
 	(port
 		(pt 296 80)
 		(output)
-		(text "control_read_base[21..0]" (rect 0 0 97 12)(font "Arial" ))
-		(text "control_read_base[21..0]" (rect 178 75 275 87)(font "Arial" ))
+		(text "control_read_base[24..0]" (rect 0 0 100 12)(font "Arial" ))
+		(text "control_read_base[24..0]" (rect 175 75 275 87)(font "Arial" ))
 		(line (pt 296 80)(pt 280 80)(line_width 3))
 	)
 	(port
 		(pt 296 96)
 		(output)
-		(text "control_read_length[21..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "control_read_length[21..0]" (rect 174 91 275 103)(font "Arial" ))
+		(text "control_read_length[24..0]" (rect 0 0 103 12)(font "Arial" ))
+		(text "control_read_length[24..0]" (rect 172 91 275 103)(font "Arial" ))
 		(line (pt 296 96)(pt 280 96)(line_width 3))
 	)
 	(port
@@ -120,6 +127,13 @@ applicable agreement for further details.
 		(text "user_read_buffer" (rect 0 0 71 12)(font "Arial" ))
 		(text "user_read_buffer" (rect 204 123 275 135)(font "Arial" ))
 		(line (pt 296 128)(pt 280 128)(line_width 1))
+	)
+	(port
+		(pt 296 144)
+		(output)
+		(text "clk_out" (rect 0 0 28 12)(font "Arial" ))
+		(text "clk_out" (rect 247 139 275 151)(font "Arial" ))
+		(line (pt 296 144)(pt 280 144)(line_width 1))
 	)
 	(parameter
 		"control_go_idle"

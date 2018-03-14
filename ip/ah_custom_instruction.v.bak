@@ -1,0 +1,59 @@
+module ah_custom_instruction (
+	// CUSTOM INSTRUCTION CONNECTIONS
+	clk_1,
+	dataa,
+	datab,
+	result,
+	start,
+	reset,
+	clk_en,
+	done,
+	
+	// AVALON MASTER BUS CONNECTIONS
+	clk_1,
+	master_address,
+	master_read,
+	master_write,
+	master_byteenable,
+	master_readdata,
+	master_readdatavalid,
+	master_writedata,
+	master_burstcount,
+	master_waitrequest
+);
+
+custom_master_ah master (
+	clk,
+	reset,
+
+	// control inputs and outputs
+	control_fixed_location,
+	control_read_base,
+	control_read_length,
+	control_write_base,
+	control_write_length,
+	control_go,
+	control_done,
+	control_early_done,
+	
+	// user logic inputs and outputs
+	user_read_buffer,
+	user_write_buffer,
+	user_buffer_input_data,
+	user_buffer_output_data,
+	user_data_available,
+	user_buffer_full,
+	
+	// master inputs and outputs
+	master_address,
+	master_read,
+	master_write,
+	master_byteenable,
+	master_readdata,
+	master_readdatavalid,
+	master_writedata,
+	master_burstcount,
+	master_waitrequest
+);
+
+endmodule

@@ -205,7 +205,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"DATA_WIDTH"
-		"16"
+		"32"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
@@ -225,7 +225,7 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"ADDRESS_WIDTH"
-		"22"
+		"32"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
@@ -235,12 +235,12 @@ applicable agreement for further details.
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"MAXIMUM_BURST_COUNT"
-		"1"
+		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"BURST_COUNT_WIDTH"
-		"1"
+		"2"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

@@ -41,11 +41,11 @@ module custom_master_ah (
 );
 
 	parameter MASTER_DIRECTION = 0;							// 0 for read master, 1 for write master
-	parameter DATA_WIDTH = 16;
+	parameter DATA_WIDTH = 32;
 	parameter MEMORY_BASED_FIFO = 1;						// 0 for LE/ALUT FIFOs, 1 for memory FIFOs (highly recommend 1)
 	parameter FIFO_DEPTH = 32;
 	parameter FIFO_DEPTH_LOG2 = 5;
-	parameter ADDRESS_WIDTH = 22;
+	parameter ADDRESS_WIDTH = 25;
 	parameter BURST_CAPABLE = 0;							// 1 to enable burst, 0 to disable it
 	parameter MAXIMUM_BURST_COUNT = 1;
 	parameter BURST_COUNT_WIDTH = 1;
@@ -76,7 +76,7 @@ module custom_master_ah (
 	output wire [ADDRESS_WIDTH-1:0] master_address;
 	output wire master_read;								// for read master
 	output wire master_write;								// for write master
-	output wire [1:0] master_byteenable;
+	output wire [3:0] master_byteenable;
 	input [DATA_WIDTH-1:0] master_readdata;					// for read master
 	input master_readdatavalid;								// for read master
 	output wire [DATA_WIDTH-1:0] master_writedata;			// for write master

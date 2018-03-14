@@ -1,5 +1,5 @@
 module ah_design_top(
-	clk,
+	clock,
 	read_addr,
 	size,
 	read_en,
@@ -12,11 +12,18 @@ module ah_design_top(
 	control_done,
 	user_buffer_data,
 	user_data_available,
-	user_read_buffer
+	user_read_buffer,
+	clk_en,
+	clk_out
 	);
 	
 	//CLOCK
-	input clk;
+	input clock,clk_en;
+	output clk_out;
+	wire clk;
+	
+	assign clk = clock & clk_en;
+	assign clk_out = clock & clk_en;
 	
 	//NIOS CONNECTION
 	input [31:0] read_addr;
@@ -28,14 +35,14 @@ module ah_design_top(
 	
 	//AVALON MASTER CONNECTION
 	output 			control_fixed_location;
-	output [21:0] 	control_read_base;
-	output [21:0]	control_read_length;
+	output [24:0] 	control_read_base;
+	output [24:0]	control_read_length;
 	output			control_go;
 	
 	input control_done;
 	
 	//BUFFER CONNECTION
-	input [15:0] user_buffer_data;
+	input [31:0] user_buffer_data;
 	input user_data_available;
 	
 	output user_read_buffer;
@@ -70,6 +77,14 @@ module ah_design_top(
 	
 	assign control_go = control_go_reg;
 	
-	assign sum_done = control_done;
+	reg user_read_buffer_reg;
+	assign user_read_buffer = user_read_buffer_reg;
+	
+	always @(posedge clk) begin
+		user_read_buffer_reg <= user_data_available;
+	end
+	
+	assign sum_result = user_buffer_data;
+	assign sum_done = user_data_available;
 	
 endmodule

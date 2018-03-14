@@ -1,4 +1,9 @@
 
+State Machine - |hello_world|first_nios2_system:inst|ah_custom_instruction:ah_instr_0|control_go_state
+Name control_go_state.control_go_en 
+control_go_state.control_go_idle 0 
+control_go_state.control_go_en 1 
+
 State Machine - |hello_world|first_nios2_system:inst|first_nios2_system_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
 m_next.000000001 0 0 0 0 
