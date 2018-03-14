@@ -24,7 +24,7 @@ module ahfp_cordic_fixed( 	clk,
   reg [31:0] x [0:N-1];
   reg [31:0] y [0:N-1];
   reg [31:0] z [0:N-1];
-  
+
   wire [31:0] atan_table [0:N-1]; 
   assign atan_table[0] = 32'h1921fb60;
   assign atan_table[1] = 32'h0ed63380;
@@ -41,8 +41,6 @@ module ahfp_cordic_fixed( 	clk,
   
   wire [31:0] an;
   assign an = 32'h136e9e80;
-  //TODO:
-  // - assign an properly with input
   
   //assign x[0] = x_start;
   always @(posedge clk) begin
@@ -50,20 +48,19 @@ module ahfp_cordic_fixed( 	clk,
 	y[0] = y_start;
 	z[0] = theta;
   end
-  //TODO: need to do fp additions
   genvar i;
   generate
   for(i=0;i<(N-1);i=i+1)
   begin: loop_generation
     always @(posedge clk)
     begin
-		x[i+1] <= z[i][31] ? x[i] - y[i] >>> i :
-							 x[i] + y[i] >>> i ; 
+		x[i+1] <= z[i][31] ? x[i] + y[i] >>> i :
+							 x[i] - y[i] >>> i ; 
 							 
-		y[i+1] <= z[i][31] ? y[i] + x[i] >>> i :
-							 y[i] - x[i] >>> i ;
+		y[i+1] <= z[i][31] ? y[i] - x[i] >>> i :
+							 y[i] + x[i] >>> i ;
 							
-		z[i+1] <= z[i][31] ? z[i] - atan_table[i] :
+		z[i+1] <= z[i][31] ? z[i] + atan_table[i] :
 							 z[i] - atan_table[i] ;
     end
   end
