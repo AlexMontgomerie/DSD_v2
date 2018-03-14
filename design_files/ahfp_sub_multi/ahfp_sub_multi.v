@@ -5,7 +5,7 @@
 // - Combinational
 // - refere to altera's ug_embedded_ip for info
 // ############################################
-`include "../ahfp_lzd/ahfp_lzd.v"
+`include "../ahfp_lzd/ahfp_lzd48.v"
 module ahfp_sub_multi(
 	clk,
 	dataa,

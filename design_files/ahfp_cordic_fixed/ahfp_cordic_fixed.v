@@ -21,9 +21,9 @@ module ahfp_cordic_fixed( 	clk,
   output [31:0] x_cos;
 
   //variables
-  reg [31:0] x [0:N-1];
-  reg [31:0] y [0:N-1];
-  reg [31:0] z [0:N-1];
+  reg signed [31:0] x [0:N-1];
+  reg signed [31:0] y [0:N-1];
+  reg signed [31:0] z [0:N-1];
 
   wire [31:0] atan_table [0:N-1]; 
   assign atan_table[0] = 32'h1921fb60;
@@ -41,12 +41,35 @@ module ahfp_cordic_fixed( 	clk,
   
   wire [31:0] an;
   assign an = 32'h136e9e80;
+ 
   
+  wire [31:0] nothing;
   //assign x[0] = x_start;
+  
+  wire [1:0] quadrant;
+  assign quadrant = theta[31:30];
+  
   always @(posedge clk) begin
-	x[0] = ((x_start*an)>>>29)[31:0];
-	y[0] = y_start;
-	z[0] = theta;
+	case(quadrant)
+	2'b00,2'b11:
+		begin
+			x[0] <= an;
+			y[0] <= 32'd0;
+			z[0] <= theta;
+		end
+	2'b01:
+		begin
+			x[0] <= 32'd0;
+			y[0] <= an;
+			z[0] <= {2'b00,theta[29:0]};
+		end
+	2'b10:
+		begin
+			x[0] <= 32'd0;
+			y[0] <= ~an + 1;
+			z[0] <= {2'b11,theta[29:0]};
+		end
+	endcase
   end
   genvar i;
   generate
@@ -54,11 +77,11 @@ module ahfp_cordic_fixed( 	clk,
   begin: loop_generation
     always @(posedge clk)
     begin
-		x[i+1] <= z[i][31] ? x[i] + y[i] >>> i :
-							 x[i] - y[i] >>> i ; 
+		x[i+1] <= z[i][31] ? x[i] + (y[i] >>> i) :
+							 x[i] - (y[i] >>> i) ; 
 							 
-		y[i+1] <= z[i][31] ? y[i] - x[i] >>> i :
-							 y[i] + x[i] >>> i ;
+		y[i+1] <= z[i][31] ? y[i] - (x[i] >>> i) :
+							 y[i] + (x[i] >>> i) ;
 							
 		z[i+1] <= z[i][31] ? z[i] + atan_table[i] :
 							 z[i] - atan_table[i] ;

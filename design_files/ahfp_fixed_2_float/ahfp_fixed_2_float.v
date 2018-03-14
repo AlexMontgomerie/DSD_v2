@@ -1,3 +1,5 @@
+`include "../ahfp_lzd/ahfp_lzd32.v"
+
 module ahfp_fixed_2_float (in,out);
 
 input [31:0] in;

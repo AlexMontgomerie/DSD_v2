@@ -16,7 +16,7 @@ parameter thirty_two	 = 32'h42000000;
 parameter fixed_one 	 = 32'h20000000;
 parameter fixed_zero 	 = 32'h00000000;
 parameter float_one_half = 32'h3f000000;
-parameter nstages        = 56;
+parameter nstages        = 51;
 		
 input clk;
 input 	[31:0] dataa, datab;
@@ -24,9 +24,12 @@ output 	[31:0] result;
 		
 //Stage 1 => buffer the inputs
 
-wire [31:0] a_buf, b_buf;
-
 reg  [31:0] xfifo[0:nstages-1];
+
+always @(posedge clk) begin
+		xfifo[0] <= dataa;
+end
+
 genvar i;
 generate
 	for (i = 0; i < nstages-1; i=i+1)
@@ -36,12 +39,7 @@ generate
 		end
 	end
 endgenerate
-
-`define STAGES 20
-`include "../ahfp_pipeline_buffer/ahfp_pipeline_buffer.v"
-ahfp_pipeline_buffer buf_a (clk, dataa, a_buf);
-ahfp_pipeline_buffer buf_b (clk, datab, b_buf);		
-`undef STAGES							
+						
 //Stage 1 => get the floor result
 
 wire 	[31:0] floor_res;
@@ -84,19 +82,13 @@ end
 
 //Stage 5 => multiply with cos and add 1
 
-//buffer x again, after getting it
-`define STAGES 5
-`include "../ahfp_pipeline_buffer/ahfp_pipeline_buffer.v"
-wire [31:0] x_buf;
-`undef STAGES
-
-wire [31:0] mul_cos_res, xcos_res;
+wire [31:0] xcos_res;
 wire [31:0] cos_add_half_res;
 
-ahfp_mul_multi mul_cos (clk, float_cos_out_reg, {a_buf[31],a_buf[30:23]+1,a_buf[22:0]}, mul_cos_res);
-ahfp_mul_multi mul_xcos(clk, mul_cos_res, xfifo[N-7], xcos_res);
+//ahfp_mul_multi mul_cos (clk, float_cos_out_reg, {a_buf[31],a_buf[30:23]+1,a_buf[22:0]}, mul_cos_res);
+ahfp_mul_multi mul_xcos(clk, float_cos_out_reg, xfifo[37], xcos_res);
 ahfp_add_sub_multi cos_add_half (clk, xcos_res, float_one_half, cos_add_half_res); 
 
-ahfp_mul_multi mulx(clk, cos_add_half_res, xfifo[N-1], result);
+ahfp_mul_multi mulx(clk, cos_add_half_res, xfifo[50], result);
 
 endmodule

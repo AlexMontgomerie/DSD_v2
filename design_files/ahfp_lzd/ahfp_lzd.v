@@ -5,7 +5,7 @@
 // - Combinational
 // - refere to altera's ug_embedded_ip for info
 // ############################################
-
+/*
 module lzd4(in, out, valid);
 	input  wire [3:0] in;
 	output wire [1:0] out;
@@ -71,3 +71,4 @@ module lzd48(in, out, valid);
 	output	wire valid;
 	lzd64 msb_finder ({in, 16'h0000}, out, valid);
 endmodule
+*/

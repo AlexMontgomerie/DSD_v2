@@ -16,7 +16,7 @@ ah_func dut (
 
 initial // Clock generator
   begin
-    clk = 0;
+    clk = 1;
     forever #10 clk = !clk;
   end
   
