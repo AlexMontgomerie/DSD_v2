@@ -49,22 +49,22 @@ output done;
 
 // AVALON MASTER BUS CONNECTIONS
 // - inputs
-input 							master_waitrequest;
-input 							master_readdatavalid;
+input 						master_waitrequest;
+input 						master_readdatavalid;
 input [M_DATA_WIDTH-1:0] 	master_readdata;			
 // - outputs
-output wire [M_ADDR_WIDTH-1:0] 	master_address;
-output wire 							master_read;							
+output wire [M_ADDR_WIDTH-1:0] 		master_address;
+output wire 						master_read;							
 output wire [BYTEENABLEWIDTH-1:0] 	master_byteenable;	
-output wire  							master_burstcount;	
+output wire  						master_burstcount;	
 
 //INTERNAL CONNECTIONS
-wire 								control_fixed_location;
+wire 						control_fixed_location;
 wire [M_ADDR_WIDTH-1:0] 	control_read_base;
 wire [M_ADDR_WIDTH-1:0]		control_read_length;
-wire								control_go;	
-wire 								control_done;
-wire								control_early_done;
+wire						control_go;	
+wire 						control_done;
+wire						control_early_done;
 	
 wire [M_DATA_WIDTH-1:0] user_buffer_data;
 wire 							user_data_available;	

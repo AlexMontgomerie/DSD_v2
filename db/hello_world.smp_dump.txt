@@ -1,8 +1,11 @@
 
-State Machine - |hello_world|first_nios2_system:inst|ah_custom_instruction:ah_instr_0|control_go_state
-Name control_go_state.control_go_en 
-control_go_state.control_go_idle 0 
-control_go_state.control_go_en 1 
+State Machine - |hello_world|first_nios2_system:inst|test_dma:dma_test_0|dma_update_state
+Name dma_update_state.dma_control_setup dma_update_state.dma_idle dma_update_state.dma_length_setup dma_update_state.dma_write_addr_setup dma_update_state.dma_read_addr_setup 
+dma_update_state.dma_idle 0 0 0 0 0 
+dma_update_state.dma_write_addr_setup 0 1 0 1 0 
+dma_update_state.dma_length_setup 0 1 1 0 0 
+dma_update_state.dma_read_addr_setup 0 1 0 0 1 
+dma_update_state.dma_control_setup 1 1 0 0 0 
 
 State Machine - |hello_world|first_nios2_system:inst|first_nios2_system_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 

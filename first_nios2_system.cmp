@@ -1,17 +1,17 @@
 	component first_nios2_system is
 		port (
-			clk_clk                            : in    std_logic                     := 'X';             -- clk
-			reset_reset_n                      : in    std_logic                     := 'X';             -- reset_n
-			led_pio_external_connection_export : out   std_logic_vector(7 downto 0);                     -- export
-			sdram_wire_addr                    : out   std_logic_vector(11 downto 0);                    -- addr
-			sdram_wire_ba                      : out   std_logic_vector(1 downto 0);                     -- ba
-			sdram_wire_cas_n                   : out   std_logic;                                        -- cas_n
-			sdram_wire_cke                     : out   std_logic;                                        -- cke
-			sdram_wire_cs_n                    : out   std_logic;                                        -- cs_n
-			sdram_wire_dq                      : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
-			sdram_wire_dqm                     : out   std_logic_vector(1 downto 0);                     -- dqm
-			sdram_wire_ras_n                   : out   std_logic;                                        -- ras_n
-			sdram_wire_we_n                    : out   std_logic                                         -- we_n
+			clk_0                       : in    std_logic                     := 'X';             -- clk
+			reset_n                     : in    std_logic                     := 'X';             -- reset_n
+			out_port_from_the_led_pio   : out   std_logic_vector(7 downto 0);                     -- export
+			zs_addr_from_the_sdram      : out   std_logic_vector(11 downto 0);                    -- addr
+			zs_ba_from_the_sdram        : out   std_logic_vector(1 downto 0);                     -- ba
+			zs_cas_n_from_the_sdram     : out   std_logic;                                        -- cas_n
+			zs_cke_from_the_sdram       : out   std_logic;                                        -- cke
+			zs_cs_n_from_the_sdram      : out   std_logic;                                        -- cs_n
+			zs_dq_to_and_from_the_sdram : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
+			zs_dqm_from_the_sdram       : out   std_logic_vector(1 downto 0);                     -- dqm
+			zs_ras_n_from_the_sdram     : out   std_logic;                                        -- ras_n
+			zs_we_n_from_the_sdram      : out   std_logic                                         -- we_n
 		);
 	end component first_nios2_system;
 

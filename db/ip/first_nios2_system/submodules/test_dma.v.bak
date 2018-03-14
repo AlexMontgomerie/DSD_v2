@@ -1,0 +1,194 @@
+module test_dma(
+	// SLAVE
+	slave_address,
+	slave_read,
+	slave_write,
+	slave_readdata,
+	slave_writedata,
+	slave_byteenable,
+	
+	// interrupt signals
+	slave_irq,
+	
+	//CLOCK
+	clk_instr,
+	clk_master,
+	
+	//RESET
+	reset_instr,
+	reset_master,
+	
+	// CUSTOM INSTRUCTION CONNECTIONS
+	dataa,
+	datab,
+	result,
+	start,
+	clk_en,
+	done,
+	
+	// master inputs and outputs
+	master_address,
+	master_write,
+	master_chipselect,
+	master_writedata,
+	master_readdata,
+	master_waitrequest,
+	master_response,
+	master_waitresponsevalid,
+	master_waitresponserequest
+);
+
+//PARAMETERS
+parameter M_ADDR_WIDTH = 32;
+parameter M_DATA_WIDTH = 32;
+parameter DATA_WIDTH = 32;
+parameter BYTEENABLEWIDTH 	= 4;
+
+//CLOCK
+input clk_instr	, clk_master;
+input reset_instr	, reset_master;
+
+wire clk,reset;
+assign clk = clk_instr;
+assign reset = reset_instr;
+
+// CUSTOM INSTRUCTION
+//	- inputs
+input [31:0] dataa,datab;
+input start,clk_en;
+// - outputs
+output [31:0] result;
+output done;
+
+wire 						control_fixed_location;
+wire [M_ADDR_WIDTH-1:0] 	control_write_base;
+wire [M_ADDR_WIDTH-1:0]		control_write_length;
+wire						control_go;	
+wire 						control_done;
+wire						control_early_done;
+
+
+//SLAVE
+// slave interface
+input [8:0] slave_address;
+input slave_read;
+input slave_write;
+output wire [M_DATA_WIDTH-1:0] slave_readdata;
+input [M_DATA_WIDTH-1:0] slave_writedata;
+input [BYTEENABLEWIDTH-1:0] slave_byteenable;
+output wire slave_irq;
+
+// user interface
+wire [DATA_WIDTH-1:0] user_dataout_0;
+wire [DATA_WIDTH-1:0] user_dataout_1;
+wire [DATA_WIDTH-1:0] user_dataout_2;
+wire [DATA_WIDTH-1:0] user_dataout_3;
+wire [DATA_WIDTH-1:0] user_dataout_4;
+wire [DATA_WIDTH-1:0] user_dataout_5;
+wire [DATA_WIDTH-1:0] user_dataout_6;
+wire [DATA_WIDTH-1:0] user_dataout_7;
+wire [DATA_WIDTH-1:0] user_dataout_8;
+wire [DATA_WIDTH-1:0] user_dataout_9;
+wire [DATA_WIDTH-1:0] user_dataout_10;
+wire [DATA_WIDTH-1:0] user_dataout_11;
+wire [DATA_WIDTH-1:0] user_dataout_12;
+wire [DATA_WIDTH-1:0] user_dataout_13;
+wire [DATA_WIDTH-1:0] user_dataout_14;
+wire [DATA_WIDTH-1:0] user_dataout_15;
+wire [DATA_WIDTH-1:0] user_datain_0;
+wire [DATA_WIDTH-1:0] user_datain_1;
+wire [DATA_WIDTH-1:0] user_datain_2;
+wire [DATA_WIDTH-1:0] user_datain_3;
+wire [DATA_WIDTH-1:0] user_datain_4;
+wire [DATA_WIDTH-1:0] user_datain_5;
+wire [DATA_WIDTH-1:0] user_datain_6;
+wire [DATA_WIDTH-1:0] user_datain_7;
+wire [DATA_WIDTH-1:0] user_datain_8;
+wire [DATA_WIDTH-1:0] user_datain_9;
+wire [DATA_WIDTH-1:0] user_datain_10;
+wire [DATA_WIDTH-1:0] user_datain_11;
+wire [DATA_WIDTH-1:0] user_datain_12;
+wire [DATA_WIDTH-1:0] user_datain_13;
+wire [DATA_WIDTH-1:0] user_datain_14;
+wire [DATA_WIDTH-1:0] user_datain_15;
+wire [15:0] user_chipselect;
+wire [BYTEENABLEWIDTH-1:0] user_byteenable;
+wire user_write;
+wire user_read;
+
+slave_template slave (
+	// signals to connect to an Avalon clock source interface
+	.clk(clk_master),
+	.reset(reset_master),
+	
+	// signals to connect to an Avalon-MM slave interface
+	.slave_address(slave_address),
+	.slave_read(slave_read),
+	.slave_write(slave_write),
+	.slave_readdata(slave_readdata),
+	.slave_writedata(slave_writedata),
+	.slave_byteenable(slave_byteenable),
+	
+	// interrupt signals
+	.slave_irq(slave_irq),
+
+	// signals to connect to custom user logic (up to 16 input and output pairs)
+	.user_dataout_0(user_dataout_0),
+	.user_dataout_1(user_dataout_1),
+	.user_dataout_2(user_dataout_2),
+	.user_dataout_3(user_dataout_3),
+	.user_dataout_4(user_dataout_4),
+	.user_dataout_5(user_dataout_5),
+	.user_dataout_6(user_dataout_6),
+	.user_dataout_7(user_dataout_7),
+	.user_dataout_8(user_dataout_8),
+	.user_dataout_9(user_dataout_9),
+	.user_dataout_10(user_dataout_10),
+	.user_dataout_11(user_dataout_11),
+	.user_dataout_12(user_dataout_12),
+	.user_dataout_13(user_dataout_13),
+	.user_dataout_14(user_dataout_14),
+	.user_dataout_15(user_dataout_15),
+	.user_datain_0(32'd0),
+	.user_datain_1(32'd0),
+	.user_datain_2(32'd0),
+	.user_datain_3(32'd0),
+	.user_datain_4(32'd0),
+	.user_datain_5(32'd0),
+	.user_datain_6(32'd0),
+	.user_datain_7(32'd0),
+	.user_datain_8(32'd0),
+	.user_datain_9(32'd0),
+	.user_datain_10(32'd0),
+	.user_datain_11(32'd0),
+	.user_datain_12(32'd0),
+	.user_datain_13(32'd0),
+	.user_datain_14(32'd0),
+	.user_datain_15(32'd0),
+	
+	// optional signals so that your external logic knows what location is being accessed
+	.user_chipselect(user_chipselect),
+	.user_byteenable(user_byteenable),
+	.user_write(user_write),
+	.user_read(user_read)
+);
+
+//MASTER
+output [4:0] 				master_address;
+output 						master_write;
+input [M_ADDR_WIDTH-1:0] 	master_readdata;	
+output						master_chipselect;
+output [M_ADDR_WIDTH-1:0] 	master_writedata;
+input 						master_waitrequest;
+input [1:0]	master_response;
+input	master_waitresponsevalid;
+output	master_waitresponserequest;
+
+assign master_waitresponserequest = 1'b0;
+
+assign master_write = start;
+assign master_address = 5'd1;
+assign master_writedata = dataa;
+assign master_chipselect = 1'b0;
+
+endmodule

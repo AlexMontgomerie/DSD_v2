@@ -67,7 +67,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   </table>
   <table class="blueBar">
    <tr>
-    <td class="l">2018.03.14.19:36:13</td>
+    <td class="l">2018.03.14.23:41:14</td>
     <td class="r">Datasheet</td>
    </tr>
   </table>
@@ -107,7 +107,13 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </a> altera_avalon_pio 13.0.1.99.2
      <br/>&#160;&#160;
      <a href="#module_sdram"><b>sdram</b>
-     </a> altera_avalon_new_sdram_controller 13.0.1.99.2</span>
+     </a> altera_avalon_new_sdram_controller 13.0.1.99.2
+     <br/>&#160;&#160;
+     <a href="#module_dma_0"><b>dma_0</b>
+     </a> altera_avalon_dma 13.0.1.99.2
+     <br/>&#160;&#160;
+     <a href="#module_dma_test_0"><b>dma_test_0</b>
+     </a> dma_test 1.0</span>
    </div>
   </div>
   <div style="width:100% ;  height:10px"> </div>
@@ -119,14 +125,20 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <a href="#module_cpu"><b>cpu</b>
      </a>
     </td>
+    <td class="mastermodule" colspan="2">
+     <a href="#module_dma_0"><b>dma_0</b>
+     </a>
+    </td>
     <td class="mastermodule" colspan="1">
-     <a href="#module_ah_instr_0"><b>ah_instr_0</b>
+     <a href="#module_dma_test_0"><b>dma_test_0</b>
      </a>
     </td>
    </tr>
    <tr>
     <td class="masterl">&#160;data_master</td>
     <td class="masterr">&#160;instruction_master</td>
+    <td class="masterl">&#160;read_master</td>
+    <td class="masterr">&#160;write_master</td>
     <td class="masterlr">&#160;avalon_master</td>
    </tr>
    <tr>
@@ -137,11 +149,15 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
    </tr>
    <tr>
     <td class="slaveb">jtag_debug_module&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>01000800</td>
     <td class="addr"><span style="color:#989898">0x</span>01000800</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
     <td class="empty"></td>
    </tr>
    <tr>
@@ -152,10 +168,14 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
    </tr>
    <tr>
     <td class="slaveb">avalon_jtag_slave&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>01001038</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
    </tr>
@@ -167,10 +187,14 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
    </tr>
    <tr>
     <td class="slaveb">s1&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>01001000</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
    </tr>
@@ -182,10 +206,14 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
    </tr>
    <tr>
     <td class="slaveb">control_slave&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>01001030</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
    </tr>
@@ -197,10 +225,14 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
    </tr>
    <tr>
     <td class="slaveb">s1&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>01001020</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
    </tr>
@@ -212,12 +244,54 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     <td class="empty"></td>
     <td class="empty"></td>
     <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
    </tr>
    <tr>
     <td class="slaveb">s1&#160;</td>
     <td class="addr"><span style="color:#989898">0x</span>00800000</td>
     <td class="addr"><span style="color:#989898">0x</span>00800000</td>
-    <td class="addr"><span style="color:#989898">0x</span>02000000</td>
+    <td class="addr"><span style="color:#989898">0x</span>00800000</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_dma_0"><b>dma_0</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">control_port_slave&#160;</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="addr"><span style="color:#989898">0x</span>00000000</td>
+   </tr>
+   <tr>
+    <td class="slavemodule">&#160;
+     <a href="#module_dma_test_0"><b>dma_test_0</b>
+     </a>
+    </td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+   </tr>
+   <tr>
+    <td class="slaveb">avalon_slave_0&#160;</td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="empty"></td>
+    <td class="addr"><span style="color:#989898">0x</span>00000000</td>
+    <td class="empty"></td>
    </tr>
   </table>
   <a name="module_clk_0"> </a>
@@ -279,7 +353,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="27">cpu</td>
+      <td class="main" rowspan="30">cpu</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clk</td>
@@ -403,9 +477,25 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      <tr>
       <td></td>
       <td></td>
+      <td class="from">d_irq&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_dma_0">dma_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;irq</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
       <td class="from">custom_instruction_master&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
-       <a href="#module_ah_instr_0">ah_instr_0</a>
+       <a href="#module_dma_test_0">dma_test_0</a>
       </td>
      </tr>
      <tr>
@@ -876,11 +966,11 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">internalIrqMaskSystemInfo</td>
-        <td class="parametervalue">65538</td>
+        <td class="parametervalue">196610</td>
        </tr>
        <tr>
         <td class="parametername">customInstSlavesSystemInfo</td>
-        <td class="parametervalue">&lt;info&gt;&lt;slave name="ah_instr_0" baseAddress="0" addressSpan="1" clockCycleType="VARIABLE" /&gt;&lt;/info&gt;</td>
+        <td class="parametervalue">&lt;info&gt;&lt;slave name="dma_test_0" baseAddress="0" addressSpan="1" clockCycleType="VARIABLE" /&gt;&lt;/info&gt;</td>
        </tr>
        <tr>
         <td class="parametername">deviceFeaturesSystemInfo</td>
@@ -1414,7 +1504,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">timestamp</td>
-        <td class="parametervalue">1521056172</td>
+        <td class="parametervalue">1521070873</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLK_CLOCK_RATE</td>
@@ -1447,7 +1537,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        </tr>
        <tr>
         <td class="parametername">TIMESTAMP</td>
-        <td class="parametervalue">1521056172</td>
+        <td class="parametervalue">1521070873</td>
        </tr>
       </table>
      </td>
@@ -1698,9 +1788,9 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </tr>
      <tr>
       <td class="neighbor" rowspan="2">
-       <a href="#module_ah_instr_0">ah_instr_0</a>
+       <a href="#module_dma_0">dma_0</a>
       </td>
-      <td class="from">avalon_master&#160;&#160;</td>
+      <td class="from">read_master&#160;&#160;</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;s1</td>
@@ -1940,10 +2030,10 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
     </tr>
    </table>
   </div>
-  <a name="module_ah_instr_0"> </a>
+  <a name="module_dma_0"> </a>
   <div>
    <hr/>
-   <h2>ah_instr_0</h2>ah_instr v1.0
+   <h2>dma_0</h2>altera_avalon_dma v13.0.1.99.2
    <br/>
    <div class="greydiv">
     <table class="connectionboxes">
@@ -1952,7 +2042,234 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
        <a href="#module_clk_0">clk_0</a>
       </td>
       <td class="from">clk&#160;&#160;</td>
-      <td class="main" rowspan="9">ah_instr_0</td>
+      <td class="main" rowspan="15">dma_0</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;clk</td>
+     </tr>
+     <tr>
+      <td class="from">clk_reset&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;reset</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_cpu">cpu</a>
+      </td>
+      <td class="from">d_irq&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;irq</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_dma_test_0">dma_test_0</a>
+      </td>
+      <td class="from">avalon_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;control_port_slave</td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">read_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_sdram">sdram</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;s1</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="from">write_master&#160;&#160;</td>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_dma_test_0">dma_test_0</a>
+      </td>
+     </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td class="to">&#160;&#160;avalon_slave_0</td>
+     </tr>
+    </table>
+   </div>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">allowByteTransactions</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">allowDoubleWordTransactions</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">allowHalfWordTransactions</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">allowQuadWordTransactions</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">allowWordTransactions</td>
+        <td class="parametervalue">true</td>
+       </tr>
+       <tr>
+        <td class="parametername">bigEndian</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">burstEnable</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">fifoDepth</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">maxBurstSize</td>
+        <td class="parametervalue">128</td>
+       </tr>
+       <tr>
+        <td class="parametername">minimumDmaTransactionRegisterWidth</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">useRegistersForFIFO</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">avalonSpec</td>
+        <td class="parametervalue">2.0</td>
+       </tr>
+       <tr>
+        <td class="parametername">readAddressMap</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='sdram.s1' start='0x800000' end='0x1000000' /&gt;&lt;/address-map&gt;</td>
+       </tr>
+       <tr>
+        <td class="parametername">readSlaveAddressWidthMax</td>
+        <td class="parametervalue">24</td>
+       </tr>
+       <tr>
+        <td class="parametername">readSlaveDataWidthMax</td>
+        <td class="parametervalue">16</td>
+       </tr>
+       <tr>
+        <td class="parametername">writeAddressMap</td>
+        <td class="parametervalue">&lt;address-map&gt;&lt;slave name='dma_test_0.avalon_slave_0' start='0x0' end='0x8' /&gt;&lt;/address-map&gt;</td>
+       </tr>
+       <tr>
+        <td class="parametername">writeSlaveAddressWidthMax</td>
+        <td class="parametervalue">3</td>
+       </tr>
+       <tr>
+        <td class="parametername">writeSlaveDataWidthMax</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">actualDmaTransactionRegisterWidth</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">allowLegacySignals</td>
+        <td class="parametervalue">false</td>
+       </tr>
+       <tr>
+        <td class="parametername">minimumNumberOfByteTransfers</td>
+        <td class="parametervalue">4294967295</td>
+       </tr>
+       <tr>
+        <td class="parametername">readMaximumSlaveSpan</td>
+        <td class="parametervalue">8388608</td>
+       </tr>
+       <tr>
+        <td class="parametername">writeMaximumSlaveSpan</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>
+      <table>
+       <tr>
+        <td class="parametername">ALLOW_BYTE_TRANSACTIONS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ALLOW_DOUBLEWORD_TRANSACTIONS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ALLOW_HW_TRANSACTIONS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ALLOW_QUADWORD_TRANSACTIONS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">ALLOW_WORD_TRANSACTIONS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">LENGTHWIDTH</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">MAX_BURST_SIZE</td>
+        <td class="parametervalue">128</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </div>
+  <a name="module_dma_test_0"> </a>
+  <div>
+   <hr/>
+   <h2>dma_test_0</h2>dma_test v1.0
+   <br/>
+   <div class="greydiv">
+    <table class="connectionboxes">
+     <tr>
+      <td class="neighbor" rowspan="4">
+       <a href="#module_clk_0">clk_0</a>
+      </td>
+      <td class="from">clk&#160;&#160;</td>
+      <td class="main" rowspan="12">dma_test_0</td>
      </tr>
      <tr>
       <td class="to">&#160;&#160;clock_sink</td>
@@ -1962,6 +2279,18 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
      </tr>
      <tr>
       <td class="to">&#160;&#160;reset_sink</td>
+     </tr>
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+     <tr>
+      <td class="neighbor" rowspan="2">
+       <a href="#module_dma_0">dma_0</a>
+      </td>
+      <td class="from">write_master&#160;&#160;</td>
+     </tr>
+     <tr>
+      <td class="to">&#160;&#160;avalon_slave_0</td>
      </tr>
      <tr style="height:6px">
       <td></td>
@@ -1980,13 +2309,13 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <td></td>
       <td class="from">avalon_master&#160;&#160;</td>
       <td class="neighbor" rowspan="2">
-       <a href="#module_sdram">sdram</a>
+       <a href="#module_dma_0">dma_0</a>
       </td>
      </tr>
      <tr>
       <td></td>
       <td></td>
-      <td class="to">&#160;&#160;s1</td>
+      <td class="to">&#160;&#160;control_port_slave</td>
      </tr>
     </table>
    </div>
@@ -1999,10 +2328,14 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
       <table>
        <tr>
         <td class="parametername">M_ADDR_WIDTH</td>
-        <td class="parametervalue">26</td>
+        <td class="parametervalue">32</td>
        </tr>
        <tr>
         <td class="parametername">M_DATA_WIDTH</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DATA_WIDTH</td>
         <td class="parametervalue">32</td>
        </tr>
        <tr>
@@ -2010,12 +2343,24 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
         <td class="parametervalue">4</td>
        </tr>
        <tr>
-        <td class="parametername">control_go_idle</td>
+        <td class="parametername">dma_read_addr_setup</td>
         <td class="parametervalue">1</td>
        </tr>
        <tr>
-        <td class="parametername">control_go_en</td>
+        <td class="parametername">dma_write_addr_setup</td>
         <td class="parametervalue">2</td>
+       </tr>
+       <tr>
+        <td class="parametername">dma_length_setup</td>
+        <td class="parametervalue">4</td>
+       </tr>
+       <tr>
+        <td class="parametername">dma_idle</td>
+        <td class="parametervalue">8</td>
+       </tr>
+       <tr>
+        <td class="parametername">dma_control_setup</td>
+        <td class="parametervalue">16</td>
        </tr>
        <tr>
         <td class="parametername">AUTO_CLOCK_SINK_CLOCK_RATE</td>
@@ -2043,7 +2388,7 @@ div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; bord
   <table class="blueBar">
    <tr>
     <td class="l">generation took 0.00 seconds</td>
-    <td class="r">rendering took 0.05 seconds</td>
+    <td class="r">rendering took 0.07 seconds</td>
    </tr>
   </table>
  </body>
