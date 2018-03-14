@@ -67,7 +67,7 @@ int main()
  */
 	  float theta = M_PI * ((float)i) / ((float)N);
 	  float costh = cosf(theta);
-    printf("\t\t%sx_start <= 32'h20000000\n\t\ty_start <= 32'h00000000\n\t\ttheta <= 32'h%x\n\t\tx_cos_correct <= 32'h%x\n\n",
+    printf("\t\t%sx_start <= 32'h20000000;\n\t\ty_start <= 32'h00000000;\n\t\ttheta <= 32'h%x;\n\t\tx_cos_correct <= 32'h%x;\n\n",
 		    i ? "#20 " : "",
 		    f2f(theta),
 		    f2f(costh));
