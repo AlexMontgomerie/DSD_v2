@@ -44,7 +44,7 @@ module ahfp_cordic_fixed( 	clk,
   
   //assign x[0] = x_start;
   always @(posedge clk) begin
-	x[0] = x_start*an;
+	x[0] = ((x_start*an)>>>29)[31:0];
 	y[0] = y_start;
 	z[0] = theta;
   end
