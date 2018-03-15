@@ -1,1 +1,5 @@
 v1
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,first_nios2_system:inst|ah_func_instr:ah_func_instr|ahfp_mul_multi:mulx|lpm_mult:Mult0|mult_2ct:auto_generated|mac_mult5,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,first_nios2_system:inst|ah_func_instr:ah_func_instr|ahfp_mul_multi:mul_xcos|lpm_mult:Mult0|mult_2ct:auto_generated|mac_mult5,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,first_nios2_system:inst|ah_func_instr:ah_func_instr|ahfp_mod_pi:mod_pi|ahfp_mul_multi:mul_b|lpm_mult:Mult0|mult_mft:auto_generated|mac_mult5,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,first_nios2_system:inst|ah_func_instr:ah_func_instr|ahfp_mod_pi:mod_pi|ahfp_mul_multi:mul_a|lpm_mult:Mult0|mult_mft:auto_generated|mac_mult5,

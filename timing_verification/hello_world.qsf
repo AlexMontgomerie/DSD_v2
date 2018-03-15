@@ -105,6 +105,10 @@ set_location_assignment PIN_A3 -to oDRAM_A[1]
 set_location_assignment PIN_C4 -to oDRAM_A[0]
 set_location_assignment PIN_B8 -to oDRAM_DQM[1]
 set_location_assignment PIN_E7 -to oDRAM_DQM[0]
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_cordic_fixed/ahfp_cordic_fixed.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_float_2_fixed/ahfp_float_2_fixed.v
+set_global_assignment -name VERILOG_FILE ../design_files/ahfp_fixed_2_float/ahfp_fixed_2_float.v
+set_global_assignment -name VERILOG_FILE ../design_files/ah_func_instr/ah_func_instr.v
 set_global_assignment -name VERILOG_FILE ../design_files/ahfp_sub_multi/ahfp_sub_multi.v
 set_global_assignment -name VERILOG_FILE ../design_files/ahfp_sub/ahfp_sub.v
 set_global_assignment -name VERILOG_FILE ../design_files/ahfp_pipeline_buffer/ahfp_pipeline_buffer.v

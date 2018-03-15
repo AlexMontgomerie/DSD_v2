@@ -1,31 +1,17 @@
 	component first_nios2_system is
 		port (
-			clk_clk                                                       : in    std_logic                     := 'X';             -- clk
-			reset_reset_n                                                 : in    std_logic                     := 'X';             -- reset_n
-			led_pio_external_connection_export                            : out   std_logic_vector(7 downto 0);                     -- export
-			sdram_wire_addr                                               : out   std_logic_vector(11 downto 0);                    -- addr
-			sdram_wire_ba                                                 : out   std_logic_vector(1 downto 0);                     -- ba
-			sdram_wire_cas_n                                              : out   std_logic;                                        -- cas_n
-			sdram_wire_cke                                                : out   std_logic;                                        -- cke
-			sdram_wire_cs_n                                               : out   std_logic;                                        -- cs_n
-			sdram_wire_dq                                                 : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
-			sdram_wire_dqm                                                : out   std_logic_vector(1 downto 0);                     -- dqm
-			sdram_wire_ras_n                                              : out   std_logic;                                        -- ras_n
-			sdram_wire_we_n                                               : out   std_logic;                                        -- we_n
-			test_multicycle_0_read_addr_export                            : out   std_logic_vector(31 downto 0);                    -- export
-			test_multicycle_0_size_export                                 : out   std_logic_vector(31 downto 0);                    -- export
-			test_multicycle_0_read_en_export                              : out   std_logic;                                        -- export
-			test_multicycle_0_sum_result_export                           : in    std_logic_vector(31 downto 0) := (others => 'X'); -- export
-			test_multicycle_0_sum_done_export                             : in    std_logic                     := 'X';             -- export
-			merlin_master_translator_0_avalon_anti_master_0_address       : in    std_logic_vector(21 downto 0) := (others => 'X'); -- address
-			merlin_master_translator_0_avalon_anti_master_0_waitrequest   : out   std_logic;                                        -- waitrequest
-			merlin_master_translator_0_avalon_anti_master_0_burstcount    : in    std_logic_vector(0 downto 0)  := (others => 'X'); -- burstcount
-			merlin_master_translator_0_avalon_anti_master_0_byteenable    : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- byteenable
-			merlin_master_translator_0_avalon_anti_master_0_read          : in    std_logic                     := 'X';             -- read
-			merlin_master_translator_0_avalon_anti_master_0_readdata      : out   std_logic_vector(15 downto 0);                    -- readdata
-			merlin_master_translator_0_avalon_anti_master_0_readdatavalid : out   std_logic;                                        -- readdatavalid
-			merlin_master_translator_0_avalon_anti_master_0_write         : in    std_logic                     := 'X';             -- write
-			merlin_master_translator_0_avalon_anti_master_0_writedata     : in    std_logic_vector(15 downto 0) := (others => 'X')  -- writedata
+			clk_clk                            : in    std_logic                     := 'X';             -- clk
+			reset_reset_n                      : in    std_logic                     := 'X';             -- reset_n
+			led_pio_external_connection_export : out   std_logic_vector(7 downto 0);                     -- export
+			sdram_wire_addr                    : out   std_logic_vector(11 downto 0);                    -- addr
+			sdram_wire_ba                      : out   std_logic_vector(1 downto 0);                     -- ba
+			sdram_wire_cas_n                   : out   std_logic;                                        -- cas_n
+			sdram_wire_cke                     : out   std_logic;                                        -- cke
+			sdram_wire_cs_n                    : out   std_logic;                                        -- cs_n
+			sdram_wire_dq                      : inout std_logic_vector(15 downto 0) := (others => 'X'); -- dq
+			sdram_wire_dqm                     : out   std_logic_vector(1 downto 0);                     -- dqm
+			sdram_wire_ras_n                   : out   std_logic;                                        -- ras_n
+			sdram_wire_we_n                    : out   std_logic                                         -- we_n
 		);
 	end component first_nios2_system;
 

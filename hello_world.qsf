@@ -106,6 +106,24 @@ set_location_assignment PIN_A3 -to oDRAM_A[1]
 set_location_assignment PIN_C4 -to oDRAM_A[0]
 set_location_assignment PIN_B8 -to oDRAM_DQM[1]
 set_location_assignment PIN_E7 -to oDRAM_DQM[0]
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp3.stp
+set_global_assignment -name VERILOG_FILE design_files/ahfp_floor/ahfp_floor.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_mul_multi/ahfp_mul_multi.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_sub_multi/ahfp_sub_multi.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_add_multi/ahfp_add_multi.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_lzd/ahfp_lzd48.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_lzd/ahfp_lzd32.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_lzd/ahfp_lzd16.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_lzd/ahfp_lzd8.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_lzd/ahfp_lzd4.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_cordic_fixed/ahfp_cordic_fixed.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_float_2_fixed/ahfp_float_2_fixed.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_fixed_2_float/ahfp_fixed_2_float.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_floor_divide_four/ahfp_floor_divide_four.v
+set_global_assignment -name VERILOG_FILE design_files/ahfp_mod_pi/ahfp_mod_pi.v
+set_global_assignment -name VERILOG_FILE design_files/ah_func_instr/ah_func_instr.v
 set_global_assignment -name VERILOG_FILE ip/ah_design_top.v
 set_global_assignment -name VERILOG_FILE ip/test_multicycle.v
 set_global_assignment -name VERILOG_FILE ip/write_master.v
@@ -120,38 +138,5 @@ set_global_assignment -name BDF_FILE hello_world.bdf
 set_global_assignment -name QIP_FILE altpll0.qip
 set_global_assignment -name QIP_FILE altfp_add.qip
 set_global_assignment -name QIP_FILE altfp_sub.qip
-set_global_assignment -name ENABLE_SIGNALTAP ON
-set_global_assignment -name USE_SIGNALTAP_FILE stp3.stp
-set_global_assignment -name SIGNALTAP_FILE stp3.stp
-set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_PIN_TO_SLD_NODE_ENTITY_PORT acq_clk -to auto_stp_external_clock_0 -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "ah_design_top:inst10|control_go_reg" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "custom_master_ah:inst8|latency_aware_read_master:a_latency_aware_read_master|LessThan0~0" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "custom_master_ah:inst8|latency_aware_read_master:a_latency_aware_read_master|address[1]" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "ah_design_top:inst10|control_go_reg" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "custom_master_ah:inst8|latency_aware_read_master:a_latency_aware_read_master|LessThan0~0" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "custom_master_ah:inst8|latency_aware_read_master:a_latency_aware_read_master|address[1]" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=3" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=3" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000000000" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=30" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=128" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=2003" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=30383" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=128" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE "H:/DSD_v2/stp3_auto_stripped.stp"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

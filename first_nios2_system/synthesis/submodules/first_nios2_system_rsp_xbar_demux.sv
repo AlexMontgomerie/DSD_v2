@@ -28,7 +28,7 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         first_nios2_system_rsp_xbar_demux
-//   ST_DATA_W:           105
+//   ST_DATA_W:           98
 //   ST_CHANNEL_W:        6
 //   NUM_OUTPUTS:         2
 //   VALID_WIDTH:         1
@@ -46,7 +46,7 @@ module first_nios2_system_rsp_xbar_demux
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [105-1    : 0]   sink_data, // ST_DATA_W=105
+    input  [98-1    : 0]   sink_data, // ST_DATA_W=98
     input  [6-1 : 0]   sink_channel, // ST_CHANNEL_W=6
     input                         sink_startofpacket,
     input                         sink_endofpacket,
@@ -56,14 +56,14 @@ module first_nios2_system_rsp_xbar_demux
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [105-1    : 0] src0_data, // ST_DATA_W=105
+    output reg [98-1    : 0] src0_data, // ST_DATA_W=98
     output reg [6-1 : 0] src0_channel, // ST_CHANNEL_W=6
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
 
     output reg                      src1_valid,
-    output reg [105-1    : 0] src1_data, // ST_DATA_W=105
+    output reg [98-1    : 0] src1_data, // ST_DATA_W=98
     output reg [6-1 : 0] src1_channel, // ST_CHANNEL_W=6
     output reg                      src1_startofpacket,
     output reg                      src1_endofpacket,

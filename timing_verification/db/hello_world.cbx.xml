@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="hello_world">
-		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|ahfp_cordic:inst|ahfp_mult:mul|lpm_mult:Mult0" CBX_FILE_NAME="mult_mft.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|ahfp_mul_multi:inst|altshift_taps:z_m_rtl_0" CBX_FILE_NAME="shift_taps_25m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|hello_world|ahfp_mul_multi:inst|lpm_mult:Mult0" CBX_FILE_NAME="mult_2ct.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
