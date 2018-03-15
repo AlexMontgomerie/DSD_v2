@@ -38,7 +38,7 @@ always @(posedge clk) begin
 	//send 0 to both dataa and datab
 		dataa <= 32'd0;
 		datab <= 32'd0;
-		count <= 3'd6;
+		count <= 3'd7;
 	end
 	else begin
 		//for valid result
@@ -99,7 +99,7 @@ always @ (posedge clk) begin
 	end
 	buffer_acc:
 	begin
-		if(done_count==3'd6) begin
+		if(done_count==3'd0) begin
 		done_acc_count <= done_acc_count + 1;
 		dataa <= res;
 		datab <= buffer[6];

@@ -87,6 +87,27 @@ initial
 	#20
 	start 		= 1'b0;
 	valid 		= 1'b0;
+	finished 	= 1'b0;
+	data  = 32'h3F800000;
+	
+	#20
+	start 		= 1'b0;
+	valid 		= 1'b1;
+	finished 	= 1'b0;
+	data  = 32'h3F800000;
+	#20
+	start 		= 1'b0;
+	valid 		= 1'b0;
+	finished 	= 1'b0;
+	data  = 32'h3F800000;
+	#20
+	start 		= 1'b0;
+	valid 		= 1'b1;
+	finished 	= 1'b0;
+	data  = 32'h3F800000;
+	#20
+	start 		= 1'b0;
+	valid 		= 1'b0;
 	finished 	= 1'b1;
 	data  = 32'h3F800000;
 	#20

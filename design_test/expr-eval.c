@@ -8,21 +8,24 @@ float fn(float x)
 	return x * (0.5f + x * cosf(floor(x/4) - 32));
 }
 
+int delay = 64;
+
 int main()
 {
 	float testa[255], res[255];
 	uint32_t *testa_ = (uint32_t*)testa,
 		 *res_ = (uint32_t*)res;
 
-	for (int i = 0; i < 255; i++) {
+		res[0] = 0.0;
+	for (int i = 0; i < 254; i++) {
 		testa[i] = (float)i;
-		res[i] = fn(testa[i]);
+		res[i+1] = fn(testa[i]) + res[i];
 		// toplevel test data
-		/*printf("\t\t%sdataa = 32'h%x;\n\t\tdatab = 32'h00000000;\n\t\tresult_correct = 32'h%x;\n\n",
-		 *		i ? "#20 " : "",
-		 *		testa_[i],
-		 *		res_[i]);
-		 */
+		printf("\t\tdataa <=#%i 32'h%x;\n\t\tdatab <=#%i 32'h%x;\n\t\tresult_correct <=#%i 32'h%x;\n\n",
+		 		i*20,testa_[i],
+				i*20,res_[i],
+				20*(i+delay),res_[i+1]);
+		 
 	}
 	return 0;
 }
