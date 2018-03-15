@@ -3,6 +3,13 @@ vlib work
 vmap work work
 
 # compile design
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_lzd/ahfp_lzd4.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_mod_pi/ahfp_mod_pi.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_lzd/ahfp_lzd8.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_lzd/ahfp_lzd16.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_lzd/ahfp_lzd32.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_lzd/ahfp_lzd48.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_fixed_2_float/ahfp_fixed_2_float.v
 vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ah_func_instr/ah_func_instr.v
 vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ah_func_instr/ah_func_instr_tb.v
 

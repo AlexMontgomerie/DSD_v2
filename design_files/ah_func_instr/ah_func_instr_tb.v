@@ -7,12 +7,15 @@ module test_ah_func_instr;
 reg clk;
 reg [31:0] dataa,datab,result_correct;
 wire [31:0] result;
+wire reset,clk_en;
 
 ah_func_instr dut (	
 		.clk(clk),
 		.dataa(dataa),
 		.datab(datab),
-		.result(result));
+		.result(result),
+		.clk_en(clk_en),
+		.reset(reset));
 
 initial // Clock generator
   begin

@@ -5,7 +5,7 @@
 
 float fn(float x)
 {
-	return x * (0.5f + x * cosf(floor(x/4) - 32));
+	return x * (0.5f + x * cosf(floorf(x/4) - 32));
 }
 
 int delay = 64;

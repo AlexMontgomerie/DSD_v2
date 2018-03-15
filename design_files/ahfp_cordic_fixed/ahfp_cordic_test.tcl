@@ -24,9 +24,6 @@ add wave -position insertpoint  \
 sim:/test_ahfp_cordic_fixed/dut/x_cos
 
 add wave -position insertpoint  \
-sim:/test_ahfp_cordic_fixed/dut/x_cos_correct
-
-add wave -position insertpoint  \
 {sim:/test_ahfp_cordic_fixed/dut/x}
 
 add wave -position insertpoint  \
@@ -36,4 +33,4 @@ add wave -position insertpoint  \
 {sim:/test_ahfp_cordic_fixed/dut/z}
 
 #run simulation
-run 10000
+run 1000

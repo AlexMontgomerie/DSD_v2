@@ -16,7 +16,7 @@ wire [31:0] floor_out;
 //TODO: need to buffer data for last sub
 wire [31:0] mod_buf_val, mul_b_out;
 
-parameter STAGES = 12;
+parameter STAGES = 13;
 
 reg [31:0] mod_buf [STAGES-1:0];
 
@@ -35,7 +35,12 @@ generate
 endgenerate
 
 ahfp_mul_multi mul_a 	(clk, data, pi_inv, floor_in);
+
+reg [31:0] floor_out_reg;
 ahfp_floor floor		(floor_in, floor_out);
-ahfp_mul_multi mul_b 	(clk, floor_out, pi, mul_b_out);
+always @ (posedge clk) begin
+	floor_out_reg <= floor_out;
+end
+ahfp_mul_multi mul_b 	(clk, floor_out_reg, pi, mul_b_out);
 ahfp_add_sub_multi sub 	(clk, mod_buf[STAGES-1], {~mul_b_out[31],mul_b_out[30:0]}, result);
 endmodule

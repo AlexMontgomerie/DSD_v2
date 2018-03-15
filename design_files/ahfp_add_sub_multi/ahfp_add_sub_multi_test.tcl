@@ -3,6 +3,8 @@ vlib work
 vmap work work
 
 # compile design
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_sub_multi/ahfp_sub_multi.v
+vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_add_multi/ahfp_add_multi.v
 vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_add_sub_multi/ahfp_add_sub_multi.v
 vlog -reportprogress 300 -work work C:/Users/Alex/DSD_v2/design_files/ahfp_add_sub_multi/ahfp_add_sub_multi_tb.v
 
